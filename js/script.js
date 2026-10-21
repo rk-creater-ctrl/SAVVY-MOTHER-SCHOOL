@@ -222,6 +222,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const element = entry.target;
           const target = Number(element.dataset.count);
+          const suffix = element.dataset.suffix || "";
+          const prefix = element.dataset.prefix || "";
 
           let startTime = null;
 
@@ -239,12 +241,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const value = Math.floor(target * ease);
 
-            element.textContent = value.toLocaleString();
+            element.textContent = prefix + value.toLocaleString() + suffix;
 
             if (progress < 1) {
               requestAnimationFrame(animateCounter);
             } else {
-              element.textContent = target.toLocaleString();
+              element.textContent = prefix + target.toLocaleString() + suffix;
             }
           }
 

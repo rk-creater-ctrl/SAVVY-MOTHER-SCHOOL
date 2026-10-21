@@ -833,19 +833,26 @@ html.visited-session .preloader,
 
     display: grid;
     width: min(1080px, 90%);
-    padding: 28px;
-    margin: -40px auto 0;
+    padding: 30px 24px;
+    margin: -45px auto 0;
     grid-template-columns: repeat(4, 1fr);
 
     border-radius: 24px;
 
     color: white;
-    background: var(--red);
-    box-shadow: var(--shadow);
+    background: linear-gradient(135deg, #a71930 0%, #871426 100%);
+    box-shadow: 0 20px 50px rgba(40, 10, 18, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .stat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 16px;
     text-align: center;
 }
 
@@ -853,22 +860,51 @@ html.visited-session .preloader,
     border-right: none;
 }
 
+.stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff1bd;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat:hover .stat-icon {
+    transform: translateY(-3px) scale(1.08);
+    background: rgba(255, 255, 255, 0.24);
+}
+
 .stat strong {
-    font-family: "Playfair Display", serif;
-    font-size: 40px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.stat-unit {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff1bd;
+    margin-left: 3px;
 }
 
 .stat span {
     display: block;
-    margin-top: 4px;
-
-    font-size: 9px;
-    letter-spacing: 1.4px;
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.88);
 }
-
 /* =========================================================
    GENERAL SECTIONS
 ========================================================= */
