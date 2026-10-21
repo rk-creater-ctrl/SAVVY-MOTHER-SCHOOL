@@ -1,17 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================================================
-     PRELOADER
+     PRELOADER (Only once per visitor session)
   ========================================================= */
 
   const preloader = document.querySelector(".preloader");
+  const hasVisited = sessionStorage.getItem("smis_visited");
 
-  window.addEventListener("load", () => {
-    if (preloader) {
-      setTimeout(() => {
-        preloader.classList.add("hide");
-      }, 1500);
+  if (preloader) {
+    if (hasVisited) {
+      preloader.remove();
+    } else {
+      sessionStorage.setItem("smis_visited", "true");
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          preloader.classList.add("hide");
+          setTimeout(() => {
+            if (preloader && preloader.parentNode) {
+              preloader.parentNode.removeChild(preloader);
+            }
+          }, 1100);
+        }, 1000);
+      });
     }
-  });
+  } else {
+    sessionStorage.setItem("smis_visited", "true");
+  }
 
   /* =========================================================
      HEADER SCROLL

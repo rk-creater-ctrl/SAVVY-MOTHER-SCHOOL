@@ -21,6 +21,11 @@
   >
 
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    if (sessionStorage.getItem('smis_visited')) {
+      document.documentElement.classList.add('visited-session');
+    }
+  </script>
 </head>
 
 <body>

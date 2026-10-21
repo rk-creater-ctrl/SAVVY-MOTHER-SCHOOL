@@ -61,6 +61,11 @@ button {
    PRELOADER
 ========================================================= */
 
+html.visited-session .preloader,
+.preloader.no-show {
+    display: none !important;
+}
+
 .preloader {
     position: fixed;
     inset: 0;
