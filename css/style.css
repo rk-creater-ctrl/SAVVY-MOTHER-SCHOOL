@@ -5126,3 +5126,40 @@ html.visited-session .preloader,
     box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
 }
 
+
+/* =========================================================
+   AUTHENTIC SCHOOL LOGO STYLES (HEADER & FOOTER)
+========================================================= */
+
+.header-logo-img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.logo:hover .header-logo-img {
+    transform: scale(1.06);
+}
+
+.footer-logo-img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 3px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.footer-logo-block:hover .footer-logo-img,
+.footer-brand-logo:hover .footer-logo-img {
+    transform: scale(1.06);
+}

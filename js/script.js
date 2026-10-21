@@ -699,7 +699,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     CAMPUS FACILITIES FILTER (36 FACILITIES)
+     CAMPUS FACILITIES FILTER (31 FACILITIES)
   ========================================================= */
 
   const facilityPills = document.querySelectorAll(".facility-filter-pill");
