@@ -3440,45 +3440,124 @@ html.visited-session .preloader,
 }
 
 /* =========================================================
-   FLOATING WHATSAPP BUTTON
+   FLOATING ACTION BUTTONS (CALL & WHATSAPP)
 ========================================================= */
 
-.floating-whatsapp {
+.floating-actions {
     position: fixed;
-    right: 24px;
+    right: 22px;
     bottom: 24px;
     z-index: 998;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
 
-    display: inline-flex;
+.floating-btn {
+    position: relative;
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-
-    border-radius: 30px;
-    color: white;
-    background: #25d366;
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-
-    font-size: 13px;
-    font-weight: 700;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #ffffff;
     text-decoration: none;
+    cursor: pointer;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.floating-btn .floating-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-btn .floating-icon svg {
+    display: block;
+}
+
+/* Call Button - School Crimson */
+.floating-call {
+    background: linear-gradient(135deg, #a71930 0%, #8b1225 100%);
+    box-shadow: 0 8px 22px rgba(167, 25, 48, 0.42);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+.floating-call:hover {
+    transform: translateY(-3px) scale(1.06);
+    background: linear-gradient(135deg, #b91c35 0%, #9e142b 100%);
+    box-shadow: 0 12px 28px rgba(167, 25, 48, 0.6);
+    color: #ffffff;
+}
+
+/* WhatsApp Button - WhatsApp Brand Green */
+.floating-whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
 }
 
 .floating-whatsapp:hover {
-    transform: translateY(-3px) scale(1.03);
-    color: white;
-    background: #20ba5a;
-    box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55);
+    transform: translateY(-3px) scale(1.06);
+    background: linear-gradient(135deg, #2bf074 0%, #22be5c 100%);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.62);
+    color: #ffffff;
+}
+
+/* Tooltip that slides out on hover */
+.floating-tooltip {
+    position: absolute;
+    right: 58px;
+    padding: 6px 12px;
+    background: #142236;
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.floating-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    transform: translateY(-50%);
+    border-width: 4px 0 4px 4px;
+    border-style: solid;
+    border-color: transparent transparent transparent #142236;
+}
+
+.floating-btn:hover .floating-tooltip {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 @media (max-width: 600px) {
-    .floating-whatsapp {
-        right: 16px;
+    .floating-actions {
+        right: 14px;
         bottom: 16px;
-        padding: 10px 16px;
-        font-size: 12px;
+        gap: 10px;
+    }
+    .floating-btn {
+        width: 46px;
+        height: 46px;
+    }
+    .floating-btn .floating-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    .floating-tooltip {
+        display: none;
     }
 }
 
