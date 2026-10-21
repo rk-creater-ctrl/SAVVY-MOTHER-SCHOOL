@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { title: "Secondary School (Classes IX-X)", desc: "CBSE board readiness, laboratories, coding and Olympiads", url: root + "academics/secondary.html", badge: "Academics", class: "badge-academics" },
     { title: "Senior Secondary (Classes XI-XII)", desc: "Science, Commerce & Humanities streams with NEET/JEE and career support", url: root + "academics/senior-secondary.html", badge: "Academics", class: "badge-academics" },
     { title: "Campus Facilities & Labs", desc: "Brain Science Lab, Data Science Studio, sports arena, library and GPS buses", url: root + "facilities.html", badge: "Facilities", class: "badge-facilities" },
-    { title: "Transport Fleet & Rewa Bus Routes", desc: "GPS tracking, CCTV safety, lady attendants and coverage across Rewa", url: root + "facilities.html#transport", badge: "Transport", class: "badge-facilities" },
+    { title: "School Transport Support & Safety", desc: "Approved routes, supervision, guidelines, parent FAQs and helpline +91 9425621360", url: root + "transport.html", badge: "Transport", class: "badge-facilities" },
     { title: "All Events & Annual Calendar", desc: "Celebration directory, cultural festivals and annual activity calendar", url: root + "events.html", badge: "Events", class: "badge-events" },
     { title: "Annual Function", desc: "Grand cultural performances, stage acts, awards and exhibitions", url: root + "events/annual-function.html", badge: "Celebrations", class: "badge-events" },
     { title: "Garba Celebration", desc: "Traditional Navratri folk dance, colorful attire and cultural rhythm", url: root + "events/garba.html", badge: "Celebrations", class: "badge-events" },
