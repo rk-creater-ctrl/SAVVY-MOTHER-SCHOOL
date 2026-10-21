@@ -24,7 +24,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="images/logo-web.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=3.3">
+  <link rel="stylesheet" href="css/style.css?v=3.4">
   <script>
     if (sessionStorage.getItem('smis_visited')) {
       document.documentElement.classList.add('visited-session');
@@ -520,8 +520,8 @@
             <polyline points="10 9 9 9 8 9"></polyline>
           </svg>
         </div>
-        <strong data-count="100" data-suffix="%">0%</strong>
-        <span>Success % of students</span>
+        <strong data-count="100" data-suffix="%">100%</strong>
+        <span class="stat-label">Success % of students</span>
       </div>
 
       <div class="stat">
@@ -531,8 +531,8 @@
             <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
           </svg>
         </div>
-        <strong data-count="500" data-suffix="+">0+</strong>
-        <span>Happy Students</span>
+        <strong data-count="500" data-suffix="+">500+</strong>
+        <span class="stat-label">Happy Students</span>
       </div>
 
       <div class="stat">
@@ -541,8 +541,8 @@
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
         </div>
-        <strong><span data-count="25" data-suffix="+">0+</span> <small class="stat-unit">Years</small></strong>
-        <span>Year of Experience</span>
+        <strong><span data-count="25" data-suffix="+">25+</span><small class="stat-unit">Years</small></strong>
+        <span class="stat-label">Year of Experience</span>
       </div>
 
       <div class="stat">
@@ -553,8 +553,8 @@
             <path d="M6 18c0-2.5 2.7-4.5 6-4.5s6 2 6 4.5"></path>
           </svg>
         </div>
-        <strong>1 : <span data-count="30">0</span></strong>
-        <span>Student teacher ratio</span>
+        <strong>1 : <span data-count="30">30</span></strong>
+        <span class="stat-label">Student teacher ratio</span>
       </div>
 
     </section>
@@ -567,22 +567,13 @@
 
       <div class="container">
 
-        <div class="section-head reveal" style="text-align: center; margin-bottom: 24px;">
-
-          <div style="margin: 0 auto; text-align: center;">
-
-            <p class="eyebrow" style="justify-content: center;"><i class="fa-solid fa-dharmachakra" style="color: #d97706; margin-right: 6px;"></i> Our Sacred Emblem &amp; Philosophy</p>
-
-            <h2 class="section-title">
-              The School Crest &amp; The 12 Colors of Character
-            </h2>
-
+        <!-- Compact Centered Emblem Header -->
+        <div class="emblem-header reveal">
+          <div class="emblem-eyebrow-pill">
+            <i class="fa-solid fa-dharmachakra"></i> OUR SACRED EMBLEM &amp; PHILOSOPHY
           </div>
-
-          <p class="section-description" style="margin: 10px auto 0; max-width: 720px; text-align: center;">
-            Rooted in the philosophy of Sri Aurobindo and The Mother, each petal and color of our emblem represents a vital virtue nurtured within every student.
-          </p>
-
+          <h2 class="emblem-main-title">The School Crest &amp; 12 Colors of Character</h2>
+          <p class="emblem-main-desc">Rooted in the philosophy of Sri Aurobindo and The Mother, each petal and color represents an essential virtue nurtured within our students.</p>
         </div>
 
         <!-- Radial Callout Diagram Stage (Matches User Drawing Exactly) -->
@@ -591,7 +582,7 @@
           <!-- SVG Canvas for Connecting Spokes -->
           <svg class="radial-pointer-lines" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
 
-          <!-- Central School Logo -->
+          <!-- Central School Logo (Enlarged) -->
           <div class="radial-logo-anchor">
             <img src="images/logo-web.png" alt="Savvy Mother International School Emblem" class="radial-logo-img">
             <div class="radial-center-badge">
@@ -2074,7 +2065,7 @@
     <div class="footer-rainbow-stripe"></div>
   </footer>
 
-  <script src="js/script.js?v=3.3"></script>
+  <script src="js/script.js?v=3.4"></script>
 
   <!-- Floating Contact Actions (Call & WhatsApp) -->
   <aside class="floating-actions" aria-label="Quick contact channels">

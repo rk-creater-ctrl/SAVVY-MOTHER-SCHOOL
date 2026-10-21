@@ -899,17 +899,34 @@ html.visited-session .preloader,
     line-height: 1.15;
     color: #ffffff;
     letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+}
+
+.stat strong span {
+    display: inline !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    color: inherit !important;
+    letter-spacing: inherit !important;
+    text-transform: none !important;
+    margin: 0 !important;
 }
 
 .stat-unit {
     font-family: "Manrope", sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     color: #fff1bd;
     margin-left: 3px;
+    display: inline !important;
 }
 
-.stat span {
+.stat span.stat-label,
+.stat .stat-label {
     display: block;
     margin-top: 6px;
     font-size: 11px;
@@ -6047,25 +6064,62 @@ html.visited-session .preloader,
 
 .emblem-section {
     background: #fffdf8;
-    padding: 55px 0 65px !important;
+    padding: 24px 0 28px !important;
     position: relative;
     overflow: hidden;
 }
 
-.emblem-section .section-head {
-    margin-bottom: 35px !important;
+/* Compact Centered Header */
+.emblem-header {
+    text-align: center;
+    margin: 0 auto 16px;
+    max-width: 820px;
+    padding: 0 16px;
 }
 
-/* Stage Canvas */
+.emblem-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #92400e;
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    padding: 3px 14px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.emblem-main-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(24px, 2.7vw, 33px);
+    font-weight: 800;
+    color: #711020;
+    margin: 0 0 6px;
+    line-height: 1.2;
+}
+
+.emblem-main-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0 auto;
+    max-width: 660px;
+}
+
+/* Compact Stage Canvas (Fits on Screen) */
 .radial-emblem-stage {
     position: relative;
     width: 100%;
     max-width: 1240px;
-    height: 740px;
+    height: 600px;
     margin: 0 auto;
 }
 
-/* Central Logo Anchor */
+/* Central Logo Anchor (Enlarged) */
 .radial-logo-anchor {
     position: absolute;
     top: 50%;
@@ -6079,31 +6133,31 @@ html.visited-session .preloader,
 }
 
 .radial-logo-img {
-    width: 210px;
-    height: 210px;
+    width: 255px;
+    height: 255px;
     object-fit: contain;
     border-radius: 50%;
-    box-shadow: 0 16px 45px rgba(113, 16, 32, 0.16);
+    box-shadow: 0 18px 48px rgba(113, 16, 32, 0.18);
     background: radial-gradient(circle, #fffdf8 0%, #ffffff 80%);
     padding: 6px;
-    border: 3.5px solid #fef3c7;
+    border: 4px solid #fef3c7;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .radial-logo-anchor:hover .radial-logo-img {
-    transform: scale(1.05);
-    box-shadow: 0 20px 50px rgba(217, 119, 6, 0.28);
+    transform: scale(1.04);
+    box-shadow: 0 22px 54px rgba(217, 119, 6, 0.28);
 }
 
 .radial-center-badge {
     position: absolute;
-    top: calc(100% + 14px);
+    top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
     background: #ffffff;
     border: 1.5px solid #fde68a;
     border-radius: 20px;
-    padding: 6px 14px;
+    padding: 4px 14px;
     text-align: center;
     box-shadow: 0 4px 14px rgba(217, 119, 6, 0.12);
     white-space: nowrap;
@@ -6112,14 +6166,14 @@ html.visited-session .preloader,
 
 .radial-center-badge strong {
     display: block;
-    font-size: 11px;
+    font-size: 10.5px;
     color: #711020;
     font-weight: 800;
     letter-spacing: 0.3px;
 }
 
 .radial-center-badge span {
-    font-size: 9.5px;
+    font-size: 9px;
     color: #64748b;
     font-weight: 600;
 }
@@ -6138,14 +6192,14 @@ html.visited-session .preloader,
     transition: stroke-width 0.25s ease, opacity 0.25s ease;
 }
 
-/* 12 Callout Boxes */
+/* 12 Callout Boxes (Compact for whole view) */
 .radial-callout-box {
     position: absolute;
-    width: 220px;
+    width: 215px;
     background: #ffffff;
-    border-radius: 12px;
-    padding: 10px 13px;
-    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+    border-radius: 10px;
+    padding: 8px 12px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
     border: 1.5px solid var(--box-color, #e2e8f0);
     z-index: 8;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -6155,7 +6209,7 @@ html.visited-session .preloader,
 .radial-callout-box:hover,
 .radial-callout-box.active-spoke {
     transform: scale(1.05);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
     border-color: var(--box-color, #711020);
     z-index: 20;
 }
@@ -6164,7 +6218,7 @@ html.visited-session .preloader,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 .radial-box-title-wrap {
@@ -6174,8 +6228,8 @@ html.visited-session .preloader,
 }
 
 .radial-box-dot {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--box-color, #dc2626);
     flex-shrink: 0;
@@ -6183,7 +6237,7 @@ html.visited-session .preloader,
 }
 
 .radial-box-name {
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 800;
     color: #1e293b;
     margin: 0;
@@ -6191,57 +6245,57 @@ html.visited-session .preloader,
 }
 
 .radial-box-num {
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 800;
     color: var(--box-color, #711020);
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    padding: 1px 6px;
-    border-radius: 10px;
+    padding: 1px 5px;
+    border-radius: 8px;
 }
 
 .radial-box-color-label {
     display: block;
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 700;
     color: var(--box-color, #dc2626);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     letter-spacing: 0.2px;
 }
 
 .radial-box-desc {
     margin: 0;
-    font-size: 11px;
-    line-height: 1.45;
+    font-size: 10.5px;
+    line-height: 1.4;
     color: #475569;
     font-weight: 500;
 }
 
-/* Absolute Positions on Desktop (matching user sketch) */
+/* Absolute Positions on Desktop (Compact 600px stage) */
 @media (min-width: 992px) {
     .radial-boxes-grid {
         display: contents;
     }
 
     /* Top 2 */
-    .box-pos-01 { top: 8px; left: 34%; transform: translateX(-50%); }
-    .box-pos-02 { top: 8px; left: 66%; transform: translateX(-50%); }
+    .box-pos-01 { top: 6px; left: 35%; transform: translateX(-50%); }
+    .box-pos-02 { top: 6px; left: 65%; transform: translateX(-50%); }
 
     /* Right 4 */
-    .box-pos-03 { top: 95px; right: 2%; }
-    .box-pos-04 { top: 255px; right: 0%; }
-    .box-pos-05 { top: 415px; right: 2%; }
-    .box-pos-06 { top: 575px; right: 6%; }
+    .box-pos-03 { top: 25px; right: 2%; }
+    .box-pos-04 { top: 175px; right: 0%; }
+    .box-pos-05 { top: 325px; right: 0%; }
+    .box-pos-06 { top: 480px; right: 2%; }
 
     /* Bottom 2 */
-    .box-pos-07 { bottom: 8px; left: 66%; transform: translateX(-50%); }
-    .box-pos-08 { bottom: 8px; left: 34%; transform: translateX(-50%); }
+    .box-pos-07 { bottom: 6px; left: 65%; transform: translateX(-50%); }
+    .box-pos-08 { bottom: 6px; left: 35%; transform: translateX(-50%); }
 
     /* Left 4 */
-    .box-pos-09 { top: 575px; left: 6%; }
-    .box-pos-10 { top: 415px; left: 2%; }
-    .box-pos-11 { top: 255px; left: 0%; }
-    .box-pos-12 { top: 95px; left: 2%; }
+    .box-pos-09 { top: 480px; left: 2%; }
+    .box-pos-10 { top: 325px; left: 0%; }
+    .box-pos-11 { top: 175px; left: 0%; }
+    .box-pos-12 { top: 25px; left: 2%; }
 }
 
 /* Responsive (Tablets & Mobile) */
