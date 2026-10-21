@@ -1841,6 +1841,142 @@ html.visited-session .preloader,
 }
 
 /* =========================================================
+   COMPACT DISCOVERY GALLERY SECTION (HOMEPAGE)
+========================================================= */
+.discovery-gallery-section {
+    padding: 55px 0 50px !important;
+}
+
+.discovery-gallery-section .section-head {
+    margin-bottom: 24px !important;
+    gap: 20px;
+}
+
+.discovery-gallery-section .section-title {
+    font-size: clamp(26px, 3.2vw, 36px);
+    line-height: 1.15;
+}
+
+.discovery-gallery-section .section-description {
+    font-size: 14.5px;
+    max-width: 480px;
+    line-height: 1.5;
+}
+
+.discovery-gallery-section .gallery {
+    gap: 12px;
+}
+
+.discovery-gallery-section .gallery figure {
+    height: 185px;
+    border-radius: 16px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.discovery-gallery-section .gallery figure:nth-child(6) {
+    height: 155px;
+    border-radius: 16px;
+}
+
+.discovery-gallery-section .gallery a.gallery-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.discovery-gallery-section .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.discovery-gallery-section .gallery figure:hover img {
+    transform: scale(1.06);
+}
+
+.discovery-gallery-section .gallery figcaption {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    font-size: 11px;
+    font-weight: 700;
+    color: #1e293b;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.25s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.discovery-gallery-section .gallery figure:hover figcaption {
+    background: #731425;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(115, 20, 37, 0.35);
+    transform: translateY(-2px);
+}
+
+.discovery-gallery-section .gallery figcaption i {
+    font-size: 9px;
+    opacity: 0.65;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.discovery-gallery-section .gallery figure:hover figcaption i {
+    opacity: 1;
+    color: #ffffff;
+    transform: translate(1px, -1px);
+}
+
+.discovery-gallery-section .buttons {
+    margin-top: 24px !important;
+}
+
+@media (max-width: 900px) {
+    .discovery-gallery-section {
+        padding: 42px 0 38px !important;
+    }
+    .discovery-gallery-section .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px !important;
+    }
+    .discovery-gallery-section .gallery figure:nth-child(n) {
+        height: 150px;
+    }
+    .discovery-gallery-section .gallery figure:last-child {
+        height: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+    .discovery-gallery-section .gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .discovery-gallery-section .gallery figure:nth-child(n) {
+        grid-column: span 1;
+        height: 140px;
+    }
+}
+
+
+/* =========================================================
    TESTIMONIALS (COMPACT & MODERN 3-CARD GRID)
 ========================================================= */
 
