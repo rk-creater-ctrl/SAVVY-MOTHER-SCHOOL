@@ -6042,320 +6042,258 @@ html.visited-session .preloader,
 
 
 /* =========================================================
-   EMBLEM & COLOR PHILOSOPHY FLOWCHART
+   EMBLEM RADIAL CALLOUT DIAGRAM (AS PER USER SKETCH)
 ========================================================= */
 
 .emblem-section {
     background: #fffdf8;
-    padding: 55px 0 50px !important;
+    padding: 55px 0 65px !important;
     position: relative;
+    overflow: hidden;
 }
 
 .emblem-section .section-head {
-    margin-bottom: 28px !important;
+    margin-bottom: 35px !important;
 }
 
-/* Central Emblem Hub */
-.emblem-hub-card {
-    background: #ffffff;
-    border-radius: 20px;
-    border: 1px solid rgba(226, 232, 240, 0.95);
-    box-shadow: 0 12px 32px rgba(113, 16, 32, 0.08);
-    padding: 26px 30px;
-    margin: 0 auto 28px;
-    max-width: 980px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
+/* Stage Canvas */
+.radial-emblem-stage {
     position: relative;
+    width: 100%;
+    max-width: 1240px;
+    height: 740px;
+    margin: 0 auto;
 }
 
-.emblem-logo-wrapper {
-    position: relative;
-    flex-shrink: 0;
-    width: 135px;
-    height: 135px;
+/* Central Logo Anchor */
+.radial-logo-anchor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle, #fff7ed 0%, #ffffff 70%);
-    border-radius: 50%;
-    padding: 10px;
-    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.16);
-    border: 3px solid #fef3c7;
+    z-index: 10;
 }
 
-.emblem-logo-img {
+.radial-logo-img {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 16px 45px rgba(113, 16, 32, 0.16);
+    background: radial-gradient(circle, #fffdf8 0%, #ffffff 80%);
+    padding: 6px;
+    border: 3.5px solid #fef3c7;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.radial-logo-anchor:hover .radial-logo-img {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(217, 119, 6, 0.28);
+}
+
+.radial-center-badge {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 1.5px solid #fde68a;
+    border-radius: 20px;
+    padding: 6px 14px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.12);
+    white-space: nowrap;
+    z-index: 12;
+}
+
+.radial-center-badge strong {
+    display: block;
+    font-size: 11px;
+    color: #711020;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.radial-center-badge span {
+    font-size: 9.5px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* SVG Line Canvas */
+.radial-pointer-lines {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    transition: transform 0.4s ease;
+    pointer-events: none;
+    z-index: 4;
 }
 
-.emblem-hub-card:hover .emblem-logo-img {
-    transform: scale(1.06) rotate(3deg);
+.radial-pointer-lines line {
+    transition: stroke-width 0.25s ease, opacity 0.25s ease;
 }
 
-.emblem-hub-content {
-    flex-grow: 1;
-}
-
-.emblem-hub-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #fef3c7;
-    color: #b45309;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.emblem-hub-title {
-    font-family: var(--font-heading, "Space Grotesk", sans-serif);
-    font-size: 22px;
-    font-weight: 800;
-    color: #711020;
-    margin: 0 0 6px;
-}
-
-.emblem-hub-description {
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: #475569;
-    margin: 0 0 14px;
-}
-
-.emblem-powers-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.emblem-power-pill {
-    background: #fafaf9;
-    border: 1px solid #e7e5e4;
-    border-radius: 10px;
-    padding: 8px 10px;
-    text-align: center;
-}
-
-.emblem-power-pill strong {
-    display: block;
-    font-size: 11.5px;
-    color: #711020;
-    font-weight: 800;
-}
-
-.emblem-power-pill span {
-    font-size: 10px;
-    color: #64748b;
-    font-weight: 500;
-}
-
-/* Connecting Flow Arrow below Hub */
-.emblem-flow-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    position: relative;
-}
-
-.emblem-flow-line {
-    width: 2px;
-    height: 22px;
-    background: linear-gradient(to bottom, #d97706, #711020);
-}
-
-.emblem-flow-tag {
-    background: linear-gradient(135deg, #711020, #a71930);
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(113, 16, 32, 0.2);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* 3-Column Flowchart Streams */
-.flowchart-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    align-items: start;
-}
-
-.flowchart-stream {
+/* 12 Callout Boxes */
+.radial-callout-box {
+    position: absolute;
+    width: 220px;
     background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 8px 24px rgba(14, 58, 128, 0.05);
-    padding: 20px 18px 16px;
-    display: flex;
-    flex-direction: column;
+    border-radius: 12px;
+    padding: 10px 13px;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+    border: 1.5px solid var(--box-color, #e2e8f0);
+    z-index: 8;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: default;
 }
 
-.stream-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-bottom: 14px;
-    margin-bottom: 14px;
-    border-bottom: 2px solid #f1f5f9;
+.radial-callout-box:hover,
+.radial-callout-box.active-spoke {
+    transform: scale(1.05);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+    border-color: var(--box-color, #711020);
+    z-index: 20;
 }
 
-.stream-badge-num {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 12px;
-    color: #ffffff;
-    flex-shrink: 0;
-}
-
-.stream-title {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 800;
-    color: #1e293b;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-}
-
-.stream-subtitle {
-    font-size: 11px;
-    color: #64748b;
-    font-weight: 500;
-    display: block;
-}
-
-/* Nodes & Flow Pipeline */
-.flow-nodes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.flow-node-item {
-    position: relative;
-    background: #fafaf9;
-    border-radius: 14px;
-    border: 1px solid #e7e5e4;
-    padding: 13px 14px 12px 16px;
-    border-left: 5px solid var(--node-color, #711020);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.flow-node-item:hover {
-    transform: translateX(4px);
-    background: #ffffff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.flow-node-top {
+.radial-box-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.flow-node-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.flow-node-icon {
-    width: 26px;
-    height: 26px;
-    border-radius: 6px;
-    background: var(--node-color, #711020);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    flex-shrink: 0;
-}
-
-.flow-node-name {
-    font-size: 14px;
-    font-weight: 800;
-    color: #1e293b;
-    margin: 0;
-}
-
-.flow-node-step {
-    font-size: 10px;
-    font-weight: 800;
-    color: var(--node-color, #711020);
-    background: rgba(0, 0, 0, 0.04);
-    padding: 2px 7px;
-    border-radius: 10px;
-}
-
-.flow-node-color-label {
-    display: inline-block;
-    font-size: 10.5px;
-    font-weight: 700;
-    color: var(--node-color, #711020);
     margin-bottom: 3px;
 }
 
-.flow-node-desc {
-    margin: 0;
-    font-size: 12px;
-    line-height: 1.5;
-    color: #475569;
-}
-
-/* Connector arrow between flowchart nodes */
-.flow-step-arrow {
+.radial-box-title-wrap {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 14px;
-    color: #cbd5e1;
-    font-size: 11px;
+    gap: 6px;
 }
 
-/* Responsive adjustments */
+.radial-box-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--box-color, #dc2626);
+    flex-shrink: 0;
+    box-shadow: 0 0 6px var(--box-color, #dc2626);
+}
+
+.radial-box-name {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+    font-family: var(--font-heading, "Space Grotesk", sans-serif);
+}
+
+.radial-box-num {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--box-color, #711020);
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 1px 6px;
+    border-radius: 10px;
+}
+
+.radial-box-color-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--box-color, #dc2626);
+    margin-bottom: 3px;
+    letter-spacing: 0.2px;
+}
+
+.radial-box-desc {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+    color: #475569;
+    font-weight: 500;
+}
+
+/* Absolute Positions on Desktop (matching user sketch) */
+@media (min-width: 992px) {
+    .radial-boxes-grid {
+        display: contents;
+    }
+
+    /* Top 2 */
+    .box-pos-01 { top: 8px; left: 34%; transform: translateX(-50%); }
+    .box-pos-02 { top: 8px; left: 66%; transform: translateX(-50%); }
+
+    /* Right 4 */
+    .box-pos-03 { top: 95px; right: 2%; }
+    .box-pos-04 { top: 255px; right: 0%; }
+    .box-pos-05 { top: 415px; right: 2%; }
+    .box-pos-06 { top: 575px; right: 6%; }
+
+    /* Bottom 2 */
+    .box-pos-07 { bottom: 8px; left: 66%; transform: translateX(-50%); }
+    .box-pos-08 { bottom: 8px; left: 34%; transform: translateX(-50%); }
+
+    /* Left 4 */
+    .box-pos-09 { top: 575px; left: 6%; }
+    .box-pos-10 { top: 415px; left: 2%; }
+    .box-pos-11 { top: 255px; left: 0%; }
+    .box-pos-12 { top: 95px; left: 2%; }
+}
+
+/* Responsive (Tablets & Mobile) */
 @media (max-width: 991px) {
-    .flowchart-grid {
-        grid-template-columns: 1fr;
+    .radial-emblem-stage {
+        height: auto;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 20px;
     }
-    .emblem-hub-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 24px 20px;
-        gap: 18px;
+
+    .radial-pointer-lines {
+        display: none;
     }
-    .emblem-powers-grid {
+
+    .radial-logo-anchor {
+        position: static;
+        transform: none;
+        margin-bottom: 15px;
+    }
+
+    .radial-center-badge {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        white-space: normal;
+        max-width: 320px;
+    }
+
+    .radial-boxes-grid {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        width: 100%;
+    }
+
+    .radial-callout-box {
+        position: static;
+        width: 100%;
+        transform: none !important;
     }
 }
 
-@media (max-width: 640px) {
-    .emblem-section {
-        padding: 40px 0 35px !important;
-    }
-    .emblem-powers-grid {
+@media (max-width: 600px) {
+    .radial-boxes-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .radial-logo-img {
+        width: 170px;
+        height: 170px;
     }
 }

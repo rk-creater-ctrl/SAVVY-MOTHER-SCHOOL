@@ -788,4 +788,113 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+  /* =========================================================
+     RADIAL EMBLEM SPOKES & CALLOUTS (LIKE USER SKETCH)
+  ========================================================= */
+  const radialStage = document.querySelector(".radial-emblem-stage");
+  if (radialStage) {
+    const logoImg = radialStage.querySelector(".radial-logo-img");
+    const svgLines = radialStage.querySelector(".radial-pointer-lines");
+
+    // 12 petal angles matching clockwise order:
+    // 01: Courage (11:30) ~-105 deg
+    // 02: Progress (1:00) ~-75 deg
+    // 03: Receptivity (2:00) ~-45 deg
+    // 04: Aspiration (3:00) ~-15 deg
+    // 05: Perseverance (4:00) ~15 deg
+    // 06: Gratitude (5:00) ~45 deg
+    // 07: Humility (6:00 right) ~75 deg
+    // 08: Sincerity (6:00 left) ~105 deg
+    // 09: Peace (7:30) ~135 deg
+    // 10: Equality (8:30) ~165 deg
+    // 11: Generosity (9:30) ~195 deg
+    // 12: Goodness (10:30) ~225 deg
+    const angles = [-105, -75, -45, -15, 15, 45, 75, 105, 135, 165, 195, 225];
+
+    function renderSpokes() {
+      if (!radialStage || !logoImg || !svgLines) return;
+      if (window.innerWidth < 992) {
+        svgLines.innerHTML = "";
+        return;
+      }
+
+      const stageRect = radialStage.getBoundingClientRect();
+      const logoRect = logoImg.getBoundingClientRect();
+
+      const cx = (logoRect.left + logoRect.width / 2) - stageRect.left;
+      const cy = (logoRect.top + logoRect.height / 2) - stageRect.top;
+      const r = (logoRect.width / 2) * 0.78;
+
+      const boxes = radialStage.querySelectorAll(".radial-callout-box");
+      let markup = "";
+
+      boxes.forEach((box, i) => {
+        const boxRect = box.getBoundingClientRect();
+        const deg = angles[i] !== undefined ? angles[i] : (i * 30 - 90);
+        const rad = deg * (Math.PI / 180);
+
+        const x1 = cx + r * Math.cos(rad);
+        const y1 = cy + r * Math.sin(rad);
+
+        const bLeft = boxRect.left - stageRect.left;
+        const bTop = boxRect.top - stageRect.top;
+        const bRight = bLeft + boxRect.width;
+        const bBottom = bTop + boxRect.height;
+        const bCx = bLeft + boxRect.width / 2;
+        const bCy = bTop + boxRect.height / 2;
+
+        let x2 = bCx;
+        let y2 = bCy;
+
+        if (bRight < cx) {
+          x2 = bRight;
+          y2 = bCy;
+        } else if (bLeft > cx) {
+          x2 = bLeft;
+          y2 = bCy;
+        } else if (bBottom < cy) {
+          x2 = bCx;
+          y2 = bBottom;
+        } else {
+          x2 = bCx;
+          y2 = bTop;
+        }
+
+        const color = box.getAttribute("data-color") || "#711020";
+        markup += `<g class="spoke-link spoke-${i + 1}">
+          <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${color}" stroke-width="2" stroke-linecap="round" opacity="0.85" />
+          <circle cx="${x1.toFixed(1)}" cy="${y1.toFixed(1)}" r="4.5" fill="${color}" stroke="#ffffff" stroke-width="1.5" />
+          <circle cx="${x2.toFixed(1)}" cy="${y2.toFixed(1)}" r="3.5" fill="${color}" />
+        </g>`;
+      });
+
+      svgLines.innerHTML = markup;
+    }
+
+    renderSpokes();
+    window.addEventListener("resize", renderSpokes);
+    window.addEventListener("load", renderSpokes);
+    setTimeout(renderSpokes, 100);
+    setTimeout(renderSpokes, 400);
+
+    const boxes = radialStage.querySelectorAll(".radial-callout-box");
+    boxes.forEach((box, idx) => {
+      box.addEventListener("mouseenter", () => {
+        const spoke = svgLines.querySelector(`.spoke-${idx + 1} line`);
+        if (spoke) {
+          spoke.setAttribute("stroke-width", "3.5");
+          spoke.setAttribute("opacity", "1");
+        }
+      });
+      box.addEventListener("mouseleave", () => {
+        const spoke = svgLines.querySelector(`.spoke-${idx + 1} line`);
+        if (spoke) {
+          spoke.setAttribute("stroke-width", "2");
+          spoke.setAttribute("opacity", "0.85");
+        }
+      });
+    });
+  }
+
 });
