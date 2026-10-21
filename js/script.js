@@ -698,4 +698,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* =========================================================
+     CAMPUS FACILITIES FILTER (36 FACILITIES)
+  ========================================================= */
+
+  const facilityPills = document.querySelectorAll(".facility-filter-pill");
+  const facilityCards = document.querySelectorAll(".facility-card[data-category]");
+
+  if (facilityPills.length && facilityCards.length) {
+    facilityPills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        facilityPills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+
+        const targetCat = pill.dataset.filter;
+
+        facilityCards.forEach(card => {
+          const cardCats = (card.dataset.category || "").split(" ");
+          if (targetCat === "all" || cardCats.includes(targetCat)) {
+            card.classList.remove("is-hidden");
+          } else {
+            card.classList.add("is-hidden");
+          }
+        });
+      });
+    });
+  }
+
 });
