@@ -69,20 +69,37 @@ html.visited-session .preloader,
 .preloader {
     position: fixed;
     inset: 0;
-
     z-index: 9999;
-
     display: grid;
     place-items: center;
-
     color: white;
     background: var(--red);
-
-    transition: 1s ease;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+    animation: autoDismissPreloader 2s forwards ease-in-out;
 }
 
 .preloader.hide {
     transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+@keyframes autoDismissPreloader {
+    0%, 75% {
+        opacity: 1;
+        pointer-events: all;
+    }
+    99% {
+        opacity: 0;
+        pointer-events: none;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        display: none !important;
+    }
 }
 
 .loader {

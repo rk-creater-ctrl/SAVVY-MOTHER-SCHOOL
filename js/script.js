@@ -11,16 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
       preloader.remove();
     } else {
       sessionStorage.setItem("smis_visited", "true");
-      window.addEventListener("load", () => {
-        setTimeout(() => {
+      const hidePreloader = () => {
+        if (!preloader.classList.contains("hide")) {
           preloader.classList.add("hide");
           setTimeout(() => {
             if (preloader && preloader.parentNode) {
               preloader.parentNode.removeChild(preloader);
             }
-          }, 1100);
-        }, 1000);
-      });
+          }, 800);
+        }
+      };
+
+      if (document.readyState === "complete") {
+        setTimeout(hidePreloader, 350);
+      } else {
+        window.addEventListener("load", () => setTimeout(hidePreloader, 350), { once: true });
+        // Fallback safety: guarantee preloader dismissal after 1.2s max
+        setTimeout(hidePreloader, 1200);
+      }
     }
   } else {
     sessionStorage.setItem("smis_visited", "true");
@@ -282,13 +290,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       },
       {
-        threshold: 0.1
+        threshold: 0.05,
+        rootMargin: "0px 0px 80px 0px"
       }
     );
 
     revealElements.forEach((element) => {
       revealObserver.observe(element);
     });
+
+    // Fallback safety: ensure all elements are visible after 1.5s
+    setTimeout(() => {
+      revealElements.forEach((element) => {
+        element.classList.add("show");
+      });
+    }, 1500);
   }
 
   /* =========================================================
@@ -329,11 +345,11 @@ document.addEventListener("DOMContentLoaded", () => {
      INSTANT SITE SEARCH (CTRL + K QUICK FINDER)
   ========================================================= */
 
-  const path = window.location.pathname;
-  const isSubfolder = path.includes('/about/') || 
-                      path.includes('/academics/') || 
-                      path.includes('/admissions/') || 
-                      path.includes('/events/');
+  const path = ((typeof window !== 'undefined' && window.location && (window.location.pathname || window.location.href)) || '').replace(/\\/g, '/');
+  const isSubfolder = path.indexOf('/about/') !== -1 || 
+                      path.indexOf('/academics/') !== -1 || 
+                      path.indexOf('/admissions/') !== -1 || 
+                      path.indexOf('/events/') !== -1;
   const root = isSubfolder ? '../' : '';
 
   const siteSearchIndex = [
@@ -465,7 +481,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function highlightMatch(text, q) {
       if (!q) return text;
-      const regex = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\]/g, '\\$&')})`, "gi");
+      const escaped = q.replace(/[-\[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+      const regex = new RegExp('(' + escaped + ')', 'gi');
       return text.replace(regex, "<mark style='background:#fef08a; color:#1e293b; padding:0 2px; border-radius:2px;'>$1</mark>");
     }
 
