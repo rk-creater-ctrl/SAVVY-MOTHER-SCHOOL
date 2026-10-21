@@ -2482,6 +2482,47 @@ html.visited-session .preloader,
     display: block;
 }
 
+/* Bottom Powered By Credit Bar */
+.footer-powered-by {
+    width: 100%;
+    background: #091422;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    letter-spacing: 0.2px;
+}
+
+.footer-powered-by em {
+    font-style: italic;
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+.footer-powered-by strong,
+.footer-powered-by .powered-company {
+    color: #f59e0b;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+}
+
+.f-contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f59e0b;
+    font-size: 15px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
     .footer-grid-5 {
@@ -4199,6 +4240,8 @@ html.visited-session .preloader,
     background: linear-gradient(90deg, #f59e0b 0%, #f59e0b 22%, #ef4444 22%, #ef4444 48%, #ec4899 48%, #ec4899 70%, #06b6d4 70%, #06b6d4 86%, #3b82f6 86%, #3b82f6 100%);
     display: block;
 }
+
+
 
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
