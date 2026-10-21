@@ -72,12 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   dropdowns.forEach((dropdown) => {
-    const dropdownButton = dropdown.querySelector(".nav-dropdown-toggle");
+    const dropdownButton = dropdown.querySelector(".nav-dropdown-toggle, .nav-portal-btn");
 
     if (!dropdownButton) return;
 
     dropdownButton.addEventListener("click", (event) => {
-      if (window.innerWidth <= 1000) {
+      if (window.innerWidth <= 1000 || dropdown.classList.contains("nav-portal-dropdown")) {
         event.preventDefault();
 
         dropdowns.forEach((item) => {
@@ -92,6 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("click", (event) => {
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+
     if (window.innerWidth > 1000) return;
 
     const clickedNavigation = navigation && navigation.contains(event.target);
