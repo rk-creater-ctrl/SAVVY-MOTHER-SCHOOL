@@ -24,7 +24,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="images/logo-web.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=2.5">
+  <link rel="stylesheet" href="css/style.css?v=2.6">
   <script>
     if (sessionStorage.getItem('smis_visited')) {
       document.documentElement.classList.add('visited-session');
@@ -1301,45 +1301,22 @@
 
       <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-head reveal" style="align-items: flex-end; margin-bottom: 20px;">
 
           <div>
-
-            <p class="eyebrow">Achievements</p>
-
+            <p class="eyebrow"><i class="fa-solid fa-medal"></i> Academic Achievements</p>
             <h2 class="section-title">
               Results That Reflect
               <br>
               Real Growth.
             </h2>
-
           </div>
 
-          <p class="section-description">
-            Replace these demo figures with your school's verified achievements.
-          </p>
-
-        </div>
-
-        <div class="achievement-grid">
-
-          <article class="achievement reveal">
-            <strong data-count="98">0</strong>
-            <span>%</span>
-            <p>Board Excellence</p>
-          </article>
-
-          <article class="achievement reveal">
-            <strong data-count="50">0</strong>
-            <span>+</span>
-            <p>Awards & Distinctions</p>
-          </article>
-
-          <article class="achievement reveal">
-            <strong data-count="25">0</strong>
-            <span>+</span>
-            <p>Years of Excellence</p>
-          </article>
+          <div class="topper-slider-controls">
+            <span class="topper-scroll-hint"><i class="fa-solid fa-arrows-left-right"></i> Auto-sliding &bull; Hover to pause</span>
+            <button class="slider-nav-btn prev" id="topperPrev" type="button" aria-label="Previous card"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-nav-btn next" id="topperNext" type="button" aria-label="Next card"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
 
         </div>
 
@@ -1349,20 +1326,6 @@
            STUDENT TOPPERS & ACHIEVERS AUTO-SLIDER (RIGHT TO LEFT)
       ========================================================= -->
       <div class="topper-slider-section">
-        <div class="container">
-          <div class="topper-slider-header reveal">
-            <div class="topper-badge-strip">
-              <span class="topper-kicker-pill"><i class="fa-solid fa-medal"></i> Star Performers</span>
-              <h3>Academic Board Toppers &amp; Distinction Achievers</h3>
-            </div>
-            <div class="topper-slider-controls">
-              <span class="topper-scroll-hint"><i class="fa-solid fa-arrows-left-right"></i> Auto-sliding &bull; Hover to pause</span>
-              <button class="slider-nav-btn prev" id="topperPrev" type="button" aria-label="Previous card"><i class="fa-solid fa-chevron-left"></i></button>
-              <button class="slider-nav-btn next" id="topperNext" type="button" aria-label="Next card"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-          </div>
-        </div>
-
         <div class="topper-slider-wrapper" id="topperWrapper">
           <div class="topper-slider-track" id="topperTrack">
             <!-- [STUDENT PLACEHOLDER 1] -->
@@ -1370,10 +1333,10 @@
               <span class="student-rank-badge rank-gold"><i class="fa-solid fa-trophy"></i> Rank 1</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" alt="Aarav Sharma - Rank 1" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Aarav+Sharma&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥇</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #f59e0b;"></i></span>
               </div>
               <h4 class="student-name">Aarav Sharma</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">98.8</span>
@@ -1388,10 +1351,10 @@
               <span class="student-rank-badge rank-gold"><i class="fa-solid fa-trophy"></i> Rank 1</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Ananya Patel - Rank 1" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Ananya+Patel&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥇</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #f59e0b;"></i></span>
               </div>
               <h4 class="student-name">Ananya Patel</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII (Science)</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII &bull; Science</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">98.2</span>
@@ -1406,10 +1369,10 @@
               <span class="student-rank-badge rank-silver"><i class="fa-solid fa-trophy"></i> Rank 2</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80" alt="Rohan Verma - Rank 2" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Rohan+Verma&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥈</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #94a3b8;"></i></span>
               </div>
               <h4 class="student-name">Rohan Verma</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">97.6</span>
@@ -1424,10 +1387,10 @@
               <span class="student-rank-badge rank-silver"><i class="fa-solid fa-trophy"></i> Rank 2</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Priya Singh - Rank 2" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Priya+Singh&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥈</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #94a3b8;"></i></span>
               </div>
               <h4 class="student-name">Priya Singh</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII (Commerce)</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII &bull; Commerce</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">97.2</span>
@@ -1442,10 +1405,10 @@
               <span class="student-rank-badge rank-bronze"><i class="fa-solid fa-trophy"></i> Rank 3</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Ishaan Tiwari - Rank 3" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Ishaan+Tiwari&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥉</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #b45309;"></i></span>
               </div>
               <h4 class="student-name">Ishaan Tiwari</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">96.8</span>
@@ -1460,10 +1423,10 @@
               <span class="student-rank-badge rank-bronze"><i class="fa-solid fa-trophy"></i> Rank 3</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Sneha Mishra - Rank 3" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Sneha+Mishra&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥉</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #b45309;"></i></span>
               </div>
               <h4 class="student-name">Sneha Mishra</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII (Humanities)</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII &bull; Humanities</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">96.4</span>
@@ -1478,10 +1441,10 @@
               <span class="student-rank-badge rank-star"><i class="fa-solid fa-trophy"></i> Rank 4</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Divyansh Pandey - Rank 4" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Divyansh+Pandey&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">⭐</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-award" style="color: #3b82f6;"></i></span>
               </div>
               <h4 class="student-name">Divyansh Pandey</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">95.8</span>
@@ -1496,10 +1459,10 @@
               <span class="student-rank-badge rank-star"><i class="fa-solid fa-trophy"></i> Rank 5</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Kavya Soni - Rank 5" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Kavya+Soni&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">⭐</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-award" style="color: #3b82f6;"></i></span>
               </div>
               <h4 class="student-name">Kavya Soni</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">95.2</span>
@@ -1514,10 +1477,10 @@
               <span class="student-rank-badge rank-gold"><i class="fa-solid fa-trophy"></i> Rank 1</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" alt="Aarav Sharma - Rank 1" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Aarav+Sharma&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥇</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #f59e0b;"></i></span>
               </div>
               <h4 class="student-name">Aarav Sharma</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">98.8</span>
@@ -1532,10 +1495,10 @@
               <span class="student-rank-badge rank-gold"><i class="fa-solid fa-trophy"></i> Rank 1</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Ananya Patel - Rank 1" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Ananya+Patel&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥇</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #f59e0b;"></i></span>
               </div>
               <h4 class="student-name">Ananya Patel</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII (Science)</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII &bull; Science</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">98.2</span>
@@ -1550,10 +1513,10 @@
               <span class="student-rank-badge rank-silver"><i class="fa-solid fa-trophy"></i> Rank 2</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80" alt="Rohan Verma - Rank 2" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Rohan+Verma&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥈</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #94a3b8;"></i></span>
               </div>
               <h4 class="student-name">Rohan Verma</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">97.6</span>
@@ -1568,10 +1531,10 @@
               <span class="student-rank-badge rank-silver"><i class="fa-solid fa-trophy"></i> Rank 2</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Priya Singh - Rank 2" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Priya+Singh&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥈</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #94a3b8;"></i></span>
               </div>
               <h4 class="student-name">Priya Singh</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII (Commerce)</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII &bull; Commerce</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">97.2</span>
@@ -1586,10 +1549,10 @@
               <span class="student-rank-badge rank-bronze"><i class="fa-solid fa-trophy"></i> Rank 3</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Ishaan Tiwari - Rank 3" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Ishaan+Tiwari&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥉</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #b45309;"></i></span>
               </div>
               <h4 class="student-name">Ishaan Tiwari</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">96.8</span>
@@ -1604,10 +1567,10 @@
               <span class="student-rank-badge rank-bronze"><i class="fa-solid fa-trophy"></i> Rank 3</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Sneha Mishra - Rank 3" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Sneha+Mishra&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">🥉</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-medal" style="color: #b45309;"></i></span>
               </div>
               <h4 class="student-name">Sneha Mishra</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII (Humanities)</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class XII &bull; Humanities</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">96.4</span>
@@ -1622,10 +1585,10 @@
               <span class="student-rank-badge rank-star"><i class="fa-solid fa-trophy"></i> Rank 4</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Divyansh Pandey - Rank 4" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Divyansh+Pandey&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">⭐</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-award" style="color: #3b82f6;"></i></span>
               </div>
               <h4 class="student-name">Divyansh Pandey</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">95.8</span>
@@ -1640,10 +1603,10 @@
               <span class="student-rank-badge rank-star"><i class="fa-solid fa-trophy"></i> Rank 5</span>
               <div class="student-photo-wrap">
                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Kavya Soni - Rank 5" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=Kavya+Soni&background=0e3a80&color=fff&size=200'">
-                <span class="student-medal-badge">⭐</span>
+                <span class="student-medal-badge"><i class="fa-solid fa-award" style="color: #3b82f6;"></i></span>
               </div>
               <h4 class="student-name">Kavya Soni</h4>
-              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X • CBSE</p>
+              <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> Class X &bull; CBSE</p>
               <div class="student-score-box">
                 <div class="score-main">
                   <span class="score-val">95.2</span>
@@ -1653,6 +1616,8 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
         </div>
       </div>
 

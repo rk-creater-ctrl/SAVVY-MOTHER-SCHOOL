@@ -763,7 +763,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (topperPrev && topperNext) {
       topperPrev.addEventListener("click", () => {
         topperTrack.style.animation = "none";
-        manualOffset += 294;
+        manualOffset += 348;
         if (manualOffset > 0) {
           manualOffset = -(topperTrack.scrollWidth / 2);
         }
@@ -773,7 +773,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       topperNext.addEventListener("click", () => {
         topperTrack.style.animation = "none";
-        manualOffset -= 294;
+        manualOffset -= 348;
         if (Math.abs(manualOffset) >= (topperTrack.scrollWidth / 2)) {
           manualOffset = 0;
         }
