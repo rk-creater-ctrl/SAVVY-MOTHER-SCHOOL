@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo & Video Gallery | Savvy Mother International School Rewa</title>
+  <meta name="description" content="Visual glimpses of campus life, cultural celebrations, sports championships, and academic innovation at Savvy Mother International School, Rewa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: 24px;
+      border: 1.5px solid var(--border);
+      background: var(--pure-white);
+      color: var(--black);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--red);
+      color: white;
+      border-color: var(--red);
+      box-shadow: 0 4px 14px rgba(167, 25, 48, 0.2);
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+  <div class="preloader">
+    <div class="loader">
+      <div class="loader-mark">SM</div>
+      <h2>Savvy Mother</h2>
+      <p>International School</p>
+      <div class="loader-line"><span></span></div>
+    </div>
+  </div>
+
+  <header class="header">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">SM</span>
+      <span class="logo-text">
+        <b>Savvy Mother</b>
+        <small>INTERNATIONAL SCHOOL</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          About <span>⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="about/school.html">Our School</a>
+          <a href="about/campus.html">Campus</a>
+          <a href="about/faculty.html">Faculty</a>
+          <a href="about/director.html">Director's Message</a>
+          <a href="about/principal.html">Principal's Message</a>
+          <a href="about/headmistress.html">Headmistress's Message</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          Academics <span>⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="academics/pre-primary.html">Pre-Primary</a>
+          <a href="academics/middle.html">Middle School</a>
+          <a href="academics/secondary.html">Secondary School</a>
+          <a href="academics/senior-secondary.html">Senior Secondary</a>
+        </div>
+      </div>
+
+      <a href="facilities.html">Facilities</a>
+
+      <!-- MEGA DROPDOWN: EVENTS -->
+      <div class="nav-dropdown mega-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          Events <span>⌄</span>
+        </button>
+        <div class="mega-menu">
+          <div class="mega-menu-inner">
+            <div class="mega-info-box">
+              <div class="mega-icon-badge">📅</div>
+              <h3>Our Celebrations</h3>
+              <div class="mega-line"></div>
+              <p>We celebrate every moment of learning with joy, culture and creativity.</p>
+            </div>
+
+            <div class="mega-events-grid">
+              <div class="mega-column">
+                <a href="events/annual-function.html" class="mega-event-link">
+                  <span class="mega-event-icon">🎉</span>
+                  <span class="mega-event-name">Annual Function</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/garba.html" class="mega-event-link">
+                  <span class="mega-event-icon">💃</span>
+                  <span class="mega-event-name">Garba Celebration</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/ganesh-chaturthi.html" class="mega-event-link">
+                  <span class="mega-event-icon">🕉️</span>
+                  <span class="mega-event-name">Ganesh Chaturthi</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/independence-day.html" class="mega-event-link">
+                  <span class="mega-event-icon">🇮🇳</span>
+                  <span class="mega-event-name">Independence Day</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/diwali.html" class="mega-event-link">
+                  <span class="mega-event-icon">🪔</span>
+                  <span class="mega-event-name">Diwali Celebration</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/teachers-day.html" class="mega-event-link">
+                  <span class="mega-event-icon">🧑‍🏫</span>
+                  <span class="mega-event-name">Teachers' Day</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+              </div>
+
+              <div class="mega-column">
+                <a href="events/van-mahotsav.html" class="mega-event-link">
+                  <span class="mega-event-icon">🌳</span>
+                  <span class="mega-event-name">Van Mahotsav</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/christmas.html" class="mega-event-link">
+                  <span class="mega-event-icon">🎄</span>
+                  <span class="mega-event-name">Christmas Celebration</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/raksha-bandhan.html" class="mega-event-link">
+                  <span class="mega-event-icon">🪢</span>
+                  <span class="mega-event-name">Raksha Bandhan</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/yoga-day.html" class="mega-event-link">
+                  <span class="mega-event-icon">🧘</span>
+                  <span class="mega-event-name">International Yoga Day</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/book-week.html" class="mega-event-link">
+                  <span class="mega-event-icon">📖</span>
+                  <span class="mega-event-name">Book Week</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+                <a href="events/sports-day.html" class="mega-event-link">
+                  <span class="mega-event-icon">🏆</span>
+                  <span class="mega-event-name">Sports Day</span>
+                  <span class="mega-event-arrow">›</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="mega-featured-card">
+              <div class="mega-card-img">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=85" alt="School Annual Function Celebration" loading="lazy">
+              </div>
+              <h4>More Than Just Events</h4>
+              <p>Every celebration builds confidence, creativity and lifelong memories.</p>
+              <a href="events.html" class="mega-view-all">View All Events ›</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          Admissions <span>⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="admissions/inquiry.html">Admission Inquiry</a>
+          <a href="admissions/process.html">Admission Process</a>
+          <a href="admissions/eligibility.html">Eligibility</a>
+        </div>
+      </div>
+
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a href="admissions/inquiry.html" class="apply-button">Apply Now →</a>
+
+    <button class="menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false">
+      ☰
+    </button>
+  </header>
+
+  <main>
+    <section class="inner-hero" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1800&q=85');">
+      <div class="inner-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Gallery</span>
+        </div>
+        <h1>Photo & Video Gallery</h1>
+        <p>Capturing the vibrant moments, joyful discoveries, and proud milestones of life at Savvy Mother International School.</p>
+      </div>
+    </section>
+
+    <!-- GALLERY FILTER & GRID -->
+    <section class="section">
+      <div class="container">
+        
+        <div class="filter-bar reveal">
+          <button class="filter-btn active" data-filter="all">All Moments</button>
+          <button class="filter-btn" data-filter="celebrations">Celebrations & Festivals</button>
+          <button class="filter-btn" data-filter="academics">Smart Labs & Robotics</button>
+          <button class="filter-btn" data-filter="sports">Sports & Athletics</button>
+          <button class="filter-btn" data-filter="campus">Campus & Nature</button>
+        </div>
+
+        <div class="gallery-page-grid" id="mainGalleryGrid">
+          
+          <!-- Celebrations -->
+          <article class="gallery-page-item reveal" data-category="celebrations" data-title="Annual Function Dance Drama">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" alt="Annual Function Dance" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Celebrations</small>
+              <h3>Annual Function Drama</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="celebrations" data-title="Traditional Garba Raas">
+            <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=900&q=85" alt="Navratri Garba Celebration" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Celebrations</small>
+              <h3>Navratri Garba Raas</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="celebrations" data-title="Eco-Friendly Clay Ganesha">
+            <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&w=900&q=85" alt="Ganesh Chaturthi Idol Making" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Celebrations</small>
+              <h3>Ganesh Utsav Sculpting</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="celebrations" data-title="Independence Day Tricolour Salute">
+            <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=900&q=85" alt="Independence Day Flag Salute" loading="lazy">
+            <div class="gallery-page-info">
+              <small>National Festival</small>
+              <h3>Independence Day Salute</h3>
+            </div>
+          </article>
+
+          <!-- Academics & STEM -->
+          <article class="gallery-page-item reveal" data-category="academics" data-title="Robotics & Coding Workshop">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=85" alt="Robotics Lab Workshop" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Smart Labs</small>
+              <h3>Robotics & Coding Session</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="academics" data-title="Smart Classroom Interactive Lesson">
+            <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?auto=format&fit=crop&w=900&q=85" alt="Interactive Classroom" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Digital Learning</small>
+              <h3>Digital Whiteboard Learning</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="academics" data-title="Science Chemistry Experiment">
+            <img src="https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?auto=format&fit=crop&w=900&q=85" alt="Chemistry Lab" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Science Labs</small>
+              <h3>Chemistry Lab Investigation</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="academics" data-title="Library Quiet Reading Hour">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=85" alt="Library Reading" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Knowledge Hub</small>
+              <h3>Library Reading Discovery</h3>
+            </div>
+          </article>
+
+          <!-- Sports -->
+          <article class="gallery-page-item reveal" data-category="sports" data-title="Athletic 100m Sprint Final">
+            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=85" alt="Track Sprint Race" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Sports & Athletics</small>
+              <h3>Athletic Sprint Championship</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="sports" data-title="Inter-House Basketball Match">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=85" alt="Basketball Game" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Sports & Athletics</small>
+              <h3>Inter-House Basketball</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="sports" data-title="Mass Yoga Day Demonstration">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85" alt="Yoga Day on Campus" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Wellness & Yoga</small>
+              <h3>International Yoga Day</h3>
+            </div>
+          </article>
+
+          <!-- Campus -->
+          <article class="gallery-page-item reveal" data-category="campus" data-title="Campus Architecture & Entrance">
+            <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=85" alt="School Building" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Campus Infrastructure</small>
+              <h3>Main Academic Wing</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="campus" data-title="Van Mahotsav Green Drive">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=85" alt="Tree Plantation" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Campus Greenery</small>
+              <h3>Botanical Garden & Plantation</h3>
+            </div>
+          </article>
+
+          <article class="gallery-page-item reveal" data-category="campus" data-title="Student Collaborative Learning">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85" alt="Group Discussion" loading="lazy">
+            <div class="gallery-page-info">
+              <small>Campus Life</small>
+              <h3>Peer Collaboration Zone</h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS HUB LINK BANNER -->
+    <section class="section page-soft-section">
+      <div class="container text-center" style="text-align: center;">
+        <p class="eyebrow">Looking For Specific Celebrations?</p>
+        <h2 style="font-family:'Playfair Display', serif; font-size: 28px; margin-bottom: 12px;">Explore Our 12 Multi-Day Festival Portals</h2>
+        <p style="max-width: 650px; margin: 0 auto 24px auto; color: var(--muted); font-size: 14px;">
+          Dive deep into dedicated albums for Annual Function, Garba Raas, Ganesh Chaturthi, Sports Day, Book Week, and more.
+        </p>
+        <a href="events.html" class="btn btn-red">Visit Events & Celebrations Portal →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Viewer Modal -->
+  <div class="campus-viewer" id="campusViewer">
+    <div class="campus-viewer-overlay"></div>
+    <div class="campus-viewer-box">
+      <button class="campus-viewer-close" type="button" aria-label="Close image viewer">×</button>
+      <img id="campusViewerImage" src="" alt="Gallery Image Zoom">
+      <h3 id="campusViewerTitle">Gallery Detail</h3>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Filter functionality
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const items = document.querySelectorAll("#mainGalleryGrid .gallery-page-item");
+      const viewer = document.getElementById("campusViewer");
+      const vImg = document.getElementById("campusViewerImage");
+      const vTitle = document.getElementById("campusViewerTitle");
+      const closeBtn = document.querySelector(".campus-viewer-close");
+      const overlay = document.querySelector(".campus-viewer-overlay");
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+
+          items.forEach(item => {
+            if (filter === "all" || item.dataset.category === filter) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Lightbox viewer
+      items.forEach(item => {
+        item.addEventListener("click", () => {
+          const img = item.querySelector("img");
+          const title = item.dataset.title || "Gallery Photograph";
+          if (!img || !viewer) return;
+          vImg.src = img.src;
+          vImg.alt = img.alt;
+          vTitle.textContent = title;
+          viewer.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      const closeV = () => {
+        if (!viewer) return;
+        viewer.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+
+      if (closeBtn) closeBtn.addEventListener("click", closeV);
+      if (overlay) overlay.addEventListener("click", closeV);
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeV();
+      });
+    });
+  </script>
+  <!-- Floating WhatsApp Helpline -->
+  <a href="https://wa.me/919329517009?text=Hello%20Savvy%20Mother%20International%20School%2C%20I%20have%20an%20admission%20inquiry." 
+     class="floating-whatsapp" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Chat with School Admissions on WhatsApp">
+    <span>💬</span>
+    <span>Admissions Help</span>
+  </a>
+</body>
+</html>
