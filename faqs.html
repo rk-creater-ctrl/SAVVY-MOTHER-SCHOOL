@@ -3,85 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frequently Asked Questions (FAQs) | Savvy Mother International School</title>
-  <meta name="description" content="Answers to common questions about admissions, CBSE curriculum, bus routes, school timings, fees, and campus life at Savvy Mother International School, Rewa.">
+  <title>Frequently Asked Questions (FAQs) | Savvy Mother Toddler School Rewa</title>
+  <meta name="description" content="Answers to common parent questions about day care, daycare, kindergarten, preschool admission, timings, care, transport and communication at Savvy Mother Toddler School Rewa.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/logo-web.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/png" href="images/logo-web.png">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="images/logo-web.png">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .faq-accordion {
-      max-width: 860px;
-      margin: 0 auto 50px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .faq-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-      transition: all 0.25s ease;
-    }
-    .faq-question {
-      width: 100%;
-      padding: 20px 24px;
-      background: transparent;
-      border: none;
-      outline: none;
-      text-align: left;
-      font-size: 15px;
-      font-weight: 700;
-      color: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-    }
-    .faq-question:hover {
-      color: var(--red);
-    }
-    .faq-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(167, 25, 48, 0.08);
-      color: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
-    .faq-card.active .faq-icon {
-      transform: rotate(45deg);
-      background: var(--red);
-      color: #ffffff;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 24px;
-      color: #475569;
-      font-size: 13.5px;
-      line-height: 1.65;
-    }
-    .faq-card.active .faq-answer {
-      max-height: 300px;
-      padding: 0 24px 20px;
-    }
-  </style>
 </head>
-<body>
+<body class="inner-page">
 
+  <!-- =========================================================
+       SITE HEADER
+  ========================================================= -->
   <header class="header">
     <a href="index.html" class="logo">
       <img src="images/logo-web.png" alt="Savvy Mother International School" class="header-logo-img">
@@ -120,7 +57,8 @@
         </div>
       </div>
 
-            <div class="nav-dropdown">
+      <!-- FACILITIES DROPDOWN -->
+      <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
           Facilities <span>⌄</span>
         </button>
@@ -130,7 +68,7 @@
         </div>
       </div>
 
-            <!-- EVENTS DROPDOWN (NORMAL DESIGN WITH PROFESSIONAL ICONS) -->
+      <!-- EVENTS DROPDOWN -->
       <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
           Events <span>&#x2304;</span>
@@ -298,6 +236,24 @@
       </div>
 
       <a href="contact.html">Contact</a>
+
+      <!-- STUDENT / PARENT PORTAL QUICK DROPDOWN -->
+      <div class="nav-dropdown nav-portal-dropdown">
+        <button class="nav-portal-btn nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Student &amp; Parent Portal Quick Menu" title="Portal Quick Links">
+          <i class="fa-solid fa-user-graduate"></i>
+          <span class="portal-btn-label">Portal Quick Links</span>
+        </button>
+        <div class="nav-dropdown-menu portal-dropdown-menu">
+          <a href="calendar.html">Academic Calendar</a>
+          <a href="fee-structure.html">Fee Structure</a>
+          <a href="admission-form.html">Admission Form</a>
+          <a href="downloads.html">Downloads & Forms</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="faqs.html" class="active">FAQs</a>
+        </div>
+      </div>
     </nav>
 
     <div class="header-actions">
@@ -317,118 +273,108 @@
     </button>
   </header>
 
-  <main>
-    <section class="inner-hero" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1800&q=85');">
-      <div class="inner-hero-content">
-        <div class="breadcrumb">
-          <a href="index.html">Home</a>
-          <span>/</span>
-          <span>FAQs</span>
-        </div>
-        <h1>Frequently Asked Questions</h1>
-        <p>Everything prospective and enrolled parents want to know about life, learning, and governance at Savvy Mother International School.</p>
+  <!-- =========================================================
+       HERO SECTION
+  ========================================================= -->
+  <section class="inner-hero" style="background-image: linear-gradient(rgba(115, 20, 37, 0.88), rgba(156, 27, 51, 0.92)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=85');">
+    <div class="inner-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>FAQs</span>
       </div>
-    </section>
+      <div class="hero-panel">
+        <h1>FAQs</h1>
+        <p>Answers to common parent questions about day care, daycare, kindergarten, preschool admission, timings, care, transport and communication.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container">
+  <!-- =========================================================
+       MAIN CONTENT SECTION
+  ========================================================= -->
+  <main class="content-section">
+    <div class="content-wrap">
+      
+      <div class="content-grid">
+        <div class="info-card reveal">
+          <i class="fa-solid fa-circle-question"></i>
+          <h2>Admissions</h2>
+          <p>Confirm availability, age criteria and documents with the school office.</p>
+        </div>
         
-        <div class="center-heading reveal">
-          <p class="eyebrow">Quick Clarity</p>
-          <h2>Got Questions? We Have Answers.</h2>
+        <div class="info-card reveal">
+          <i class="fa-solid fa-clock"></i>
+          <h2>School Timings</h2>
+          <p>Final timings are shared by class and service during admission.</p>
         </div>
-
-        <div class="faq-accordion reveal">
-          
-          <div class="faq-card active">
-            <button class="faq-question">
-              <span>What board curriculum does Savvy Mother International School follow?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Our school follows the comprehensive Central Board of Secondary Education (CBSE) curriculum, integrated with modern technological pathways (Data Science, Artificial Intelligence, and Robotics) alongside foundational Vedic values (Sanskrit, Geeta chanting, and mindfulness).
-            </div>
-          </div>
-
-          <div class="faq-card">
-            <button class="faq-question">
-              <span>What is the minimum age criterion for Nursery and Pre-Primary admissions?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              For Nursery admission in Academic Session 2026-27, the child must be 3+ years of age as of 31st March 2026. For KG-1 (LKG), the child must be 4+ years, and for Class 1, the child must be 6+ years as per the National Education Policy (NEP 2020) directives.
-            </div>
-          </div>
-
-          <div class="faq-card">
-            <button class="faq-question">
-              <span>Does the school provide secure bus transportation across Rewa?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Yes, our dedicated fleet of GPS-tracked and CCTV-monitored school buses covers all major localities of Rewa including Civil Lines, Bodabag, University Road, Dhekaha, Padra, Nipania, Urrahat, Silpara, Ratahara, and adjacent areas. Each bus has a trained driver and dedicated lady attendant.
-            </div>
-          </div>
-
-          <div class="faq-card">
-            <button class="faq-question">
-              <span>What makes the Brain Science Lab unique in the Rewa division?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Savvy Mother International School is the only school in the Rewa division equipped with an official Brain Science &amp; Memory Training Lab (powered by Brainywood). Students learn cognitive mnemonics, rapid recall techniques, mind-mapping, and concentration acceleration starting from early grades.
-            </div>
-          </div>
-
-          <div class="faq-card">
-            <button class="faq-question">
-              <span>How are tuition and school fees payable?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Fees are divided into 4 equal quarterly installments payable on or before the 10th of April, July, October, and January. Payments can be completed online via the ReskooleR parent app, Net Banking, UPI (GPay/PhonePe), or directly at the school Accounts Office.
-            </div>
-          </div>
-
-          <div class="faq-card">
-            <button class="faq-question">
-              <span>What academic streams are available for Class XI and XII?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              We offer all three recognized senior secondary streams: Science (PCM with Computer Science/Physical Education, or PCB with Biology/Biotechnology for NEET aspirants), Commerce (Accountancy, Business Studies, Economics, Applied Mathematics), and Humanities (History, Political Science, Psychology, Sociology).
-            </div>
-          </div>
-
-          <div class="faq-card">
-            <button class="faq-question">
-              <span>How can parents track their child's daily progress and attendance?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              All enrolled families are granted access to our official ReskooleR ERP parent mobile app (available on Android &amp; iOS). Parents receive instant push notifications for attendance, daily homework, digital report cards, bus live-tracking, and school announcements.
-            </div>
-          </div>
-
+        
+        <div class="info-card reveal">
+          <i class="fa-solid fa-shield-heart"></i>
+          <h2>Safety</h2>
+          <p>Supervised entry, CCTV, hygiene checks and authorised handover.</p>
         </div>
-
       </div>
-    </section>
+
+      <div class="wide-card reveal">
+        <h2>Common Questions</h2>
+        <ul class="simple-list">
+          <li>
+            <strong>Is day care or daycare available in Rewa?</strong><br>Yes, day care and daycare support is available at Savvy Mother Toddler School Rewa with safe routines and attentive supervision.
+          </li>
+          <li>
+            <strong>Does the school offer kindergarten and nursery classes?</strong><br>Yes, the school offers nursery, Junior KG and Senior KG programs focused on early literacy, number sense, writing readiness, confidence and classroom habits.
+          </li>
+          <li>
+            <strong>Can parents apply for preschool admission in Rewa?</strong><br>Parents can contact the school office or use the admission form for preschool, day care, daycare, nursery, KG and primary admission guidance.
+          </li>
+          <li>
+            <strong>Is transport available?</strong><br>Transport depends on route availability. Please confirm your location with the office.
+          </li>
+          <li>
+            <strong>Are meals provided?</strong><br>The school provides fresh and hot lunch support as per the current facility plan.
+          </li>
+          <li>
+            <strong>How are parents updated?</strong><br>Parents are informed through school communication, phone calls and parent-teacher interactions.
+          </li>
+          <li>
+            <strong>Can we visit the campus?</strong><br>Yes, school visits can be planned during working hours after contacting the office.
+          </li>
+        </ul>
+      </div>
+
+      <div class="wide-card notice reveal">
+        <h3><i class="fa-solid fa-headset"></i> Need More Help?</h3>
+        <p>For any specific question, call <a href="tel:+919329517009">+91 9329517009</a> or email <a href="mailto:savvymotherschool@gmail.com">savvymotherschool@gmail.com</a>.</p>
+      </div>
+
+    </div>
   </main>
 
-  <script>
-    document.querySelectorAll(".faq-question").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const card = btn.closest(".faq-card");
-        const isActive = card.classList.contains("active");
-        document.querySelectorAll(".faq-card").forEach(c => c.classList.remove("active"));
-        if (!isActive) card.classList.add("active");
-      });
-    });
-  </script>
+  <!-- =========================================================
+       CONVERSION STRIP
+  ========================================================= -->
+  <div class="container">
+    <section class="conversion-strip reveal" aria-labelledby="conversionTitle">
+      <div class="conversion-inner">
+        <div class="conversion-copy">
+          <span class="conversion-kicker">Admissions Open</span>
+          <h2 id="conversionTitle">Plan a trusted start for your child</h2>
+          <p>Visit Savvy Mother Toddler School Rewa, review the admission process, and speak directly with the school office for daycare, preschool, kindergarten, class, fee and transport guidance.</p>
+        </div>
+        <div class="conversion-badges" aria-label="Parent trust highlights">
+          <span><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> Safe Campus</span>
+          <span><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Experienced Teachers</span>
+          <span><i class="fa-solid fa-bus" aria-hidden="true"></i> Transport Support</span>
+        </div>
+        <div class="conversion-actions">
+          <a href="admission-form.html" class="conversion-primary">Admission Form</a>
+          <a href="https://wa.me/919329517009?text=Hello%20Savvy%20Mother%20Toddler%20School%2C%20I%20would%20like%20to%20know%20more%20about%20admissions%20and%20facilities." target="_blank" rel="noopener" class="conversion-secondary">WhatsApp School</a>
+        </div>
+      </div>
+    </section>
+  </div>
 
-  
-  <!-- Floating Contact Actions (Call & WhatsApp) -->
   <!-- =========================================================
        WORLD-CLASS CURVED FOOTER (SAVVY MOTHER)
   ========================================================= -->
@@ -504,6 +450,7 @@
             <li><a href="about/campus.html"><span class="chev">&rsaquo;</span> Campus Infrastructure</a></li>
             <li><a href="about/faculty.html"><span class="chev">&rsaquo;</span> Faculty &amp; Mentors</a></li>
             <li><a href="facilities.html"><span class="chev">&rsaquo;</span> All 31 Facilities</a></li>
+            <li><a href="transport.html"><span class="chev">&rsaquo;</span> Transport &amp; Routes</a></li>
             <li><a href="gallery.html"><span class="chev">&rsaquo;</span> Photo Gallery</a></li>
           </ul>
         </div>
@@ -536,7 +483,7 @@
           <div class="footer-contact-item">
             <div class="f-contact-icon">&#x1F4DE;</div>
             <div class="f-contact-text">
-              <strong>Admission Helplines:</strong><br>
+              <strong>Helpline &amp; FAQs:</strong><br>
               <a href="tel:+919329517009">+91 9329517009</a><br>
               <a href="tel:+918822776477">+91 8822776477</a>
             </div>
@@ -567,34 +514,24 @@
     </div>
   </footer>
 
-  
-  <aside class="floating-actions" aria-label="Quick contact channels">
-    <a href="tel:+919329517009" 
-       class="floating-btn floating-call" 
-       aria-label="Call +91 9329517009" 
-       title="Call +91 9329517009">
-      <span class="floating-icon">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
-      </span>
-      <span class="floating-tooltip">Call Us</span>
+  <!-- =========================================================
+       FLOATING ACTION BUTTONS (CALL & WHATSAPP)
+  ========================================================= -->
+  <div class="floating-actions" aria-label="Direct contact options">
+    <a href="tel:+919329517009" class="float-btn float-call" aria-label="Call admissions office at +91 9329517009" title="Call Admissions: +91 9329517009">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span class="float-tooltip">Call Us</span>
     </a>
-
-    <a href="https://wa.me/919329517009?text=Hello%20Savvy%20Mother%20International%20School%2C%20I%20have%20an%20inquiry." 
-       class="floating-btn floating-whatsapp" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       aria-label="Chat with us on WhatsApp" 
-       title="Chat with us on WhatsApp">
-      <span class="floating-icon">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/>
-        </svg>
-      </span>
-      <span class="floating-tooltip">WhatsApp</span>
+    <a href="https://wa.me/919329517009?text=Hello%20Savvy%20Mother%20International%20School%2C%20I%20have%20questions%20about%20admissions." target="_blank" rel="noopener noreferrer" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp with +91 9329517009" title="WhatsApp: +91 9329517009">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.18 8.18 0 0 1-5.82 2.42c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.3z"/>
+      </svg>
+      <span class="float-tooltip">WhatsApp</span>
     </a>
-  </aside>
+  </div>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
