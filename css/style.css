@@ -1016,11 +1016,11 @@ html.visited-session .preloader,
 }
 
 /* =========================================================
-   LIFE AT SCHOOL
+   LIFE AT SCHOOL (COMPACT SIZE)
 ========================================================= */
 
 .life-savvy {
-    padding: 100px 0;
+    padding: 48px 0 42px !important;
     background: #fffdf8;
 }
 
@@ -1030,13 +1030,13 @@ html.visited-session .preloader,
 }
 
 .life-header {
-    max-width: 850px;
-    margin: 0 auto 55px;
+    max-width: 820px;
+    margin: 0 auto 28px !important;
     text-align: center;
 }
 
 .life-eyebrow {
-    margin-bottom: 14px;
+    margin-bottom: 8px !important;
 
     color: #a71930;
 
@@ -1046,41 +1046,41 @@ html.visited-session .preloader,
 }
 
 .life-header h2 {
-    margin: 0 0 20px;
+    margin: 0 0 10px !important;
 
     color: #711020;
 
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(38px, 5vw, 64px);
-    line-height: 1;
+    font-size: clamp(28px, 3.4vw, 42px) !important;
+    line-height: 1.12 !important;
 }
 
 .life-header > p:last-child {
-    max-width: 700px;
+    max-width: 660px;
     margin: auto;
 
     color: #75696a;
 
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
 }
 
 .life-grid {
     display: grid;
-    gap: 16px;
+    gap: 14px;
     grid-template-columns: repeat(5, 1fr);
 }
 
 .life-card {
     position: relative;
 
-    height: 430px;
+    height: 310px !important;
     overflow: hidden;
 
-    border-radius: 22px;
+    border-radius: 18px !important;
 
     background: #711020;
-    box-shadow: 0 15px 40px rgba(71, 14, 24, 0.1);
+    box-shadow: 0 10px 30px rgba(71, 14, 24, 0.08);
 
     cursor: pointer;
 }
@@ -1112,24 +1112,24 @@ html.visited-session .preloader,
 }
 
 .life-card:hover > img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .life-label {
     position: absolute;
-    right: 18px;
-    bottom: 18px;
-    left: 18px;
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
     z-index: 3;
 
-    padding: 13px 10px;
+    padding: 10px 8px !important;
 
-    border-radius: 6px;
+    border-radius: 8px !important;
 
     color: white;
     background: #a71930;
 
-    font-size: 13px;
+    font-size: 12px !important;
     font-weight: 700;
     text-align: center;
 
@@ -1149,7 +1149,7 @@ html.visited-session .preloader,
     z-index: 5;
 
     display: flex;
-    padding: 35px 25px;
+    padding: 22px 18px !important;
     flex-direction: column;
 
     color: white;
@@ -1160,11 +1160,11 @@ html.visited-session .preloader,
     );
 
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(20px);
 
     transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
+        opacity 0.4s ease,
+        transform 0.4s ease;
 }
 
 .life-card:hover .life-overlay {
@@ -1177,29 +1177,29 @@ html.visited-session .preloader,
 
     font-size: 10px;
     font-weight: 800;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 .life-overlay h3 {
-    margin: 12px 0 16px;
+    margin: 8px 0 10px !important;
 
     font-family: "Playfair Display", Georgia, serif;
-    font-size: 29px;
-    line-height: 1.1;
+    font-size: 21px !important;
+    line-height: 1.1 !important;
 }
 
 .life-overlay p {
     margin: 0;
 
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(255, 255, 255, 0.88);
 
-    font-size: 12px;
-    line-height: 1.75;
+    font-size: 11.5px !important;
+    line-height: 1.5 !important;
 }
 
 .life-overlay a {
     width: fit-content;
-    padding: 9px 15px;
+    padding: 7px 13px !important;
     margin-top: auto;
 
     border: 1px solid rgba(255, 255, 255, 0.65);
@@ -1207,7 +1207,7 @@ html.visited-session .preloader,
 
     color: #fff1bd;
 
-    font-size: 10px;
+    font-size: 9.5px !important;
     font-weight: 800;
     letter-spacing: 0.5px;
 
@@ -2763,7 +2763,7 @@ html.visited-session .preloader,
 
 @media (max-width: 750px) {
     .life-savvy {
-        padding: 70px 0;
+        padding: 36px 0 !important;
     }
 
     .life-grid {
@@ -2771,7 +2771,7 @@ html.visited-session .preloader,
     }
 
     .life-card {
-        height: 380px;
+        height: 260px !important;
     }
 
     .leadership-messages {
@@ -2823,7 +2823,7 @@ html.visited-session .preloader,
     }
 
     .life-card {
-        height: 360px;
+        height: 240px !important;
     }
 
     .news-list {
