@@ -759,11 +759,16 @@ document.addEventListener("DOMContentLoaded", () => {
       topperTrack.style.animationPlayState = "running";
     }, { passive: true });
 
-    // Step navigation buttons
+    // Step navigation buttons (steps exactly 1 card dynamically)
     if (topperPrev && topperNext) {
+      const getStep = () => {
+        const card = topperTrack.querySelector(".student-card");
+        return card ? (card.offsetWidth + (window.innerWidth <= 768 ? 20 : 28)) : 388;
+      };
+
       topperPrev.addEventListener("click", () => {
         topperTrack.style.animation = "none";
-        manualOffset += 348;
+        manualOffset += getStep();
         if (manualOffset > 0) {
           manualOffset = -(topperTrack.scrollWidth / 2);
         }
@@ -773,7 +778,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       topperNext.addEventListener("click", () => {
         topperTrack.style.animation = "none";
-        manualOffset -= 348;
+        manualOffset -= getStep();
         if (Math.abs(manualOffset) >= (topperTrack.scrollWidth / 2)) {
           manualOffset = 0;
         }
