@@ -6039,3 +6039,323 @@ html.visited-session .preloader,
         display: none;
     }
 }
+
+
+/* =========================================================
+   EMBLEM & COLOR PHILOSOPHY FLOWCHART
+========================================================= */
+
+.emblem-section {
+    background: #fffdf8;
+    padding: 55px 0 50px !important;
+    position: relative;
+}
+
+.emblem-section .section-head {
+    margin-bottom: 28px !important;
+}
+
+/* Central Emblem Hub */
+.emblem-hub-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 12px 32px rgba(113, 16, 32, 0.08);
+    padding: 26px 30px;
+    margin: 0 auto 28px;
+    max-width: 980px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+}
+
+.emblem-logo-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 135px;
+    height: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #fff7ed 0%, #ffffff 70%);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.16);
+    border: 3px solid #fef3c7;
+}
+
+.emblem-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.emblem-hub-card:hover .emblem-logo-img {
+    transform: scale(1.06) rotate(3deg);
+}
+
+.emblem-hub-content {
+    flex-grow: 1;
+}
+
+.emblem-hub-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fef3c7;
+    color: #b45309;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.emblem-hub-title {
+    font-family: var(--font-heading, "Space Grotesk", sans-serif);
+    font-size: 22px;
+    font-weight: 800;
+    color: #711020;
+    margin: 0 0 6px;
+}
+
+.emblem-hub-description {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0 0 14px;
+}
+
+.emblem-powers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.emblem-power-pill {
+    background: #fafaf9;
+    border: 1px solid #e7e5e4;
+    border-radius: 10px;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+.emblem-power-pill strong {
+    display: block;
+    font-size: 11.5px;
+    color: #711020;
+    font-weight: 800;
+}
+
+.emblem-power-pill span {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Connecting Flow Arrow below Hub */
+.emblem-flow-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.emblem-flow-line {
+    width: 2px;
+    height: 22px;
+    background: linear-gradient(to bottom, #d97706, #711020);
+}
+
+.emblem-flow-tag {
+    background: linear-gradient(135deg, #711020, #a71930);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(113, 16, 32, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 3-Column Flowchart Streams */
+.flowchart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.flowchart-stream {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 24px rgba(14, 58, 128, 0.05);
+    padding: 20px 18px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stream-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.stream-badge-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 12px;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.stream-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.stream-subtitle {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+    display: block;
+}
+
+/* Nodes & Flow Pipeline */
+.flow-nodes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flow-node-item {
+    position: relative;
+    background: #fafaf9;
+    border-radius: 14px;
+    border: 1px solid #e7e5e4;
+    padding: 13px 14px 12px 16px;
+    border-left: 5px solid var(--node-color, #711020);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.flow-node-item:hover {
+    transform: translateX(4px);
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.flow-node-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.flow-node-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flow-node-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background: var(--node-color, #711020);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.flow-node-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+}
+
+.flow-node-step {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--node-color, #711020);
+    background: rgba(0, 0, 0, 0.04);
+    padding: 2px 7px;
+    border-radius: 10px;
+}
+
+.flow-node-color-label {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--node-color, #711020);
+    margin-bottom: 3px;
+}
+
+.flow-node-desc {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #475569;
+}
+
+/* Connector arrow between flowchart nodes */
+.flow-step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14px;
+    color: #cbd5e1;
+    font-size: 11px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .flowchart-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .emblem-hub-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+        gap: 18px;
+    }
+    .emblem-powers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .emblem-section {
+        padding: 40px 0 35px !important;
+    }
+    .emblem-powers-grid {
+        grid-template-columns: 1fr;
+    }
+}
