@@ -12,7 +12,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="images/logo-web.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=3.9">
+  <link rel="stylesheet" href="css/style.css?v=4.0">
 </head>
 <body>
 
@@ -284,24 +284,24 @@
       </div>
     </section>
 
-    <!-- ESTIMATOR & TRANSPARENCY SECTION -->
+        <!-- ESTIMATOR & TRANSPARENCY SECTION -->
     <section class="section">
       <div class="container">
         
         <div class="center-heading reveal">
-          <p class="eyebrow">Interactive Planning Tool</p>
-          <h2>Calculate Your Child's Investment</h2>
-          <p>Select your child's grade, transport requirement, and applicable concessions to estimate annual fees and quarterly installments instantly.</p>
+          <p class="eyebrow">Interactive Fee Estimator</p>
+          <h2>Calculate Your Child's Academic Investment</h2>
+          <p>Official, transparent fee structure for Academic Session 2026&ndash;27 with zero hidden charges.</p>
         </div>
 
-        <div class="calculator-card reveal" style="max-width: 900px; margin: 0 auto 60px; background: #ffffff; border: 1px solid rgba(167, 25, 48, 0.15); border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.06); overflow: hidden;">
+        <div class="calculator-card reveal" style="max-width: 940px; margin: 0 auto 60px; background: #ffffff; border: 1px solid rgba(167, 25, 48, 0.15); border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.06); overflow: hidden;">
           <div style="background: linear-gradient(135deg, #a71930 0%, #871426 100%); color: white; padding: 24px 30px;">
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
               <div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; margin: 0;">Academic Session 2026&ndash;27 Estimator</h3>
-                <small style="opacity: 0.85; font-size: 12px;">Affiliated to CBSE Curriculum &bull; Rewa, Madhya Pradesh</small>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; margin: 0; color: #ffffff;">Academic Session 2026&ndash;27 Fee Calculator</h3>
+                <small style="opacity: 0.85; font-size: 12.5px;">Affiliated to CBSE Curriculum &bull; Rewa, Madhya Pradesh</small>
               </div>
-              <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Live Calculator</span>
+              <span style="background: rgba(255,255,255,0.2); padding: 5px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.5px;">Official School Rates</span>
             </div>
           </div>
 
@@ -309,82 +309,119 @@
             <!-- Form Controls -->
             <div>
               <div style="margin-bottom: 20px;">
-                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">1. Select Grade / Class</label>
-                <select id="calcGrade" class="form-control" style="width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 600; outline: none; background: #f8fafc;">
-                  <option value="preprimary">Pre-Primary (Nursery, KG-1, KG-2)</option>
-                  <option value="primary" selected>Primary Wing (Classes I to V)</option>
-                  <option value="middle">Middle School (Classes VI to VIII)</option>
-                  <option value="secondary">Secondary School (Classes IX &amp; X)</option>
-                  <option value="sr_science">Senior Secondary (Classes XI &amp; XII - Science)</option>
-                  <option value="sr_comm">Senior Secondary (Classes XI &amp; XII - Commerce/Arts)</option>
+                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">1. Select Student's Class</label>
+                <select id="calcGrade" class="form-control" style="width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 600; outline: none; background: #f8fafc; cursor: pointer;">
+                  <optgroup label="Pre-Primary Wing">
+                    <option value="nur">Nursery (Nur)</option>
+                    <option value="lkg">LKG</option>
+                    <option value="ukg">UKG</option>
+                  </optgroup>
+                  <optgroup label="Primary Wing (Classes 1st - 5th)">
+                    <option value="class1" selected>Class 1st</option>
+                    <option value="class2">Class 2nd</option>
+                    <option value="class3">Class 3rd</option>
+                    <option value="class4">Class 4th</option>
+                    <option value="class5">Class 5th</option>
+                  </optgroup>
+                  <optgroup label="Middle School (Classes 6th - 8th)">
+                    <option value="class6">Class 6th</option>
+                    <option value="class7">Class 7th</option>
+                    <option value="class8">Class 8th</option>
+                  </optgroup>
+                  <optgroup label="Secondary School (Classes 9th - 10th)">
+                    <option value="class9">Class 9th</option>
+                    <option value="class10">Class 10th</option>
+                  </optgroup>
+                  <optgroup label="Senior Secondary (Classes 11th - 12th)">
+                    <option value="class11">Class 11th</option>
+                    <option value="class12">Class 12th</option>
+                  </optgroup>
                 </select>
               </div>
 
               <div style="margin-bottom: 20px;">
-                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">2. School Transport Route</label>
-                <select id="calcTransport" class="form-control" style="width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 600; outline: none; background: #f8fafc;">
-                  <option value="0">Self Commute (No School Bus)</option>
-                  <option value="9000" selected>Zone 1 (Within 3km: Urrahat, Civil Lines, Chamadiya)</option>
-                  <option value="12000">Zone 2 (3-7km: Bodabag, University Rd, Dhekaha, Nipania)</option>
-                  <option value="15000">Zone 3 (7-15km: Silpara, Ratahara, Chorhata, Kothi Rd)</option>
+                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">2. Optional School Transport Route</label>
+                <select id="calcTransport" class="form-control" style="width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 600; outline: none; background: #f8fafc; cursor: pointer;">
+                  <option value="0" selected>Self Commute (No School Bus)</option>
+                  <option value="9000">Zone 1 (Within 3km: Urrahat, Civil Lines, Chamadiya) &bull; ₹9,000/yr</option>
+                  <option value="12000">Zone 2 (3-7km: Bodabag, University Rd, Dhekaha, Nipania) &bull; ₹12,000/yr</option>
+                  <option value="15000">Zone 3 (7-15km: Silpara, Ratahara, Chorhata, Kothi Rd) &bull; ₹15,000/yr</option>
                 </select>
               </div>
 
-              <div style="margin-bottom: 24px;">
+              <div style="margin-bottom: 20px;">
                 <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">3. Special Concessions</label>
                 <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #334155; cursor: pointer; padding: 10px 14px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px;">
                   <input type="checkbox" id="calcSibling" style="width: 18px; height: 18px; accent-color: var(--red);">
-                  <span><strong>Sibling Concession</strong> (10% discount on tuition fee)</span>
+                  <span><strong>Sibling Concession</strong> (10% discount on yearly tuition fee)</span>
                 </label>
               </div>
 
-              <div style="font-size: 12px; color: #64748b; line-height: 1.5;">
-                &bull; Includes smart classes, computer &amp; AI lab, brain science lab, and sports coaching.<br>
-                &bull; Installments are payable in 4 equal quarterly periods.
+              <div style="font-size: 12px; color: #475569; line-height: 1.6; padding: 12px 14px; background: #f8fafc; border-left: 3px solid #a71930; border-radius: 6px;">
+                <strong><i class="fa-solid fa-circle-info" style="color: #a71930;"></i> Academic Billing Terms:</strong><br>
+                &bull; Nursery to 8th: 10-month tuition fee schedule.<br>
+                &bull; Classes 9th to 12th: 12-month full session schedule.<br>
+                &bull; Exam Fee is payable across 3 assessment terms.
               </div>
             </div>
 
             <!-- Output Card -->
             <div style="background: #fafaf9; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #64748b;">Estimated Fee Summary</span>
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+                  <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #64748b;">Fee Breakdown</span>
+                  <span id="outClassBadge" style="background: #142236; color: #ffffff; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 12px;">Class 1st</span>
+                </div>
                 
-                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: #475569;">
-                  <div style="display: flex; justify-content: space-between;">
-                    <span>Admission Fee (One-Time):</span>
-                    <strong id="outAdm">₹5,000</strong>
+                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 11px; font-size: 13px; color: #475569;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Monthly Tuition Fee:</span>
+                    <strong id="outMonthly" style="color: #0f172a;">₹2,100 / mo</strong>
                   </div>
-                  <div style="display: flex; justify-content: space-between;">
-                    <span>Annual Tuition Fee:</span>
-                    <strong id="outTuition">₹24,000</strong>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <span>Total Yearly Tuition Fee:</span>
+                      <small id="outMonthsNote" style="display: block; font-size: 11px; color: #64748b;">(10 Months Session)</small>
+                    </div>
+                    <strong id="outTuition" style="color: #0f172a;">₹21,000</strong>
                   </div>
-                  <div style="display: flex; justify-content: space-between;">
-                    <span>Activity &amp; Lab Charges:</span>
-                    <strong id="outActivity">₹4,000</strong>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <span>Exam Fee (3 Terms):</span>
+                      <small id="outExamNote" style="display: block; font-size: 11px; color: #64748b;">(₹300 &times; 3 terms)</small>
+                    </div>
+                    <strong id="outExam" style="color: #0f172a;">₹900</strong>
                   </div>
-                  <div style="display: flex; justify-content: space-between;">
-                    <span>Annual Transport:</span>
-                    <strong id="outTransport">₹9,000</strong>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>School Transport (Annual):</span>
+                    <strong id="outTransport" style="color: #0f172a;">₹0</strong>
                   </div>
-                  <div style="display: flex; justify-content: space-between; color: #16a34a;" id="rowDiscount">
+                  <div style="display: none; justify-content: space-between; align-items: center; color: #16a34a;" id="rowDiscount">
                     <span>Sibling Concession (10%):</span>
-                    <strong id="outDiscount">-₹2,400</strong>
+                    <strong id="outDiscount">-₹2,100</strong>
                   </div>
                 </div>
 
-                <div style="margin-top: 18px; padding-top: 14px; border-top: 2px dashed #e2e8f0;">
+                <div style="border-top: 2px dashed #cbd5e1; margin-top: 16px; padding-top: 14px;">
                   <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                    <span style="font-size: 14px; font-weight: 800; color: #0f172a;">Total Annual Fee:</span>
-                    <strong style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--red);" id="outTotal">₹39,600</strong>
+                    <span style="font-size: 14px; font-weight: 800; color: #0f172a;">Total Annual Investment:</span>
+                    <strong style="font-size: 24px; color: var(--red); font-weight: 800;" id="outTotal">₹21,900</strong>
                   </div>
-                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px;">
-                    <span style="font-size: 12px; color: #64748b;">Quarterly Installment (x4):</span>
-                    <strong style="font-size: 15px; color: #0f172a;" id="outQuarterly">₹8,650 / Qtr</strong>
+                  
+                  <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12.5px; background: #ffffff; padding: 10px 14px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <div>
+                      <span style="font-size: 11px; color: #64748b; display: block;">Quarterly Installment (x4):</span>
+                      <strong style="font-size: 14px; color: #0f172a;" id="outQuarterly">₹5,475 / Qtr</strong>
+                    </div>
+                    <div style="text-align: right; border-left: 1px solid #e2e8f0; padding-left: 14px;">
+                      <span style="font-size: 11px; color: #64748b; display: block;">Monthly Tuition:</span>
+                      <strong style="font-size: 14px; color: #0f172a;" id="outMonthlySub">₹2,100 / Mo</strong>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div style="margin-top: 22px;">
+              <div style="margin-top: 20px;">
                 <a href="admission-form.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 12px; border-radius: 10px; font-size: 13.5px; font-weight: 700; text-decoration: none;">Proceed to Online Admission Form &rarr;</a>
               </div>
             </div>
@@ -393,70 +430,162 @@
 
         <!-- GRADE-WISE COMPLETE TABLE -->
         <div class="center-heading reveal">
-          <p class="eyebrow">Comprehensive Schedule</p>
+          <p class="eyebrow">Comprehensive Official Table</p>
           <h2>Class-Wise Official Fee Structure (2026&ndash;27)</h2>
+          <p>Official approved fee schedule across all 15 grades from Nursery to Class 12th.</p>
+        </div>
+
+        <!-- Important Official Note Banner -->
+        <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 14px;" class="reveal">
+          <div style="color: #2563eb; font-size: 22px; margin-top: 2px;"><i class="fa-solid fa-circle-info"></i></div>
+          <div style="font-size: 13.5px; color: #1e3a8a; line-height: 1.6;">
+            <strong>Official Schedule Clarifications:</strong><br>
+            &bull; <strong>Tuition Fee Period:</strong> Nursery to Class 8th is calculated on a <strong>10-month session</strong> basis. Classes 9th to 12th are calculated on a <strong>12-month full session</strong> basis.<br>
+            &bull; <strong>Exam Fee:</strong> ₹200&times;3 for Nursery–UKG, ₹300&times;3 for 1st–5th, and ₹350&times;3 for 6th–12th. Note that exam fees are charged separately across the 3 assessment terms and are <strong>not included in the base yearly tuition fee</strong> (<em>"350&times;3 include नहीं है"</em>).
+          </div>
         </div>
 
         <div style="overflow-x: auto; margin-bottom: 50px;" class="reveal">
-          <table style="width: 100%; border-collapse: collapse; background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); font-size: 13.5px;">
+          <table style="width: 100%; border-collapse: collapse; background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); font-size: 13.5px; min-width: 720px;">
             <thead>
               <tr style="background: #142236; color: #ffffff; text-align: left;">
-                <th style="padding: 16px 20px;">Grade Level</th>
-                <th style="padding: 16px;">Admission (One-Time)</th>
-                <th style="padding: 16px;">Annual Tuition</th>
-                <th style="padding: 16px;">Lab &amp; Smart Class</th>
-                <th style="padding: 16px;">Total Annual (Excl. Bus)</th>
-                <th style="padding: 16px;">Quarterly Installment</th>
+                <th style="padding: 16px 20px;">Class</th>
+                <th style="padding: 16px; text-align: right;">Tuition FEE<br><small style="font-weight: normal; opacity: 0.8;">(Monthly)</small></th>
+                <th style="padding: 16px; text-align: center;">Exam FEE<br><small style="font-weight: normal; opacity: 0.8;">(3 Terms)</small></th>
+                <th style="padding: 16px; text-align: right;">Total Yearly FEE<br><small style="font-weight: normal; opacity: 0.8;">(Tuition Base)</small></th>
+                <th style="padding: 16px; text-align: right;">Total Annual<br><small style="font-weight: normal; opacity: 0.8;">(Tuition + Exam)</small></th>
+                <th style="padding: 16px; text-align: center;">Installment Plan<br><small style="font-weight: normal; opacity: 0.8;">(Quarterly / Mo)</small></th>
               </tr>
             </thead>
             <tbody>
+              <!-- Pre-Primary -->
               <tr style="border-bottom: 1px solid #f1f5f9;">
-                <td style="padding: 16px 20px;"><strong>Pre-Primary</strong> (Nursery &bull; KG-1 &bull; KG-2)</td>
-                <td style="padding: 16px;">₹4,000</td>
-                <td style="padding: 16px;">₹18,000</td>
-                <td style="padding: 16px;">₹3,000</td>
-                <td style="padding: 16px; font-weight: 800; color: var(--red);">₹25,000</td>
-                <td style="padding: 16px;">₹5,250 / Qtr</td>
+                <td style="padding: 14px 20px;"><strong>Nur</strong> <span style="font-size: 11px; background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Pre-Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹1,500</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">200&times;3 <small>(₹600)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹15,000</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹15,600</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹3,900 / Qtr &bull; ₹1,500/mo</td>
               </tr>
               <tr style="border-bottom: 1px solid #f1f5f9; background: #fdfcf9;">
-                <td style="padding: 16px 20px;"><strong>Primary Wing</strong> (Classes I to V)</td>
-                <td style="padding: 16px;">₹5,000</td>
-                <td style="padding: 16px;">₹24,000</td>
-                <td style="padding: 16px;">₹4,000</td>
-                <td style="padding: 16px; font-weight: 800; color: var(--red);">₹33,000</td>
-                <td style="padding: 16px;">₹7,000 / Qtr</td>
+                <td style="padding: 14px 20px;"><strong>LKG</strong> <span style="font-size: 11px; background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Pre-Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹1,710</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">200&times;3 <small>(₹600)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹17,100</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹17,700</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹4,425 / Qtr &bull; ₹1,710/mo</td>
               </tr>
               <tr style="border-bottom: 1px solid #f1f5f9;">
-                <td style="padding: 16px 20px;"><strong>Middle School</strong> (Classes VI to VIII)</td>
-                <td style="padding: 16px;">₹5,000</td>
-                <td style="padding: 16px;">₹28,000</td>
-                <td style="padding: 16px;">₹4,500</td>
-                <td style="padding: 16px; font-weight: 800; color: var(--red);">₹37,500</td>
-                <td style="padding: 16px;">₹8,125 / Qtr</td>
+                <td style="padding: 14px 20px;"><strong>UKG</strong> <span style="font-size: 11px; background: #fef3c7; color: #92400e; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Pre-Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹1,710</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">200&times;3 <small>(₹600)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹17,100</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹17,700</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹4,425 / Qtr &bull; ₹1,710/mo</td>
+              </tr>
+
+              <!-- Primary Wing 1st to 5th -->
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fdfcf9;">
+                <td style="padding: 14px 20px;"><strong>1<sup>st</sup></strong> <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,100</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">300&times;3 <small>(₹900)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹21,000</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹21,900</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹5,475 / Qtr &bull; ₹2,100/mo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px;"><strong>2<sup>nd</sup></strong> <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,100</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">300&times;3 <small>(₹900)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹21,000</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹21,900</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹5,475 / Qtr &bull; ₹2,100/mo</td>
               </tr>
               <tr style="border-bottom: 1px solid #f1f5f9; background: #fdfcf9;">
-                <td style="padding: 16px 20px;"><strong>Secondary School</strong> (Classes IX &amp; X)</td>
-                <td style="padding: 16px;">₹6,000</td>
-                <td style="padding: 16px;">₹34,000</td>
-                <td style="padding: 16px;">₹5,000</td>
-                <td style="padding: 16px; font-weight: 800; color: var(--red);">₹45,000</td>
-                <td style="padding: 16px;">₹9,750 / Qtr</td>
+                <td style="padding: 14px 20px;"><strong>3<sup>rd</sup></strong> <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,100</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">300&times;3 <small>(₹900)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹21,000</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹21,900</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹5,475 / Qtr &bull; ₹2,100/mo</td>
               </tr>
               <tr style="border-bottom: 1px solid #f1f5f9;">
-                <td style="padding: 16px 20px;"><strong>Senior Secondary Science</strong> (Class XI &amp; XII - PCM/PCB)</td>
-                <td style="padding: 16px;">₹6,000</td>
-                <td style="padding: 16px;">₹42,000</td>
-                <td style="padding: 16px;">₹6,500</td>
-                <td style="padding: 16px; font-weight: 800; color: var(--red);">₹54,500</td>
-                <td style="padding: 16px;">₹12,125 / Qtr</td>
+                <td style="padding: 14px 20px;"><strong>4<sup>th</sup></strong> <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,100</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">300&times;3 <small>(₹900)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹21,000</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹21,900</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹5,475 / Qtr &bull; ₹2,100/mo</td>
               </tr>
-              <tr style="background: #fdfcf9;">
-                <td style="padding: 16px 20px;"><strong>Senior Secondary Commerce / Arts</strong> (Class XI &amp; XII)</td>
-                <td style="padding: 16px;">₹6,000</td>
-                <td style="padding: 16px;">₹38,000</td>
-                <td style="padding: 16px;">₹5,000</td>
-                <td style="padding: 16px; font-weight: 800; color: var(--red);">₹49,000</td>
-                <td style="padding: 16px;">₹10,750 / Qtr</td>
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fdfcf9;">
+                <td style="padding: 14px 20px;"><strong>5<sup>th</sup></strong> <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Primary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,100</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">300&times;3 <small>(₹900)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹21,000</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹21,900</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹5,475 / Qtr &bull; ₹2,100/mo</td>
+              </tr>
+
+              <!-- Middle School 6th to 8th -->
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px;"><strong>6<sup>th</sup></strong> <span style="font-size: 11px; background: #f3e8ff; color: #7e22ce; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Middle</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,235</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">350&times;3 <small>(₹1,050)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹22,350</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹23,400</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹5,850 / Qtr &bull; ₹2,235/mo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fdfcf9;">
+                <td style="padding: 14px 20px;"><strong>7<sup>th</sup></strong> <span style="font-size: 11px; background: #f3e8ff; color: #7e22ce; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Middle</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,365</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">350&times;3 <small>(₹1,050)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹23,650</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹24,700</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹6,175 / Qtr &bull; ₹2,365/mo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px;"><strong>8<sup>th</sup></strong> <span style="font-size: 11px; background: #f3e8ff; color: #7e22ce; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Middle</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,500</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">350&times;3 <small>(₹1,050)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹25,000</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹26,050</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹6,513 / Qtr &bull; ₹2,500/mo</td>
+              </tr>
+
+              <!-- Secondary 9th and 10th -->
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fdfcf9;">
+                <td style="padding: 14px 20px;"><strong>9<sup>th</sup></strong> <span style="font-size: 11px; background: #dcfce7; color: #15803d; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Secondary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,635</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">350&times;3 <small>(₹1,050)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹31,620</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹32,670</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹8,168 / Qtr &bull; ₹2,635/mo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f1f5f9;">
+                <td style="padding: 14px 20px;"><strong>10<sup>th</sup></strong> <span style="font-size: 11px; background: #dcfce7; color: #15803d; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Secondary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,765</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">350&times;3 <small>(₹1,050)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹33,180</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹34,230</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹8,558 / Qtr &bull; ₹2,765/mo</td>
+              </tr>
+
+              <!-- Senior Secondary 11th and 12th -->
+              <tr style="border-bottom: 1px solid #f1f5f9; background: #fdfcf9;">
+                <td style="padding: 14px 20px;"><strong>11<sup>th</sup></strong> <span style="font-size: 11px; background: #ffedd5; color: #c2410c; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Sr. Secondary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,945</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">350&times;3 <small>(₹1,050)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹35,340</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹36,390</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹9,098 / Qtr &bull; ₹2,945/mo</td>
+              </tr>
+              <tr style="background: #ffffff;">
+                <td style="padding: 14px 20px;"><strong>12<sup>th</sup></strong> <span style="font-size: 11px; background: #ffedd5; color: #c2410c; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">Sr. Secondary</span></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700;">₹2,945</td>
+                <td style="padding: 14px 16px; text-align: center; color: #64748b;">350&times;3 <small>(₹1,050)</small></td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 700; color: #0f172a;">₹35,340</td>
+                <td style="padding: 14px 16px; text-align: right; font-weight: 800; color: var(--red);">₹36,390</td>
+                <td style="padding: 14px 16px; text-align: center; font-size: 12.5px; color: #334155;">₹9,098 / Qtr &bull; ₹2,945/mo</td>
               </tr>
             </tbody>
           </table>
@@ -498,15 +627,24 @@
     </section>
   </main>
 
-  <script>
-    // Estimator Logic
+    <script>
+    // Official Fee Structure Rates (Session 2026-27)
     const rates = {
-      preprimary: { adm: 4000, tuition: 18000, activity: 3000 },
-      primary: { adm: 5000, tuition: 24000, activity: 4000 },
-      middle: { adm: 5000, tuition: 28000, activity: 4500 },
-      secondary: { adm: 6000, tuition: 34000, activity: 5000 },
-      sr_science: { adm: 6000, tuition: 42000, activity: 6500 },
-      sr_comm: { adm: 6000, tuition: 38000, activity: 5000 }
+      nur:     { name: "Nursery",   monthly: 1500, months: 10, tuition: 15000, examPerTerm: 200, examTotal: 600 },
+      lkg:     { name: "LKG",       monthly: 1710, months: 10, tuition: 17100, examPerTerm: 200, examTotal: 600 },
+      ukg:     { name: "UKG",       monthly: 1710, months: 10, tuition: 17100, examPerTerm: 200, examTotal: 600 },
+      class1:  { name: "Class 1st", monthly: 2100, months: 10, tuition: 21000, examPerTerm: 300, examTotal: 900 },
+      class2:  { name: "Class 2nd", monthly: 2100, months: 10, tuition: 21000, examPerTerm: 300, examTotal: 900 },
+      class3:  { name: "Class 3rd", monthly: 2100, months: 10, tuition: 21000, examPerTerm: 300, examTotal: 900 },
+      class4:  { name: "Class 4th", monthly: 2100, months: 10, tuition: 21000, examPerTerm: 300, examTotal: 900 },
+      class5:  { name: "Class 5th", monthly: 2100, months: 10, tuition: 21000, examPerTerm: 300, examTotal: 900 },
+      class6:  { name: "Class 6th", monthly: 2235, months: 10, tuition: 22350, examPerTerm: 350, examTotal: 1050 },
+      class7:  { name: "Class 7th", monthly: 2365, months: 10, tuition: 23650, examPerTerm: 350, examTotal: 1050 },
+      class8:  { name: "Class 8th", monthly: 2500, months: 10, tuition: 25000, examPerTerm: 350, examTotal: 1050 },
+      class9:  { name: "Class 9th", monthly: 2635, months: 12, tuition: 31620, examPerTerm: 350, examTotal: 1050 },
+      class10: { name: "Class 10th",monthly: 2765, months: 12, tuition: 33180, examPerTerm: 350, examTotal: 1050 },
+      class11: { name: "Class 11th",monthly: 2945, months: 12, tuition: 35340, examPerTerm: 350, examTotal: 1050 },
+      class12: { name: "Class 12th",monthly: 2945, months: 12, tuition: 35340, examPerTerm: 350, examTotal: 1050 }
     };
 
     function updateEstimate() {
@@ -514,26 +652,32 @@
       const bus = Number(document.getElementById("calcTransport").value);
       const isSibling = document.getElementById("calcSibling").checked;
 
-      const r = rates[grade];
+      const r = rates[grade] || rates.class1;
       const discount = isSibling ? Math.round(r.tuition * 0.10) : 0;
-      const total = r.adm + r.tuition + r.activity + bus - discount;
-      const quarterly = Math.round((r.tuition + r.activity + bus - discount) / 4);
+      const total = r.tuition + r.examTotal + bus - discount;
+      const quarterly = Math.round(total / 4);
 
-      document.getElementById("outAdm").textContent = "₹" + r.adm.toLocaleString();
-      document.getElementById("outTuition").textContent = "₹" + r.tuition.toLocaleString();
-      document.getElementById("outActivity").textContent = "₹" + r.activity.toLocaleString();
-      document.getElementById("outTransport").textContent = "₹" + bus.toLocaleString();
+      document.getElementById("outClassBadge").textContent = r.name;
+      document.getElementById("outMonthly").textContent = "₹" + r.monthly.toLocaleString("en-IN") + " / mo";
+      document.getElementById("outTuition").textContent = "₹" + r.tuition.toLocaleString("en-IN");
+      document.getElementById("outMonthsNote").textContent = "(" + r.months + " Months Session)";
+      
+      document.getElementById("outExam").textContent = "₹" + r.examTotal.toLocaleString("en-IN");
+      document.getElementById("outExamNote").textContent = "(₹" + r.examPerTerm + " × 3 terms)";
+      
+      document.getElementById("outTransport").textContent = "₹" + bus.toLocaleString("en-IN");
       
       const rowDisc = document.getElementById("rowDiscount");
       if (isSibling) {
         rowDisc.style.display = "flex";
-        document.getElementById("outDiscount").textContent = "-₹" + discount.toLocaleString();
+        document.getElementById("outDiscount").textContent = "-₹" + discount.toLocaleString("en-IN");
       } else {
         rowDisc.style.display = "none";
       }
 
-      document.getElementById("outTotal").textContent = "₹" + total.toLocaleString();
-      document.getElementById("outQuarterly").textContent = "₹" + quarterly.toLocaleString() + " / Qtr";
+      document.getElementById("outTotal").textContent = "₹" + total.toLocaleString("en-IN");
+      document.getElementById("outQuarterly").textContent = "₹" + quarterly.toLocaleString("en-IN") + " / Qtr";
+      document.getElementById("outMonthlySub").textContent = "₹" + r.monthly.toLocaleString("en-IN") + " / Mo";
     }
 
     document.getElementById("calcGrade").addEventListener("change", updateEstimate);
@@ -860,6 +1004,6 @@
   </aside>
 
 
-  <script src="js/script.js?v=3.9"></script>
+  <script src="js/script.js?v=4.0"></script>
 </body>
 </html>
