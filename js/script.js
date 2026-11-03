@@ -897,4 +897,298 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  /* =========================================================
+     SCHOOL MANAGEMENT ERP INTEGRATION
+     - Connects online admission, inquiry, and contact forms
+     - Injects portal login actions into navigation
+  ========================================================= */
+  try {
+    const config = window.SAVVY_ERP_CONFIG || {};
+    const API_BASE_URL =
+      config.apiBaseUrl ||
+      window.SAVVY_FORM_ENDPOINT ||
+      "https://savvy-school-management-backend.onrender.com/api";
+    const LOGIN_URL =
+      config.loginUrl ||
+      window.SCHOOL_MANAGEMENT_LOGIN_URL ||
+      "https://savvy-school-management-dashboard.vercel.app/login";
+
+    // 1. Inject Styles for Navigation Login Links
+    if (!document.getElementById("savvy-erp-nav-styles")) {
+      const style = document.createElement("style");
+      style.id = "savvy-erp-nav-styles";
+      style.textContent = `
+        .erp-nav-divider {
+          height: 1px;
+          margin: 8px 6px;
+          background: rgba(167, 25, 48, 0.15);
+        }
+        .erp-portal-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          padding: 4px 0 2px 0;
+        }
+        .erp-portal-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 9px 14px;
+          border-radius: 8px;
+          font-family: 'Manrope', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          text-decoration: none;
+          color: #ffffff !important;
+          background: linear-gradient(135deg, #a71930, #711020);
+          box-shadow: 0 4px 14px rgba(167, 25, 48, 0.25);
+          transition: all 0.22s ease;
+        }
+        .erp-portal-link:hover {
+          background: linear-gradient(135deg, #c62b45, #8a1327);
+          transform: translateY(-1px);
+          box-shadow: 0 6px 18px rgba(167, 25, 48, 0.35);
+        }
+        .erp-portal-link.secondary {
+          background: #fffdf8;
+          color: #711020 !important;
+          border: 1.5px solid #a71930;
+          box-shadow: none;
+        }
+        .erp-portal-link.secondary:hover {
+          background: #fff1bd;
+          color: #711020 !important;
+        }
+        .erp-submitting {
+          opacity: 0.65;
+          pointer-events: none;
+          cursor: wait !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // 2. Inject Portal Login links into Navigation
+    const portalMenus = document.querySelectorAll(
+      ".portal-dropdown-menu, .nav-portal-dropdown .nav-dropdown-menu, .nav-parent-dropdown"
+    );
+    portalMenus.forEach((menu) => {
+      if (menu.querySelector(".erp-portal-actions")) return;
+
+      const divider = document.createElement("div");
+      divider.className = "erp-nav-divider";
+      menu.appendChild(divider);
+
+      const actionWrap = document.createElement("div");
+      actionWrap.className = "erp-portal-actions";
+
+      const staffLink = document.createElement("a");
+      staffLink.className = "erp-portal-link";
+      staffLink.href = LOGIN_URL;
+      staffLink.target = "_blank";
+      staffLink.rel = "noopener noreferrer";
+      staffLink.innerHTML = `<i class="fa-solid fa-lock"></i> Admin / Staff Login`;
+
+      const studentLink = document.createElement("a");
+      studentLink.className = "erp-portal-link secondary";
+      studentLink.href = LOGIN_URL;
+      studentLink.target = "_blank";
+      studentLink.rel = "noopener noreferrer";
+      studentLink.innerHTML = `<i class="fa-solid fa-graduation-cap"></i> Student & Parent Portal`;
+
+      actionWrap.appendChild(staffLink);
+      actionWrap.appendChild(studentLink);
+      menu.appendChild(actionWrap);
+    });
+
+    // 3. Helper to Post Lead to API
+    async function submitLead(leadData) {
+      const endpoint = `${API_BASE_URL.replace(/\/+$/, "")}/website-leads`;
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(leadData),
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return await response.json();
+      } catch (err) {
+        console.warn("ERP lead notice:", err.message);
+        return { success: false, offline: true };
+      }
+    }
+
+    // 4. Hook Online Admission Form
+    const admForm = document.getElementById("onlineAdmissionForm");
+    if (admForm && !admForm.dataset.erpBound) {
+      admForm.dataset.erpBound = "true";
+      admForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const btn = admForm.querySelector('button[type="submit"]');
+        const origText = btn ? btn.innerHTML : "";
+        if (btn) {
+          btn.classList.add("erp-submitting");
+          btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Submitting Application...`;
+        }
+
+        const inputs = admForm.querySelectorAll("input, select, textarea");
+        const payload = {};
+        inputs.forEach((input) => {
+          const key =
+            input.name ||
+            input.id ||
+            input.getAttribute("placeholder") ||
+            input.previousElementSibling?.textContent?.trim() ||
+            "field_" + Math.random().toString(36).slice(2, 6);
+          if (input.value) payload[key] = input.value.trim();
+        });
+
+        const childName =
+          admForm.querySelector('input[placeholder*="Aarav Sharma"]')?.value?.trim() ||
+          payload["Student's Full Name *"] || "";
+        const fatherName =
+          admForm.querySelector('input[placeholder*="Rajesh Sharma"]')?.value?.trim() ||
+          payload["Father's Name *"] || "";
+        const motherName =
+          admForm.querySelector('input[placeholder*="Sunita Sharma"]')?.value?.trim() ||
+          payload["Mother's Name *"] || "";
+        const phone =
+          admForm.querySelector('input[type="tel"]')?.value?.trim() ||
+          payload["Primary Contact Mobile (WhatsApp) *"] || "";
+        const email =
+          admForm.querySelector('input[type="email"]')?.value?.trim() ||
+          payload["Email Address *"] || "";
+        const classSelect = admForm.querySelector("select");
+        const className = classSelect ? classSelect.value : "";
+
+        await submitLead({
+          source: "savvy-mother-school-rewa",
+          formType: "admission",
+          childName,
+          parentName: fatherName || motherName,
+          className,
+          phone,
+          email,
+          subject: `Online Admission Application: ${childName} (${className})`,
+          payload: {
+            ...payload,
+            fatherName,
+            motherName,
+            submissionDate: new Date().toISOString(),
+          },
+        });
+
+        const successMsg = document.getElementById("admSuccessMsg");
+        if (successMsg) {
+          successMsg.style.display = "block";
+          window.scrollTo({
+            top: successMsg.offsetTop - 120,
+            behavior: "smooth",
+          });
+        }
+        admForm.reset();
+        if (btn) {
+          btn.classList.remove("erp-submitting");
+          btn.innerHTML = origText;
+        }
+      });
+    }
+
+    // 5. Hook Inquiry Form
+    const inqForm = document.getElementById("inquiryForm");
+    if (inqForm && !inqForm.dataset.erpBound) {
+      inqForm.dataset.erpBound = "true";
+      inqForm.removeAttribute("onsubmit");
+      inqForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const btn = inqForm.querySelector('button[type="submit"]');
+        const origText = btn ? btn.innerHTML : "";
+        if (btn) {
+          btn.classList.add("erp-submitting");
+          btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Submitting Inquiry...`;
+        }
+
+        const childName = document.getElementById("childName")?.value?.trim() || "";
+        const parentName = document.getElementById("parentName")?.value?.trim() || "";
+        const phone = document.getElementById("phone")?.value?.trim() || "";
+        const email = document.getElementById("email")?.value?.trim() || "";
+        const grade = document.getElementById("grade")?.value || "";
+        const message = document.getElementById("message")?.value?.trim() || "";
+
+        await submitLead({
+          source: "savvy-mother-school-rewa",
+          formType: "enquiry",
+          childName,
+          parentName,
+          className: grade,
+          phone,
+          email,
+          message,
+          subject: `Campus Inquiry: ${childName || parentName} (${grade || "General"})`,
+          payload: { childName, parentName, phone, email, grade, message },
+        });
+
+        const successMsg =
+          document.getElementById("successMessage") ||
+          document.getElementById("inquirySuccess");
+        if (successMsg) successMsg.style.display = "block";
+
+        inqForm.reset();
+        if (btn) {
+          btn.classList.remove("erp-submitting");
+          btn.innerHTML = origText;
+        }
+      });
+    }
+
+    // 6. Hook Contact Form
+    const cntForm = document.getElementById("contactForm");
+    if (cntForm && !cntForm.dataset.erpBound) {
+      cntForm.dataset.erpBound = "true";
+      cntForm.removeAttribute("onsubmit");
+      cntForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const btn = cntForm.querySelector('button[type="submit"]');
+        const origText = btn ? btn.innerHTML : "";
+        if (btn) {
+          btn.classList.add("erp-submitting");
+          btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Sending Message...`;
+        }
+
+        const name = document.getElementById("cName")?.value?.trim() || "";
+        const email = document.getElementById("cEmail")?.value?.trim() || "";
+        const phone = document.getElementById("cPhone")?.value?.trim() || "";
+        const subject = document.getElementById("cSubject")?.value?.trim() || "";
+        const message = document.getElementById("cMessage")?.value?.trim() || "";
+
+        await submitLead({
+          source: "savvy-mother-school-rewa",
+          formType: "contact",
+          parentName: name,
+          phone,
+          email,
+          subject: subject || `Website Contact: ${name}`,
+          message,
+          payload: { name, email, phone, subject, message },
+        });
+
+        const successMsg = document.getElementById("contactSuccess");
+        if (successMsg) successMsg.style.display = "block";
+
+        cntForm.reset();
+        if (btn) {
+          btn.classList.remove("erp-submitting");
+          btn.innerHTML = origText;
+        }
+      });
+    }
+  } catch (err) {
+    console.warn("ERP integration initialization note:", err);
+  }
+
 });

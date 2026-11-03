@@ -12,7 +12,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="images/logo-web.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=4.0">
+  <link rel="stylesheet" href="css/style.css?v=4.1">
 </head>
 <body>
 
@@ -308,7 +308,7 @@
           <div style="padding: 30px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px;" class="calc-grid">
             <!-- Form Controls -->
             <div>
-              <div style="margin-bottom: 20px;">
+              <div style="margin-bottom: 18px;">
                 <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">1. Select Student's Class</label>
                 <select id="calcGrade" class="form-control" style="width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 600; outline: none; background: #f8fafc; cursor: pointer;">
                   <optgroup label="Pre-Primary Wing">
@@ -339,8 +339,37 @@
                 </select>
               </div>
 
-              <div style="margin-bottom: 20px;">
-                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">2. Optional School Transport Route</label>
+              <div style="margin-bottom: 18px;">
+                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">2. Student Admission Status</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 10px 14px; background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; cursor: pointer;">
+                    <input type="radio" name="studentStatus" value="new" id="statusNew" checked style="accent-color: var(--red);">
+                    <span><strong>New Student</strong></span>
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 10px 14px; background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; cursor: pointer;">
+                    <input type="radio" name="studentStatus" value="old" id="statusOld" style="accent-color: var(--red);">
+                    <span><strong>Old Student</strong></span>
+                  </label>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 18px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+                  <label style="font-size: 13px; font-weight: 700; color: #1e293b;">3. Optional Skill Coaching Program</label>
+                  <span style="font-size: 11px; background: #fef3c7; color: #92400e; font-weight: 700; padding: 2px 7px; border-radius: 4px;">Choice Based</span>
+                </div>
+                <select id="calcCoaching" class="form-control" style="width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 13.5px; font-weight: 600; outline: none; background: #f8fafc; cursor: pointer;">
+                  <option value="none" selected>None (Regular Academic Curriculum Only)</option>
+                  <option value="combo">Multiple Coaching Classes Package (₹10,000 / yr)</option>
+                  <option value="brain">Brain Science (Brain Activation) &bull; ₹500/mo (New) | ₹300/mo (Old)</option>
+                  <option value="abacus">Abacus Coaching Class &bull; ₹500/mo (New) | ₹300/mo (Old)</option>
+                  <option value="datascience">Data Science Coaching Class &bull; ₹500/mo (New) | ₹300/mo (Old)</option>
+                  <option value="spoken">Spoken English &bull; ₹500/mo (New) | ₹300/mo (Old)</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 18px;">
+                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">4. Optional School Transport Route</label>
                 <select id="calcTransport" class="form-control" style="width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 600; outline: none; background: #f8fafc; cursor: pointer;">
                   <option value="0" selected>Self Commute (No School Bus)</option>
                   <option value="9000">Zone 1 (Within 3km: Urrahat, Civil Lines, Chamadiya) &bull; ₹9,000/yr</option>
@@ -349,19 +378,26 @@
                 </select>
               </div>
 
-              <div style="margin-bottom: 20px;">
-                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">3. Special Concessions</label>
-                <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #334155; cursor: pointer; padding: 10px 14px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px;">
-                  <input type="checkbox" id="calcSibling" style="width: 18px; height: 18px; accent-color: var(--red);">
-                  <span><strong>Sibling Concession</strong> (10% discount on yearly tuition fee)</span>
-                </label>
+              <div style="margin-bottom: 18px;">
+                <label style="display: block; font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">5. Special Concessions &amp; Discounts</label>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #334155; cursor: pointer; padding: 10px 14px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px;">
+                    <input type="checkbox" id="calcSibling" style="width: 18px; height: 18px; accent-color: var(--red);">
+                    <span><strong>Sibling Concession</strong> (10% discount on yearly tuition fee)</span>
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #334155; cursor: pointer; padding: 10px 14px; background: #fef2f2; border: 1px dashed #f87171; border-radius: 8px;">
+                    <input type="checkbox" id="calcArmy" style="width: 18px; height: 18px; accent-color: var(--red);">
+                    <span><strong style="color: #991b1b;"><i class="fa-solid fa-medal"></i> Special Discount for Army Persons</strong> (10% defense concession on tuition)</span>
+                  </label>
+                </div>
               </div>
 
               <div style="font-size: 12px; color: #475569; line-height: 1.6; padding: 12px 14px; background: #f8fafc; border-left: 3px solid #a71930; border-radius: 6px;">
-                <strong><i class="fa-solid fa-circle-info" style="color: #a71930;"></i> Academic Billing Terms:</strong><br>
-                &bull; Nursery to 8th: 10-month tuition fee schedule.<br>
-                &bull; Classes 9th to 12th: 12-month full session schedule.<br>
-                &bull; Exam Fee is payable across 3 assessment terms.
+                <strong><i class="fa-solid fa-circle-info" style="color: #a71930;"></i> Academic Billing Terms &amp; Policies:</strong><br>
+                &bull; <strong>Tuition Schedule:</strong> Nursery to 8th (10 months) &bull; Classes 9th to 12th (12 months full session).<br>
+                &bull; <strong>I-Card Charges:</strong> ₹100 mandatory for all students.<br>
+                &bull; <strong>Optional Coaching:</strong> These classes will be as per your choice.<br>
+                &bull; <strong>Paid On Time:</strong> Late fee of <strong>₹10 / day</strong> will be charged if fee is delayed after due date.
               </div>
             </div>
 
@@ -370,7 +406,10 @@
               <div>
                 <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
                   <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #64748b;">Fee Breakdown</span>
-                  <span id="outClassBadge" style="background: #142236; color: #ffffff; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 12px;">Class 1st</span>
+                  <div style="display: flex; gap: 6px; align-items: center;">
+                    <span id="outStudentBadge" style="background: #e2e8f0; color: #334155; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px;">New Student</span>
+                    <span id="outClassBadge" style="background: #142236; color: #ffffff; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 12px;">Class 1st</span>
+                  </div>
                 </div>
                 
                 <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 11px; font-size: 13px; color: #475569;">
@@ -393,6 +432,20 @@
                     <strong id="outExam" style="color: #0f172a;">₹900</strong>
                   </div>
                   <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <span>Student I-Card Charges:</span>
+                      <small style="display: block; font-size: 11px; color: #64748b;">(RFID Smart Card &bull; For All)</small>
+                    </div>
+                    <strong style="color: #0f172a;">₹100</strong>
+                  </div>
+                  <div style="display: none; justify-content: space-between; align-items: center; color: #0284c7;" id="rowCoaching">
+                    <div>
+                      <span id="outCoachingName">Coaching Program:</span>
+                      <small id="outCoachingNote" style="display: block; font-size: 11px; color: #64748b;">(Optional Choice)</small>
+                    </div>
+                    <strong id="outCoaching">₹0</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
                     <span>School Transport (Annual):</span>
                     <strong id="outTransport" style="color: #0f172a;">₹0</strong>
                   </div>
@@ -400,18 +453,22 @@
                     <span>Sibling Concession (10%):</span>
                     <strong id="outDiscount">-₹2,100</strong>
                   </div>
+                  <div style="display: none; justify-content: space-between; align-items: center; color: #991b1b;" id="rowArmyDiscount">
+                    <span><i class="fa-solid fa-medal"></i> Army Concession (10%):</span>
+                    <strong id="outArmyDiscount">-₹2,100</strong>
+                  </div>
                 </div>
 
                 <div style="border-top: 2px dashed #cbd5e1; margin-top: 16px; padding-top: 14px;">
                   <div style="display: flex; justify-content: space-between; align-items: baseline;">
                     <span style="font-size: 14px; font-weight: 800; color: #0f172a;">Total Annual Investment:</span>
-                    <strong style="font-size: 24px; color: var(--red); font-weight: 800;" id="outTotal">₹21,900</strong>
+                    <strong style="font-size: 24px; color: var(--red); font-weight: 800;" id="outTotal">₹22,000</strong>
                   </div>
                   
                   <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 12.5px; background: #ffffff; padding: 10px 14px; border-radius: 8px; border: 1px solid #e2e8f0;">
                     <div>
                       <span style="font-size: 11px; color: #64748b; display: block;">Quarterly Installment (x4):</span>
-                      <strong style="font-size: 14px; color: #0f172a;" id="outQuarterly">₹5,475 / Qtr</strong>
+                      <strong style="font-size: 14px; color: #0f172a;" id="outQuarterly">₹5,500 / Qtr</strong>
                     </div>
                     <div style="text-align: right; border-left: 1px solid #e2e8f0; padding-left: 14px;">
                       <span style="font-size: 11px; color: #64748b; display: block;">Monthly Tuition:</span>
@@ -427,6 +484,7 @@
             </div>
           </div>
         </div>
+
 
         <!-- GRADE-WISE COMPLETE TABLE -->
         <div class="center-heading reveal">
@@ -591,6 +649,212 @@
           </table>
         </div>
 
+        
+        <!-- SPECIALIZED SKILL COACHING & INNOVATION LAB FEE SCHEDULE -->
+        <div id="coaching-fees" style="margin-top: 60px; margin-bottom: 60px;" class="reveal">
+          
+          <div class="center-heading" style="margin-bottom: 30px;">
+            <p class="eyebrow" style="color: var(--red); font-weight: 700; letter-spacing: 1px;">Optional Add-On Programs</p>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; color: #0f172a; margin-bottom: 12px;">Specialized Skill Coaching &amp; Innovation Labs</h2>
+            <p style="color: #64748b; max-width: 720px; margin: 0 auto; font-size: 14.5px;">Fee structure for Tech-support, coding, Brain science lab, Abacus, and spoken communication.</p>
+          </div>
+
+          <!-- Banner: THESE CLASSES WILL BE AS PER YOUR CHOICE -->
+          <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px dashed #f59e0b; border-radius: 14px; padding: 18px 24px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.08);">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: #f59e0b; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
+                <i class="fa-solid fa-hand-pointer"></i>
+              </div>
+              <div>
+                <h4 style="margin: 0; font-size: 16px; font-weight: 800; color: #92400e; text-transform: uppercase; letter-spacing: 0.5px;">
+                  THESE CLASSES WILL BE AS PER YOUR CHOICE
+                </h4>
+                <p style="margin: 3px 0 0; font-size: 13px; color: #78350f;">
+                  All coaching &amp; lab programs are completely <strong>optional</strong>. Parents and students are free to choose individual skill modules or the comprehensive all-in-one package based on their child's interests and developmental goals.
+                </p>
+              </div>
+            </div>
+            <span style="background: #92400e; color: #ffffff; font-size: 11.5px; font-weight: 700; padding: 6px 14px; border-radius: 20px; white-space: nowrap; letter-spacing: 0.5px;">
+              <i class="fa-solid fa-check-circle"></i> Flexible Choice
+            </span>
+          </div>
+
+          <!-- HIGHLIGHT PACKAGE: MULTIPLE COACHING CLASSES FEE = 10,000 -->
+          <div style="background: linear-gradient(135deg, #142236 0%, #1e3a5f 100%); border-radius: 18px; padding: 32px; color: #ffffff; margin-bottom: 32px; box-shadow: 0 15px 35px rgba(20, 34, 54, 0.2); position: relative; overflow: hidden;">
+            <div style="position: absolute; right: -20px; top: -20px; width: 140px; height: 140px; background: rgba(255,255,255,0.04); border-radius: 50%; pointer-events: none;"></div>
+            <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: center;" class="combo-grid">
+              <div>
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.4); padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700; color: #fde68a; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
+                  <i class="fa-solid fa-crown" style="color: #fbbf24;"></i> All-in-One Comprehensive Package
+                </div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 26px; margin: 0 0 10px; color: #ffffff;">MULTIPLE COACHING CLASSES FEE = ₹10,000</h3>
+                <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 18px; line-height: 1.6;">
+                  Fee for <strong>Tech-support, coding, Brain science lab &amp; experiential skill training</strong>. A full-year unified enrichment curriculum designed to provide holistic mastery across modern STEM, coding, and cognitive disciplines.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 12.5px;">
+                  <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-laptop-code" style="color: #67e8f9; margin-right: 6px;"></i> Tech-Support &amp; Coding</span>
+                  <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-brain" style="color: #f472b6; margin-right: 6px;"></i> Brain Science Lab</span>
+                  <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-calculator" style="color: #facc15; margin-right: 6px;"></i> Abacus Mental Math</span>
+                  <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-database" style="color: #a7f3d0; margin-right: 6px;"></i> Data Science &amp; AI</span>
+                </div>
+              </div>
+              <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 24px; text-align: center; backdrop-filter: blur(10px);">
+                <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; display: block; margin-bottom: 6px;">Full Package Annual Fee</span>
+                <div style="font-size: 42px; font-weight: 800; color: #fbbf24; font-family: 'Playfair Display', serif; line-height: 1;">₹10,000</div>
+                <span style="font-size: 12.5px; color: #e2e8f0; display: block; margin-top: 8px;">Comprehensive All-in-One</span>
+                <div style="margin-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 14px; font-size: 11.5px; color: #94a3b8; line-height: 1.5;">
+                  Includes tech-support access, coding environment, Brain Science lab equipment, and mentoring.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 INDIVIDUAL COACHING MODULES -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 32px;">
+            
+            <!-- 1: Brain Science -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 22px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03);" class="coaching-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: #fdf2f8; color: #db2777; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+                <span style="font-size: 11px; font-weight: 700; background: #fdf2f8; color: #db2777; padding: 4px 8px; border-radius: 6px;">Brain Activation</span>
+              </div>
+              <h4 style="font-size: 16px; margin: 0 0 6px; color: #0f172a;">Brain Science (Brain Activation Activity)</h4>
+              <p style="font-size: 12px; color: #64748b; margin-bottom: 16px; min-height: 36px;">Brain activation activity, neurobics, cognitive acceleration, and mnemonic memory skills (Brainywood lab).</p>
+              <div style="background: #f8fafc; border-radius: 10px; padding: 12px; border: 1px solid #f1f5f9;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0; font-size: 12.5px;">
+                  <span style="color: #475569;">New Student:</span>
+                  <strong style="color: #0f172a; font-size: 14px;">₹500 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; font-size: 12.5px;">
+                  <span style="color: #475569;">Old Student:</span>
+                  <strong style="color: #16a34a; font-size: 14px;">₹300 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2: Abacus Coaching Class -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 22px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03);" class="coaching-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: #fefce8; color: #ca8a04; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  <i class="fa-solid fa-calculator"></i>
+                </div>
+                <span style="font-size: 11px; font-weight: 700; background: #fefce8; color: #ca8a04; padding: 4px 8px; border-radius: 6px;">Mental Arithmetic</span>
+              </div>
+              <h4 style="font-size: 16px; margin: 0 0 6px; color: #0f172a;">Abacus Coaching Class</h4>
+              <p style="font-size: 12px; color: #64748b; margin-bottom: 16px; min-height: 36px;">Mental arithmetic, lightning-fast calculation, concentration focus, and foundational number sense.</p>
+              <div style="background: #f8fafc; border-radius: 10px; padding: 12px; border: 1px solid #f1f5f9;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0; font-size: 12.5px;">
+                  <span style="color: #475569;">New Student:</span>
+                  <strong style="color: #0f172a; font-size: 14px;">₹500 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; font-size: 12.5px;">
+                  <span style="color: #475569;">Old Student:</span>
+                  <strong style="color: #16a34a; font-size: 14px;">₹300 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3: Data Science Coaching Class -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 22px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03);" class="coaching-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: #eff6ff; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <span style="font-size: 11px; font-weight: 700; background: #eff6ff; color: #2563eb; padding: 4px 8px; border-radius: 6px;">Tech &amp; AI</span>
+              </div>
+              <h4 style="font-size: 16px; margin: 0 0 6px; color: #0f172a;">Data Science Coaching Class</h4>
+              <p style="font-size: 12px; color: #64748b; margin-bottom: 16px; min-height: 36px;">Fundamentals of Python, logic building, data science principles, and future-ready artificial intelligence exposure.</p>
+              <div style="background: #f8fafc; border-radius: 10px; padding: 12px; border: 1px solid #f1f5f9;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0; font-size: 12.5px;">
+                  <span style="color: #475569;">New Student:</span>
+                  <strong style="color: #0f172a; font-size: 14px;">₹500 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; font-size: 12.5px;">
+                  <span style="color: #475569;">Old Student:</span>
+                  <strong style="color: #16a34a; font-size: 14px;">₹300 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4: Spoken English -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 22px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03);" class="coaching-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 10px; background: #ecfdf5; color: #059669; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  <i class="fa-solid fa-comments"></i>
+                </div>
+                <span style="font-size: 11px; font-weight: 700; background: #ecfdf5; color: #059669; padding: 4px 8px; border-radius: 6px;">Articulation</span>
+              </div>
+              <h4 style="font-size: 16px; margin: 0 0 6px; color: #0f172a;">Spoken English</h4>
+              <p style="font-size: 12px; color: #64748b; margin-bottom: 16px; min-height: 36px;">Fluent English articulation, pronunciation, phonics, public speaking, and presentation confidence.</p>
+              <div style="background: #f8fafc; border-radius: 10px; padding: 12px; border: 1px solid #f1f5f9;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0; font-size: 12.5px;">
+                  <span style="color: #475569;">New Student:</span>
+                  <strong style="color: #0f172a; font-size: 14px;">₹500 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 6px; font-size: 12.5px;">
+                  <span style="color: #475569;">Old Student:</span>
+                  <strong style="color: #16a34a; font-size: 14px;">₹300 <span style="font-size: 11px; font-weight: 500; color: #64748b;">/ month</span></strong>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ANCILLARY CHARGE & KEY POLICIES SECTION (3 CARDS/BANNERS) -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px;">
+            
+            <!-- I-Card Charge Card -->
+            <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 14px; padding: 22px; display: flex; align-items: center; gap: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+              <div style="width: 52px; height: 52px; border-radius: 12px; background: #e0f2fe; color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+              <div>
+                <span style="font-size: 11px; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px;">Administrative Fee</span>
+                <h4 style="margin: 3px 0 4px; font-size: 16px; color: #0f172a;">I-card charges (for all) = ₹100</h4>
+                <div style="font-size: 22px; font-weight: 800; color: #0f172a; font-family: 'Playfair Display', serif;">₹100 <span style="font-size: 12px; font-weight: 600; color: #64748b;">(Mandatory For All)</span></div>
+                <p style="margin: 4px 0 0; font-size: 11.5px; color: #64748b;">Smart RFID student identity card issued to all registered students.</p>
+              </div>
+            </div>
+
+            <!-- Late Fee Policy Card (Yellow matching photo) -->
+            <div style="background: #fefce8; border: 1.5px solid #facc15; border-radius: 14px; padding: 22px; display: flex; align-items: flex-start; gap: 16px;">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: #fef08a; color: #854d0e; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <span style="font-size: 11px; font-weight: 800; color: #854d0e; text-transform: uppercase; letter-spacing: 0.5px;">Timely Payment Rule</span>
+                <h4 style="margin: 3px 0 4px; font-size: 15px; font-weight: 800; color: #713f12; text-transform: uppercase;">
+                  PAID ON TIME LATE FEE 10 RS \ DAY WILL BE CHARGES
+                </h4>
+                <p style="margin: 0; font-size: 12px; color: #854d0e; line-height: 1.5;">
+                  School fee must be paid on or before the due date. A <strong>late fee of ₹10 / day will be charged</strong> for delayed fee clearance after the due date.
+                </p>
+              </div>
+            </div>
+
+            <!-- Special Army Discount Banner (Maroon matching photo) -->
+            <div style="background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%); border-radius: 14px; padding: 22px; color: #ffffff; display: flex; align-items: flex-start; gap: 16px; box-shadow: 0 8px 20px rgba(127, 29, 29, 0.2);">
+              <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(255,255,255,0.18); color: #fef08a; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;">
+                <i class="fa-solid fa-medal"></i>
+              </div>
+              <div>
+                <span style="font-size: 11px; font-weight: 800; color: #fde047; text-transform: uppercase; letter-spacing: 0.8px;">Honoring Our Heroes</span>
+                <h4 style="margin: 3px 0 4px; font-size: 16px; font-weight: 800; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px;">
+                  SPECIAL DISCOUNT FOR ARMY PERSONS
+                </h4>
+                <p style="margin: 0; font-size: 12px; color: #fee2e2; line-height: 1.5;">
+                  Savvy Mother International School Rewa proudly honors Indian Armed Forces families with a <strong>special fee concession</strong> for children of Army &amp; Defense Personnel.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
         <!-- PAYMENT SCHEDULE & MODES -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 60px;" class="reveal">
           <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 26px;">
@@ -647,16 +911,45 @@
       class12: { name: "Class 12th",monthly: 2945, months: 12, tuition: 35340, examPerTerm: 350, examTotal: 1050 }
     };
 
+    const coachingRates = {
+      none:        { name: "None", perMonthNew: 0, perMonthOld: 0, flat: 0 },
+      combo:       { name: "Multiple Coaching Classes Package", perMonthNew: 0, perMonthOld: 0, flat: 10000 },
+      brain:       { name: "Brain Science (Brain Activation)", perMonthNew: 500, perMonthOld: 300, flat: 0 },
+      abacus:      { name: "Abacus Coaching Class", perMonthNew: 500, perMonthOld: 300, flat: 0 },
+      datascience: { name: "Data Science Coaching Class", perMonthNew: 500, perMonthOld: 300, flat: 0 },
+      spoken:      { name: "Spoken English", perMonthNew: 500, perMonthOld: 300, flat: 0 }
+    };
+
     function updateEstimate() {
       const grade = document.getElementById("calcGrade").value;
+      const isNew = document.getElementById("statusNew").checked;
+      const coachingKey = document.getElementById("calcCoaching").value;
       const bus = Number(document.getElementById("calcTransport").value);
       const isSibling = document.getElementById("calcSibling").checked;
+      const isArmy = document.getElementById("calcArmy").checked;
 
       const r = rates[grade] || rates.class1;
-      const discount = isSibling ? Math.round(r.tuition * 0.10) : 0;
-      const total = r.tuition + r.examTotal + bus - discount;
+      const icard = 100; // Mandatory I-Card for all students
+
+      // Coaching calculation
+      const c = coachingRates[coachingKey] || coachingRates.none;
+      let coachingCost = 0;
+      if (c.flat > 0) {
+        coachingCost = c.flat;
+      } else if (c.perMonthNew > 0 || c.perMonthOld > 0) {
+        const ratePerMo = isNew ? c.perMonthNew : c.perMonthOld;
+        coachingCost = ratePerMo * r.months;
+      }
+
+      // Concessions
+      const siblingDiscount = isSibling ? Math.round(r.tuition * 0.10) : 0;
+      const armyDiscount = isArmy ? Math.round(r.tuition * 0.10) : 0;
+      const totalDiscounts = siblingDiscount + armyDiscount;
+
+      const total = r.tuition + r.examTotal + icard + bus + coachingCost - totalDiscounts;
       const quarterly = Math.round(total / 4);
 
+      document.getElementById("outStudentBadge").textContent = isNew ? "New Student" : "Old Student";
       document.getElementById("outClassBadge").textContent = r.name;
       document.getElementById("outMonthly").textContent = "₹" + r.monthly.toLocaleString("en-IN") + " / mo";
       document.getElementById("outTuition").textContent = "₹" + r.tuition.toLocaleString("en-IN");
@@ -665,14 +958,37 @@
       document.getElementById("outExam").textContent = "₹" + r.examTotal.toLocaleString("en-IN");
       document.getElementById("outExamNote").textContent = "(₹" + r.examPerTerm + " × 3 terms)";
       
+      const rowCoach = document.getElementById("rowCoaching");
+      if (coachingKey !== "none" && coachingCost > 0) {
+        rowCoach.style.display = "flex";
+        document.getElementById("outCoachingName").textContent = c.name + ":";
+        if (c.flat > 0) {
+          document.getElementById("outCoachingNote").textContent = "(Tech-support, coding, Brain science lab)";
+        } else {
+          const rateMo = isNew ? c.perMonthNew : c.perMonthOld;
+          document.getElementById("outCoachingNote").textContent = "(₹" + rateMo + "/mo × " + r.months + " mos • " + (isNew ? "New" : "Old") + " Student)";
+        }
+        document.getElementById("outCoaching").textContent = "₹" + coachingCost.toLocaleString("en-IN");
+      } else {
+        rowCoach.style.display = "none";
+      }
+
       document.getElementById("outTransport").textContent = "₹" + bus.toLocaleString("en-IN");
       
       const rowDisc = document.getElementById("rowDiscount");
       if (isSibling) {
         rowDisc.style.display = "flex";
-        document.getElementById("outDiscount").textContent = "-₹" + discount.toLocaleString("en-IN");
+        document.getElementById("outDiscount").textContent = "-₹" + siblingDiscount.toLocaleString("en-IN");
       } else {
         rowDisc.style.display = "none";
+      }
+
+      const rowArmy = document.getElementById("rowArmyDiscount");
+      if (isArmy) {
+        rowArmy.style.display = "flex";
+        document.getElementById("outArmyDiscount").textContent = "-₹" + armyDiscount.toLocaleString("en-IN");
+      } else {
+        rowArmy.style.display = "none";
       }
 
       document.getElementById("outTotal").textContent = "₹" + total.toLocaleString("en-IN");
@@ -681,8 +997,12 @@
     }
 
     document.getElementById("calcGrade").addEventListener("change", updateEstimate);
+    document.getElementById("statusNew").addEventListener("change", updateEstimate);
+    document.getElementById("statusOld").addEventListener("change", updateEstimate);
+    document.getElementById("calcCoaching").addEventListener("change", updateEstimate);
     document.getElementById("calcTransport").addEventListener("change", updateEstimate);
     document.getElementById("calcSibling").addEventListener("change", updateEstimate);
+    document.getElementById("calcArmy").addEventListener("change", updateEstimate);
     updateEstimate();
   </script>
 
@@ -1004,6 +1324,6 @@
   </aside>
 
 
-  <script src="js/script.js?v=4.0"></script>
+  <script src="js/script.js?v=4.1"></script>
 </body>
 </html>
