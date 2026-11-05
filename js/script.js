@@ -912,7 +912,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const LOGIN_URL =
       config.loginUrl ||
       window.SCHOOL_MANAGEMENT_LOGIN_URL ||
-      "https://savvy-school-management-dashboard.vercel.app/login";
+      "https://savvy-school-management.vercel.app/login";
 
     // 1. Inject Styles for Navigation Login Links
     if (!document.getElementById("savvy-erp-nav-styles")) {

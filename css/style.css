@@ -6573,3 +6573,615 @@ html.visited-session .preloader,
         height: 170px;
     }
 }
+
+
+/* =========================================================
+   COMPREHENSIVE ADMISSION FORM & ENQUIRY STYLES
+========================================================= */
+.admission-card {
+  background: #ffffff;
+  border: 1px solid rgba(167, 25, 48, 0.16);
+  border-radius: 20px;
+  box-shadow: 0 15px 45px rgba(20, 34, 54, 0.08);
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+.admission-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #fdf8f8 0%, #fef2f2 100%);
+  border-bottom: 2px solid rgba(167, 25, 48, 0.12);
+}
+
+.admission-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.admission-brand img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.admission-brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--red);
+  margin: 0 0 0.2rem;
+}
+
+.admission-brand p {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.enquiry-badge {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #a71930, #711020);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(167, 25, 48, 0.25);
+}
+
+.admission-form {
+  padding: 2rem;
+  display: grid;
+  gap: 1.6rem;
+  counter-reset: admission-section;
+}
+
+.admission-form-section {
+  counter-increment: admission-section;
+  position: relative;
+  padding: 1.4rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.admission-form-section:focus-within {
+  border-color: rgba(167, 25, 48, 0.4);
+  box-shadow: 0 8px 24px rgba(167, 25, 48, 0.08);
+}
+
+.admission-form-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(90deg, var(--red), #e11d48, #f59e0b);
+}
+
+.admission-form-section .enquiry-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.admission-form-section .enquiry-section-title::before {
+  content: counter(admission-section, decimal-leading-zero);
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--red), #711020);
+  color: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(167, 25, 48, 0.25);
+}
+
+.admission-helper {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: -0.25rem 0 1rem 3.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.enquiry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .enquiry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .enquiry-grid {
+    grid-template-columns: 1fr;
+  }
+  .admission-form {
+    padding: 1.2rem 1rem;
+  }
+}
+
+.enquiry-group {
+  min-width: 0;
+}
+
+.enquiry-group.wide {
+  grid-column: 1 / -1;
+}
+
+.enquiry-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+
+.enquiry-input,
+.enquiry-textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.92rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.enquiry-textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.enquiry-input:focus,
+.enquiry-textarea:focus {
+  border-color: var(--red);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.12);
+}
+
+.caps-input {
+  text-transform: uppercase;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.option-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-row label:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.option-row input {
+  accent-color: var(--red);
+  width: 16px;
+  height: 16px;
+}
+
+/* Sibling Table */
+.sibling-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.sibling-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.sibling-table th {
+  background: #f8fafc;
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #e2e8f0;
+  text-align: left;
+}
+
+.sibling-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.table-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  outline: none;
+  background: #f8fafc;
+}
+
+.table-input:focus {
+  border-color: var(--red);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.12);
+}
+
+/* Undertaking Terms */
+.terms-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: term-num;
+}
+
+@media (max-width: 768px) {
+  .terms-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.terms-list li {
+  counter-increment: term-num;
+  position: relative;
+  padding: 0.8rem 0.85rem 0.8rem 2.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  font-size: 0.84rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.terms-list li::before {
+  content: counter(term-num);
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--red), #711020);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.undertaking-confirm {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border: 1.5px dashed var(--red);
+  border-radius: 10px;
+  background: #fffdf8;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+}
+
+.undertaking-confirm input {
+  accent-color: var(--red);
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+/* Documents Checklist */
+.document-checklist {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .document-checklist {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .document-checklist {
+    grid-template-columns: 1fr;
+  }
+}
+
+.document-checklist label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.document-checklist label:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.document-checklist input {
+  accent-color: var(--red);
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+/* Photo Uploads */
+.photo-upload-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .photo-upload-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photo-upload-field {
+  padding: 1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.photo-input {
+  width: 100%;
+  font-size: 0.84rem;
+  color: #64748b;
+}
+
+.photo-input::file-selector-button {
+  padding: 0.45rem 0.85rem;
+  border: 0;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--red), #711020);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-right: 0.6rem;
+  transition: opacity 0.2s;
+}
+
+.photo-input::file-selector-button:hover {
+  opacity: 0.9;
+}
+
+.photo-upload-note {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+/* Office Use Section */
+.admission-office-section {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.admission-office-section::before {
+  background: linear-gradient(90deg, #b45309, #f59e0b, #d97706);
+}
+
+.admission-office-section .enquiry-section-title {
+  color: #92400e;
+}
+
+.admission-office-section .enquiry-section-title::before {
+  background: linear-gradient(135deg, #b45309, #d97706);
+}
+
+/* Submit Actions */
+.enquiry-submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  padding: 1.4rem;
+  border-top: 2px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.admission-submit-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.admission-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+}
+
+.admission-download-btn:hover {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.enquiry-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--red), #711020);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(167, 25, 48, 0.3);
+  transition: all 0.2s ease;
+}
+
+.enquiry-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(167, 25, 48, 0.4);
+}
+
+.enquiry-submit-row p {
+  font-size: 0.82rem;
+  color: #64748b;
+  max-width: 480px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Wide Cards: Office Note & FAQ */
+.wide-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+}
+
+.wide-card.notice {
+  border-left: 5px solid #f59e0b;
+  background: linear-gradient(135deg, #fffdf8 0%, #fffbeb 100%);
+}
+
+.wide-card.notice h3 {
+  color: #92400e;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.wide-card.notice p {
+  font-size: 0.92rem;
+  color: #78350f;
+  margin: 0 0 0.5rem;
+  line-height: 1.6;
+}
+
+.fee-note-highlight {
+  margin-top: 0.8rem;
+  padding: 0.85rem 1.1rem;
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  border-radius: 8px;
+  color: #991b1b !important;
+  font-weight: 700;
+  font-size: 0.9rem !important;
+}
+
+.wide-card.parent-faq-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  color: #0f172a;
+  margin-bottom: 1.2rem;
+}
+
+.simple-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.simple-list li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #475569;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.simple-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.simple-list strong {
+  color: #0f172a;
+  display: block;
+  font-size: 0.98rem;
+  margin-bottom: 0.25rem;
+}
