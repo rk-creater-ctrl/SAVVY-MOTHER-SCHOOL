@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Toppers & Achievers Manager | Savvy Mother International School</title>
+  <title>Class Toppers &amp; Achievers Manager | Savvy Mother International School</title>
   <meta name="description" content="Manage and edit class toppers, student names, classes, and photos across academic years for Savvy Mother International School.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=5.0">
+  <link rel="stylesheet" href="css/style.css?v=6.0">
 
   <style>
     :root {
@@ -35,6 +35,149 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
+    }
+
+    /* FULLSCREEN LOCK OVERLAY */
+    .manager-lock-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .manager-lock-box {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 38px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .manager-lock-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid #a71930;
+      margin-bottom: 12px;
+      object-fit: cover;
+    }
+
+    .manager-lock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: #fef2f2;
+      color: #a71930;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
+    .manager-lock-box h2 {
+      margin: 0 0 6px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #0f172a;
+    }
+
+    .manager-lock-box p {
+      margin: 0 0 24px 0;
+      font-size: 13.5px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .manager-lock-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .manager-lock-input-wrap .lock-icon {
+      position: absolute;
+      left: 14px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .manager-lock-input-wrap input {
+      width: 100%;
+      padding: 13px 44px 13px 40px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    .manager-lock-input-wrap input:focus {
+      border-color: #a71930;
+      box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.12);
+    }
+
+    .manager-lock-input-wrap .btn-eye-toggle {
+      position: absolute;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 15px;
+      padding: 4px;
+    }
+
+    .manager-lock-error {
+      color: #dc2626;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: none;
+      background: #fef2f2;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+    }
+
+    .btn-lock-submit {
+      width: 100%;
+      padding: 13px 20px;
+      background: #a71930;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 14.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(167, 25, 48, 0.25);
+    }
+
+    .btn-lock-submit:hover {
+      background: #821325;
+      box-shadow: 0 6px 18px rgba(167, 25, 48, 0.35);
     }
 
     /* Top Admin Nav */
@@ -85,7 +228,7 @@
     .admin-nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     .btn-admin-nav {
       display: inline-flex;
@@ -293,10 +436,6 @@
       font-weight: 700;
       color: var(--admin-text-main);
       margin-bottom: 6px;
-    }
-    .form-group label small {
-      font-weight: 500;
-      color: var(--admin-text-muted);
     }
     .form-control {
       width: 100%;
@@ -599,8 +738,39 @@
 </head>
 <body class="admin-body">
 
+  <!-- PASSWORD GATE SCREEN (PASSWORD: savvy) -->
+  <div id="managerLockOverlay" class="manager-lock-screen">
+    <div class="manager-lock-box">
+      <img src="images/logo.png" alt="School Logo" class="manager-lock-logo" onerror="this.src='https://ui-avatars.com/api/?name=Savvy+Mother&background=a71930&color=fff'">
+      <div class="manager-lock-badge"><i class="fa-solid fa-lock"></i> Protected Panel</div>
+      <h2>Class Toppers Manager</h2>
+      <p>Enter the admin password to view and manage student class toppers.</p>
+      
+      <form id="managerLockForm" autocomplete="off">
+        <div class="manager-lock-input-wrap">
+          <i class="fa-solid fa-key lock-icon"></i>
+          <input type="password" id="managerLockInput" placeholder="Enter password" required autofocus autocomplete="current-password">
+          <button type="button" id="toggleManagerLockEye" class="btn-eye-toggle" title="Show/Hide Password">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+        <div id="managerLockError" class="manager-lock-error">
+          <i class="fa-solid fa-circle-exclamation"></i> Incorrect password. Please try again.
+        </div>
+        <button type="submit" class="btn-lock-submit">
+          Unlock Panel <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+      <div style="margin-top: 18px;">
+        <a href="index.html" style="font-size: 12.5px; color: #64748b; text-decoration: none; font-weight: 700;">
+          &larr; Return to School Website
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- TOP ADMIN NAVBAR -->
-  <header class="admin-nav">
+  <header class="admin-nav" id="adminMainHeader" style="display:none;">
     <div class="admin-nav-inner">
       <a href="index.html" class="admin-brand">
         <img src="images/logo.png" alt="Savvy Mother School Logo" onerror="this.src='https://ui-avatars.com/api/?name=Savvy+Mother&background=a71930&color=fff'">
@@ -613,6 +783,9 @@
         <a href="index.html#toppers-section" class="btn-admin-nav btn-outline">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> View on Website
         </a>
+        <button type="button" class="btn-admin-nav btn-outline" id="btnLockOut" style="color:#dc2626;">
+          <i class="fa-solid fa-lock"></i> Lock
+        </button>
         <a href="index.html" class="btn-admin-nav btn-primary">
           <i class="fa-solid fa-house"></i> Home
         </a>
@@ -621,7 +794,7 @@
   </header>
 
   <!-- MAIN CONTAINER -->
-  <main class="admin-container">
+  <main class="admin-container" id="adminMainContent" style="display:none;">
 
     <!-- HERO HEADER -->
     <section class="admin-header-card">
@@ -645,7 +818,6 @@
     <section class="year-bar">
       <div class="year-tabs-wrap" id="yearTabsContainer">
         <span class="year-tab-label"><i class="fa-solid fa-calendar"></i> Academic Year:</span>
-        <!-- Injected via JavaScript -->
       </div>
       <button type="button" class="btn-add-year" id="btnAddYearBtn">
         <i class="fa-solid fa-plus"></i> Add Academic Year
@@ -686,7 +858,7 @@
 
           <!-- Class Selection -->
           <div class="form-group">
-            <label for="studentClass">Class / Grade *</label>
+            <label for="studentClassSelect">Class / Grade *</label>
             <select id="studentClassSelect" class="form-control">
               <option value="Nursery">Nursery</option>
               <option value="KG-I (LKG)">KG-I (LKG)</option>
@@ -807,7 +979,63 @@
 
   <!-- SCRIPT -->
   <script>
-    // Initial Default Seed Data (Used if no custom data exists in localStorage)
+    const AUTH_KEY = "savvy_toppers_auth";
+    const EXPECTED_PASS = "savvy";
+
+    const managerLockOverlay = document.getElementById("managerLockOverlay");
+    const managerLockForm = document.getElementById("managerLockForm");
+    const managerLockInput = document.getElementById("managerLockInput");
+    const managerLockError = document.getElementById("managerLockError");
+    const toggleManagerLockEye = document.getElementById("toggleManagerLockEye");
+    const adminMainHeader = document.getElementById("adminMainHeader");
+    const adminMainContent = document.getElementById("adminMainContent");
+    const btnLockOut = document.getElementById("btnLockOut");
+
+    // Check authentication on load
+    function checkAuth() {
+      if (sessionStorage.getItem(AUTH_KEY) === "true") {
+        managerLockOverlay.style.display = "none";
+        adminMainHeader.style.display = "block";
+        adminMainContent.style.display = "block";
+      } else {
+        managerLockOverlay.style.display = "flex";
+        adminMainHeader.style.display = "none";
+        adminMainContent.style.display = "none";
+        managerLockInput.focus();
+      }
+    }
+
+    // Toggle eye password view
+    toggleManagerLockEye.addEventListener("click", () => {
+      const isPass = managerLockInput.type === "password";
+      managerLockInput.type = isPass ? "text" : "password";
+      toggleManagerLockEye.innerHTML = isPass ? '<i class="fa-solid fa-eye-slash"></i>' : '<i class="fa-solid fa-eye"></i>';
+    });
+
+    // Password submit check (savvy)
+    managerLockForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const val = managerLockInput.value.trim().toLowerCase();
+      if (val === EXPECTED_PASS) {
+        sessionStorage.setItem(AUTH_KEY, "true");
+        managerLockError.style.display = "none";
+        managerLockInput.value = "";
+        checkAuth();
+        showToast("Panel unlocked successfully!");
+      } else {
+        managerLockError.style.display = "block";
+        managerLockInput.classList.add("error");
+        managerLockInput.focus();
+      }
+    });
+
+    // Lock panel
+    btnLockOut.addEventListener("click", () => {
+      sessionStorage.removeItem(AUTH_KEY);
+      checkAuth();
+    });
+
+    // Initial Default Seed Data
     const DEFAULT_TOPPERS_DATA = {
       years: ["2025-26", "2024-25", "2023-24"],
       activeYear: "2025-26",
@@ -916,7 +1144,6 @@
 
     const STORAGE_KEY = "savvy_toppers_data";
 
-    // State
     let data = loadData();
 
     function loadData() {
@@ -1010,7 +1237,6 @@
       });
     }
 
-    // Photo input listeners
     photoFileInput.addEventListener("change", async (e) => {
       const file = e.target.files[0];
       if (file) {
@@ -1033,7 +1259,6 @@
       }
     });
 
-    // Custom class toggle
     studentClassSelect.addEventListener("change", () => {
       if (studentClassSelect.value === "custom") {
         studentClassCustom.style.display = "block";
@@ -1043,7 +1268,6 @@
       }
     });
 
-    // Toast helper
     function showToast(msg, isError = false) {
       toastMessage.textContent = msg;
       adminToast.style.borderLeft = isError ? "4px solid #ef4444" : "4px solid #10b981";
@@ -1053,15 +1277,11 @@
       }, 3000);
     }
 
-    // Render Year Tabs
     function renderYearTabs() {
       yearTabsContainer.innerHTML = '<span class="year-tab-label"><i class="fa-solid fa-calendar"></i> Academic Year:</span>';
-      
-      // Update year dropdown in form
       studentYearSelect.innerHTML = "";
 
       data.years.forEach(year => {
-        // Tab button
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = `year-btn ${year === data.activeYear ? "active" : ""}`;
@@ -1069,7 +1289,6 @@
         btn.onclick = () => selectYear(year);
         yearTabsContainer.appendChild(btn);
 
-        // Form select option
         const opt = document.createElement("option");
         opt.value = year;
         opt.textContent = year;
@@ -1086,7 +1305,6 @@
       resetForm();
     }
 
-    // Add Year button
     btnAddYearBtn.addEventListener("click", () => {
       const year = prompt("Enter new academic session (e.g. 2026-27):");
       if (year && year.trim()) {
@@ -1104,7 +1322,6 @@
       }
     });
 
-    // Render Toppers List
     function renderToppersList() {
       activeYearTitle.textContent = data.activeYear;
       
@@ -1131,7 +1348,6 @@
         const photoUrl = s.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0e3a80&color=fff&size=120`;
         const isEditing = editTopperId.value === s.id;
         
-        // Rank badge styling
         let rankClass = "rank-gold";
         let rankIcon = "fa-trophy";
         if (s.rank && s.rank.includes("2")) { rankClass = "rank-silver"; }
@@ -1165,7 +1381,6 @@
 
     searchToppersInput.addEventListener("input", renderToppersList);
 
-    // Form Submit
     topperForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -1192,7 +1407,6 @@
       const id = editTopperId.value;
 
       if (id) {
-        // Edit existing
         const idx = data.students.findIndex(s => s.id === id);
         if (idx !== -1) {
           data.students[idx] = {
@@ -1207,7 +1421,6 @@
           showToast(`Updated details for ${name}`);
         }
       } else {
-        // Create new
         const newStudent = {
           id: "s_" + Date.now(),
           name,
@@ -1226,7 +1439,6 @@
       resetForm();
     });
 
-    // Edit Topper
     window.editTopper = function(id) {
       const student = data.students.find(s => s.id === id);
       if (!student) return;
@@ -1234,7 +1446,6 @@
       editTopperId.value = student.id;
       studentName.value = student.name || "";
       
-      // Class select
       let foundOption = false;
       for (let i = 0; i < studentClassSelect.options.length; i++) {
         if (studentClassSelect.options[i].value === student.class) {
@@ -1263,13 +1474,10 @@
       editBadge.style.display = "inline-block";
       btnSaveTopper.innerHTML = '<i class="fa-solid fa-check"></i> Update Topper';
       
-      // Highlight card in list
       renderToppersList();
-
       topperForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
 
-    // Delete Topper
     window.deleteTopper = function(id) {
       const student = data.students.find(s => s.id === id);
       if (!student) return;
@@ -1283,7 +1491,6 @@
       }
     };
 
-    // Reset Form
     function resetForm() {
       editTopperId.value = "";
       studentName.value = "";
@@ -1307,7 +1514,6 @@
 
     btnCancelEdit.addEventListener("click", resetForm);
 
-    // Export JSON
     document.getElementById("btnExportJson").addEventListener("click", () => {
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
@@ -1319,7 +1525,6 @@
       showToast("Toppers data backup exported!");
     });
 
-    // Import JSON
     document.getElementById("importJsonInput").addEventListener("change", (e) => {
       const file = e.target.files[0];
       if (!file) return;
@@ -1345,7 +1550,6 @@
       reader.readAsText(file);
     });
 
-    // Reset Defaults
     document.getElementById("btnResetDefaults").addEventListener("click", () => {
       if (confirm("Reset toppers list back to original school defaults? This will overwrite your current list.")) {
         data = JSON.parse(JSON.stringify(DEFAULT_TOPPERS_DATA));
@@ -1357,7 +1561,8 @@
       }
     });
 
-    // Initial render
+    // Check auth on page load
+    checkAuth();
     renderYearTabs();
     renderToppersList();
   </script>

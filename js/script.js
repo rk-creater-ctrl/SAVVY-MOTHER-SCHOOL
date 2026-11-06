@@ -740,6 +740,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const topperNext = document.getElementById("topperNext");
   const topperWrapper = document.getElementById("topperWrapper");
   const topperYearTabs = document.getElementById("topperYearTabs");
+  const topperYearSelect = document.getElementById("topperYearSelect");
 
   if (topperTrack && topperWrapper) {
     const TOPPERS_STORAGE_KEY = "savvy_toppers_data";
@@ -927,20 +928,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderYearFilter() {
-      if (!topperYearTabs) return;
-      topperYearTabs.innerHTML = '<span class="topper-year-label"><i class="fa-solid fa-calendar-check"></i> Session:</span>';
+      if (topperYearSelect) {
+        topperYearSelect.innerHTML = "";
+        toppersData.years.forEach(year => {
+          const opt = document.createElement("option");
+          opt.value = year;
+          opt.textContent = `Session ${year}`;
+          if (year === selectedYear) opt.selected = true;
+          topperYearSelect.appendChild(opt);
+        });
+      } else if (topperYearTabs) {
+        topperYearTabs.innerHTML = '<span class="topper-year-label"><i class="fa-solid fa-calendar-check"></i> Session:</span>';
+        toppersData.years.forEach(year => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `topper-year-pill ${year === selectedYear ? "active" : ""}`;
+          btn.textContent = year;
+          btn.onclick = () => {
+            selectedYear = year;
+            renderYearFilter();
+            renderTopperCards(selectedYear);
+          };
+          topperYearTabs.appendChild(btn);
+        });
+      }
+    }
 
-      toppersData.years.forEach(year => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = `topper-year-pill ${year === selectedYear ? "active" : ""}`;
-        btn.textContent = year;
-        btn.onclick = () => {
-          selectedYear = year;
-          renderYearFilter();
-          renderTopperCards(selectedYear);
-        };
-        topperYearTabs.appendChild(btn);
+    if (topperYearSelect) {
+      topperYearSelect.addEventListener("change", (e) => {
+        selectedYear = e.target.value;
+        renderTopperCards(selectedYear);
       });
     }
 
@@ -1000,6 +1017,83 @@ document.addEventListener("DOMContentLoaded", () => {
         topperTrack.style.transition = "transform 0.4s ease";
       });
     }
+  }
+
+  
+  /* =========================================================
+     TOPPERS PASSWORD AUTH MODAL & NAVBAR ICON BUTTON
+     Password: savvy (case-insensitive)
+  ========================================================= */
+  const openToppersBtn = document.getElementById("openToppersBtn");
+  const toppersModal = document.getElementById("toppersPasswordModal");
+  const closeToppersModal = document.getElementById("closeToppersModal");
+  const toppersAuthForm = document.getElementById("toppersAuthForm");
+  const topperAuthPass = document.getElementById("topperAuthPass");
+  const topperAuthError = document.getElementById("topperAuthError");
+  const toggleTopperEye = document.getElementById("toggleTopperEye");
+
+  function openToppersManager() {
+    if (sessionStorage.getItem("savvy_toppers_auth") === "true") {
+      window.location.href = "toppers-manager.html";
+      return;
+    }
+    if (toppersModal) {
+      toppersModal.classList.add("show");
+      if (topperAuthError) topperAuthError.style.display = "none";
+      if (topperAuthPass) {
+        topperAuthPass.value = "";
+        setTimeout(() => topperAuthPass.focus(), 150);
+      }
+    } else {
+      window.location.href = "toppers-manager.html";
+    }
+  }
+
+  if (openToppersBtn) {
+    openToppersBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openToppersManager();
+    });
+  }
+
+  document.querySelectorAll(".open-toppers-auth").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openToppersManager();
+    });
+  });
+
+  if (closeToppersModal && toppersModal) {
+    closeToppersModal.addEventListener("click", () => {
+      toppersModal.classList.remove("show");
+    });
+    toppersModal.addEventListener("click", (e) => {
+      if (e.target === toppersModal) toppersModal.classList.remove("show");
+    });
+  }
+
+  if (toggleTopperEye && topperAuthPass) {
+    toggleTopperEye.addEventListener("click", () => {
+      const isPassword = topperAuthPass.type === "password";
+      topperAuthPass.type = isPassword ? "text" : "password";
+      toggleTopperEye.innerHTML = isPassword ? '<i class="fa-solid fa-eye-slash"></i>' : '<i class="fa-solid fa-eye"></i>';
+    });
+  }
+
+  if (toppersAuthForm && topperAuthPass) {
+    toppersAuthForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const entered = topperAuthPass.value.trim().toLowerCase();
+      if (entered === "savvy") {
+        sessionStorage.setItem("savvy_toppers_auth", "true");
+        window.location.href = "toppers-manager.html";
+      } else {
+        if (topperAuthError) {
+          topperAuthError.style.display = "block";
+          topperAuthPass.select();
+        }
+      }
+    });
   }
 
   /* =========================================================

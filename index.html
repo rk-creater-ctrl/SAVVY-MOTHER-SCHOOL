@@ -24,7 +24,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="images/logo-web.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=5.0">
+  <link rel="stylesheet" href="css/style.css?v=6.0">
   <script>
     if (sessionStorage.getItem('smis_visited')) {
       document.documentElement.classList.add('visited-session');
@@ -105,7 +105,7 @@
           <a href="academics/middle.html">Middle School</a>
           <a href="academics/secondary.html">Secondary School</a>
           <a href="academics/senior-secondary.html">Senior Secondary</a>
-          <a href="toppers-manager.html" style="color:#a71930; font-weight:700;"><i class="fa-solid fa-award"></i> Class Toppers Manager</a>
+          
         </div>
 
       </div>
@@ -229,6 +229,10 @@
           <a href="faqs.html">FAQs</a>
         </div>
       </div>
+      <!-- CLASS TOPPERS MANAGER (ICON ONLY - PROTECTED BY PASSWORD 'savvy') -->
+      <button class="nav-portal-btn nav-toppers-icon-btn" id="openToppersBtn" type="button" aria-label="Class Toppers Manager" title="Class Toppers Manager">
+        <i class="fa-solid fa-trophy"></i>
+      </button>
 
     </nav>
 
@@ -1180,16 +1184,22 @@
             <span class="topper-scroll-hint"><i class="fa-solid fa-arrows-left-right"></i> Auto-sliding &bull; Hover to pause</span>
             <button class="slider-nav-btn prev" id="topperPrev" type="button" aria-label="Previous card"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="slider-nav-btn next" id="topperNext" type="button" aria-label="Next card"><i class="fa-solid fa-chevron-right"></i></button>
-            <a href="toppers-manager.html" class="btn-manage-toppers-pill" title="Open Class Toppers Management Panel">
-              <i class="fa-solid fa-pen-to-square"></i> Edit Toppers
-            </a>
+
           </div>
 
         </div>
 
-        <!-- ACADEMIC YEAR SELECTOR PILLS -->
-        <div class="topper-year-filter-wrap reveal" id="topperYearTabs">
-          <!-- Dynamically populated from toppers data -->
+        <!-- ACADEMIC YEAR SELECTOR DROPDOWN -->
+        <div class="topper-year-dropdown-wrap reveal">
+          <label for="topperYearSelect" class="topper-year-dropdown-label">
+            <i class="fa-solid fa-calendar-days"></i> Academic Session:
+          </label>
+          <div class="topper-select-custom">
+            <select id="topperYearSelect" class="topper-year-select" aria-label="Select Academic Session for Toppers">
+              <!-- Dynamically populated from toppers data -->
+            </select>
+            <span class="topper-select-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+          </div>
         </div>
 
       </div>
@@ -1993,7 +2003,8 @@
     </div>
   </footer>
 
-  <script src="js/script.js?v=4.1"></script>
+  <script src="js/school-management-integration.js?v=6.0"></script>
+  <script src="js/script.js?v=6.0"></script>
 
     <!-- Floating Contact & Social Actions -->
   <aside class="floating-actions" aria-label="Quick contact and social channels">
@@ -2051,5 +2062,35 @@
       <span class="floating-tooltip">Call Us</span>
     </a>
   </aside>
+
+  <!-- TOPPERS MANAGER PASSWORD AUTH MODAL -->
+  <div class="toppers-modal-backdrop" id="toppersPasswordModal" role="dialog" aria-modal="true" aria-labelledby="topperModalTitle">
+    <div class="toppers-modal-box">
+      <button type="button" class="toppers-modal-close" id="closeToppersModal" aria-label="Close dialog">&times;</button>
+      <div class="toppers-modal-icon">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <div class="toppers-modal-header">
+        <h3 id="topperModalTitle">Class Toppers Manager</h3>
+        <p>Enter the administrative password to manage class toppers &amp; achievers.</p>
+      </div>
+      <form id="toppersAuthForm" autocomplete="off">
+        <div class="toppers-modal-input-group">
+          <i class="fa-solid fa-lock input-icon"></i>
+          <input type="password" id="topperAuthPass" placeholder="Enter password (savvy)" required autofocus>
+          <button type="button" class="btn-toggle-eye" id="toggleTopperEye" aria-label="Toggle password visibility">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+        <div class="toppers-modal-error" id="topperAuthError">
+          <i class="fa-solid fa-circle-exclamation"></i> Incorrect password. Please try again.
+        </div>
+        <button type="submit" class="btn-unlock-panel">
+          <i class="fa-solid fa-unlock"></i> Unlock &amp; Open Manager
+        </button>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>

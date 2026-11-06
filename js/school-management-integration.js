@@ -74,6 +74,40 @@
   }
 
   // 2. Inject Portal Login links into Navigation
+  
+  // 2b. Inject Toppers Manager Icon Button into Navigation alongside ERP Button (Icon only - No text)
+  function initNavToppersButton() {
+    const portalBtns = document.querySelectorAll(".nav-portal-btn:not(.nav-toppers-icon-btn)");
+    portalBtns.forEach((btn) => {
+      const dropdown = btn.closest(".nav-portal-dropdown");
+      const targetParent = dropdown ? dropdown.parentNode : btn.parentNode;
+      if (!targetParent || targetParent.querySelector(".nav-toppers-icon-btn")) return;
+
+      const trophyBtn = document.createElement("button");
+      trophyBtn.type = "button";
+      trophyBtn.className = "nav-portal-btn nav-toppers-icon-btn";
+      trophyBtn.setAttribute("aria-label", "Class Toppers Manager");
+      trophyBtn.setAttribute("title", "Class Toppers Manager");
+      trophyBtn.innerHTML = '<i class="fa-solid fa-trophy"></i>';
+      trophyBtn.onclick = function (e) {
+        e.preventDefault();
+        const path = window.location.pathname.toLowerCase();
+        const isInSubdir = path.includes("/about/") ||
+                           path.includes("/academics/") ||
+                           path.includes("/admissions/") ||
+                           path.includes("/events/");
+        const targetUrl = isInSubdir ? "../toppers-manager.html" : "toppers-manager.html";
+        window.location.href = targetUrl;
+      };
+
+      if (dropdown) {
+        dropdown.parentNode.insertBefore(trophyBtn, dropdown.nextSibling);
+      } else {
+        btn.parentNode.insertBefore(trophyBtn, btn.nextSibling);
+      }
+    });
+  }
+
   function initNavLoginLinks() {
     const portalMenus = document.querySelectorAll(
       ".portal-dropdown-menu, .nav-portal-dropdown .nav-dropdown-menu, .nav-parent-dropdown"
@@ -382,6 +416,7 @@
   function init() {
     injectStyles();
     initNavLoginLinks();
+    initNavToppersButton();
     initAdmissionForm();
     initInquiryForm();
     initContactForm();
