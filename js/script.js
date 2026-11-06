@@ -733,15 +733,229 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================================
-     TOPPERS & ACHIEVERS AUTO-SLIDER (RIGHT TO LEFT)
+     TOPPERS & ACHIEVERS AUTO-SLIDER & YEAR MANAGER
   ========================================================= */
   const topperTrack = document.getElementById("topperTrack");
   const topperPrev = document.getElementById("topperPrev");
   const topperNext = document.getElementById("topperNext");
   const topperWrapper = document.getElementById("topperWrapper");
+  const topperYearTabs = document.getElementById("topperYearTabs");
 
   if (topperTrack && topperWrapper) {
+    const TOPPERS_STORAGE_KEY = "savvy_toppers_data";
+
+    const DEFAULT_TOPPERS_DATA = {
+      years: ["2025-26", "2024-25", "2023-24"],
+      activeYear: "2025-26",
+      students: [
+        {
+          id: "s1",
+          name: "Aarav Sharma",
+          class: "Class 10",
+          year: "2025-26",
+          rank: "Rank 1",
+          score: "98.8%",
+          photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s2",
+          name: "Ananya Patel",
+          class: "Class 12 (Science)",
+          year: "2025-26",
+          rank: "Rank 1",
+          score: "98.2%",
+          photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s3",
+          name: "Rohan Verma",
+          class: "Class 9",
+          year: "2025-26",
+          rank: "Rank 2",
+          score: "97.6%",
+          photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s4",
+          name: "Priya Singh",
+          class: "Class 12 (Commerce)",
+          year: "2025-26",
+          rank: "Rank 2",
+          score: "97.2%",
+          photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s5",
+          name: "Ishaan Tiwari",
+          class: "Class 8",
+          year: "2025-26",
+          rank: "Rank 3",
+          score: "96.8%",
+          photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s6",
+          name: "Sneha Mishra",
+          class: "Class 11 (Arts)",
+          year: "2025-26",
+          rank: "Rank 3",
+          score: "96.4%",
+          photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s7",
+          name: "Divyansh Pandey",
+          class: "Class 7",
+          year: "2025-26",
+          rank: "Class Topper",
+          score: "95.8%",
+          photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s8",
+          name: "Kavya Soni",
+          class: "Class 6",
+          year: "2025-26",
+          rank: "Class Topper",
+          score: "95.2%",
+          photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s9",
+          name: "Aditi Dwivedi",
+          class: "Class 12",
+          year: "2024-25",
+          rank: "Rank 1",
+          score: "98.5%",
+          photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s10",
+          name: "Siddharth Shukla",
+          class: "Class 10",
+          year: "2024-25",
+          rank: "Rank 1",
+          score: "98.0%",
+          photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s11",
+          name: "Ayush Mishra",
+          class: "Class 12",
+          year: "2023-24",
+          rank: "Rank 1",
+          score: "97.8%",
+          photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+        }
+      ]
+    };
+
+    function getToppersData() {
+      try {
+        const raw = localStorage.getItem(TOPPERS_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.students)) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.error("Toppers data parse error", e);
+      }
+      return DEFAULT_TOPPERS_DATA;
+    }
+
+    let toppersData = getToppersData();
+    let selectedYear = toppersData.activeYear || "2025-26";
     let manualOffset = 0;
+
+    function renderTopperCards(year) {
+      const filtered = toppersData.students.filter(s => s.year === year);
+      const list = filtered.length > 0 ? filtered : toppersData.students;
+
+      const createCardHtml = (s) => {
+        let rankClass = "rank-gold";
+        let rankColor = "#f59e0b";
+        let medalIcon = "fa-medal";
+        let rankText = s.rank || "Class Topper";
+
+        if (s.rank && s.rank.includes("2")) {
+          rankClass = "rank-silver";
+          rankColor = "#94a3b8";
+        } else if (s.rank && s.rank.includes("3")) {
+          rankClass = "rank-bronze";
+          rankColor = "#b45309";
+        } else if (s.rank && !s.rank.includes("1")) {
+          rankClass = "rank-star";
+          rankColor = "#3b82f6";
+          medalIcon = "fa-award";
+        }
+
+        const photoUrl = s.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0e3a80&color=fff&size=200`;
+
+        return `
+          <div class="student-card">
+            <span class="student-rank-badge ${rankClass}"><i class="fa-solid fa-trophy"></i> ${rankText}</span>
+            <div class="student-photo-wrap">
+              <img src="${photoUrl}" alt="${s.name}" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0e3a80&color=fff&size=200'">
+              <span class="student-medal-badge"><i class="fa-solid ${medalIcon}" style="color: ${rankColor};"></i></span>
+            </div>
+            <h4 class="student-name">${s.name}</h4>
+            <p class="student-class"><i class="fa-solid fa-graduation-cap"></i> ${s.class}</p>
+            <div class="student-score-box">
+              <div class="score-main">
+                <span class="score-val">${s.score ? s.score.replace('%', '') : 'Top'}</span>
+                ${s.score && s.score.includes('%') ? '<span class="score-unit">%</span>' : ''}
+              </div>
+              <span class="score-kicker">${s.score ? 'Score' : 'Achiever'}</span>
+            </div>
+          </div>
+        `;
+      };
+
+      // Generate items, duplicating if needed for continuous marquee
+      let html = "";
+      const repeatCount = list.length < 5 ? 4 : 2;
+      for (let r = 0; r < repeatCount; r++) {
+        html += list.map(createCardHtml).join("");
+      }
+
+      topperTrack.innerHTML = html;
+      topperTrack.style.transform = "none";
+      topperTrack.style.animation = "";
+      manualOffset = 0;
+    }
+
+    function renderYearFilter() {
+      if (!topperYearTabs) return;
+      topperYearTabs.innerHTML = '<span class="topper-year-label"><i class="fa-solid fa-calendar-check"></i> Session:</span>';
+
+      toppersData.years.forEach(year => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `topper-year-pill ${year === selectedYear ? "active" : ""}`;
+        btn.textContent = year;
+        btn.onclick = () => {
+          selectedYear = year;
+          renderYearFilter();
+          renderTopperCards(selectedYear);
+        };
+        topperYearTabs.appendChild(btn);
+      });
+    }
+
+    // Initial render
+    renderYearFilter();
+    renderTopperCards(selectedYear);
+
+    // Sync in real-time if edited in toppers-manager.html in another tab
+    window.addEventListener("storage", (e) => {
+      if (e.key === TOPPERS_STORAGE_KEY) {
+        toppersData = getToppersData();
+        renderYearFilter();
+        renderTopperCards(selectedYear);
+      }
+    });
 
     // Pause on hover
     topperWrapper.addEventListener("mouseenter", () => {
@@ -787,7 +1001,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-
 
   /* =========================================================
      RADIAL EMBLEM SPOKES & CALLOUTS (LIKE USER SKETCH)

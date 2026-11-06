@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Toppers & Achievers Manager | Savvy Mother International School</title>
+  <meta name="description" content="Manage and edit class toppers, student names, classes, and photos across academic years for Savvy Mother International School.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <style>
+    :root {
+      --admin-bg: #f8fafc;
+      --admin-card-bg: #ffffff;
+      --admin-border: #e2e8f0;
+      --admin-primary: #a71930;
+      --admin-primary-hover: #821325;
+      --admin-blue: #2563eb;
+      --admin-green: #059669;
+      --admin-gold: #f59e0b;
+      --admin-text-main: #0f172a;
+      --admin-text-muted: #64748b;
+    }
+
+    body.admin-body {
+      background: var(--admin-bg);
+      font-family: 'Manrope', sans-serif;
+      color: var(--admin-text-main);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    /* Top Admin Nav */
+    .admin-nav {
+      background: #ffffff;
+      border-bottom: 1px solid var(--admin-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    .admin-nav-inner {
+      width: min(1200px, 94%);
+      margin: 0 auto;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--admin-text-main);
+    }
+    .admin-brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #a71930;
+      object-fit: cover;
+    }
+    .admin-brand-info h1 {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.2;
+      color: var(--admin-text-main);
+    }
+    .admin-brand-info span {
+      font-size: 11px;
+      font-weight: 700;
+      color: #a71930;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .admin-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-admin-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-admin-nav.btn-outline {
+      border: 1px solid var(--admin-border);
+      background: #ffffff;
+      color: var(--admin-text-main);
+    }
+    .btn-admin-nav.btn-outline:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .btn-admin-nav.btn-primary {
+      background: var(--admin-primary);
+      border: 1px solid var(--admin-primary);
+      color: #ffffff;
+    }
+    .btn-admin-nav.btn-primary:hover {
+      background: var(--admin-primary-hover);
+      box-shadow: 0 4px 12px rgba(167, 25, 48, 0.25);
+    }
+
+    /* Container */
+    .admin-container {
+      width: min(1200px, 94%);
+      margin: 28px auto 60px;
+    }
+
+    /* Hero / Header Card */
+    .admin-header-card {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .admin-header-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 2.5vw, 28px);
+      margin: 0 0 6px 0;
+      color: #ffffff;
+    }
+    .admin-header-text p {
+      margin: 0;
+      font-size: 13.5px;
+      color: #94a3b8;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+    .admin-header-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 18px;
+      text-align: center;
+      min-width: 100px;
+    }
+    .stat-pill .val {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fbbf24;
+      display: block;
+      line-height: 1.2;
+    }
+    .stat-pill .lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Academic Year Selector Bar */
+    .year-bar {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 14px;
+      padding: 12px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+    .year-tabs-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .year-tab-label {
+      font-size: 12.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--admin-text-muted);
+      margin-right: 4px;
+    }
+    .year-btn {
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: var(--admin-text-main);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .year-btn:hover {
+      background: #e2e8f0;
+    }
+    .year-btn.active {
+      background: var(--admin-primary);
+      color: #ffffff;
+      border-color: var(--admin-primary);
+      box-shadow: 0 3px 10px rgba(167, 25, 48, 0.25);
+    }
+    .btn-add-year {
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      color: #2563eb;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-add-year:hover {
+      background: #eff6ff;
+      border-color: #3b82f6;
+    }
+
+    /* Main 2-Column Dashboard Grid */
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cards */
+    .panel-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03);
+    }
+    .panel-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0 0 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--admin-text-main);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--admin-border);
+    }
+    .panel-card-title span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Form Layout */
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--admin-text-main);
+      margin-bottom: 6px;
+    }
+    .form-group label small {
+      font-weight: 500;
+      color: var(--admin-text-muted);
+    }
+    .form-control {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: var(--admin-text-main);
+      background: #ffffff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #a71930;
+      box-shadow: 0 0 0 3px rgba(167, 25, 48, 0.12);
+    }
+
+    /* Photo Upload Area */
+    .photo-upload-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 18px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .photo-preview-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+    .photo-upload-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+    .file-input-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--admin-text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .file-input-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .file-input-btn input[type="file"] {
+      display: none;
+    }
+
+    /* Form Action Buttons */
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-save {
+      flex: 1;
+      padding: 12px 18px;
+      background: var(--admin-primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-save:hover {
+      background: var(--admin-primary-hover);
+      box-shadow: 0 4px 14px rgba(167, 25, 48, 0.25);
+    }
+    .btn-cancel {
+      padding: 12px 16px;
+      background: #f1f5f9;
+      color: var(--admin-text-muted);
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-cancel:hover {
+      background: #e2e8f0;
+      color: var(--admin-text-main);
+    }
+
+    /* Toppers Grid List */
+    .topper-search-bar {
+      margin-bottom: 16px;
+    }
+    .toppers-grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .topper-admin-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+      transition: all 0.25s ease;
+    }
+    .topper-admin-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+    .topper-admin-card.editing {
+      border-color: #a71930;
+      box-shadow: 0 0 0 2px rgba(167, 25, 48, 0.2);
+    }
+    .topper-card-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .topper-card-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #f1f5f9;
+    }
+    .topper-card-info h4 {
+      margin: 0 0 3px 0;
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--admin-text-main);
+      line-height: 1.3;
+    }
+    .topper-card-class {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #2563eb;
+      background: #eff6ff;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .topper-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+      margin-top: auto;
+    }
+    .rank-tag {
+      font-size: 11px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .rank-gold { background: #fef3c7; color: #b45309; }
+    .rank-silver { background: #f1f5f9; color: #475569; }
+    .rank-bronze { background: #ffedd5; color: #c2410c; }
+    .rank-star { background: #e0e7ff; color: #4338ca; }
+
+    .card-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-card-action {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: var(--admin-text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s ease;
+    }
+    .btn-card-action:hover {
+      background: #ffffff;
+      border-color: #cbd5e1;
+    }
+    .btn-card-action.btn-delete:hover {
+      background: #fee2e2;
+      border-color: #fca5a5;
+      color: #dc2626;
+    }
+    .btn-card-action.btn-edit:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: #2563eb;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px dashed #cbd5e1;
+    }
+    .empty-state i {
+      font-size: 42px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+    .empty-state h3 {
+      font-size: 16px;
+      margin: 0 0 6px 0;
+      color: var(--admin-text-main);
+    }
+    .empty-state p {
+      font-size: 13px;
+      color: var(--admin-text-muted);
+      margin: 0;
+    }
+
+    /* Toast Notification */
+    .admin-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+    .admin-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .admin-toast i {
+      color: #10b981;
+    }
+
+    /* Utility Tools Footer Card */
+    .tools-footer-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+    .tools-btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- TOP ADMIN NAVBAR -->
+  <header class="admin-nav">
+    <div class="admin-nav-inner">
+      <a href="index.html" class="admin-brand">
+        <img src="images/logo.png" alt="Savvy Mother School Logo" onerror="this.src='https://ui-avatars.com/api/?name=Savvy+Mother&background=a71930&color=fff'">
+        <div class="admin-brand-info">
+          <h1>Savvy Mother International School</h1>
+          <span>Class Toppers &amp; Achievers Manager</span>
+        </div>
+      </a>
+      <div class="admin-nav-actions">
+        <a href="index.html#toppers-section" class="btn-admin-nav btn-outline">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View on Website
+        </a>
+        <a href="index.html" class="btn-admin-nav btn-primary">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="admin-container">
+
+    <!-- HERO HEADER -->
+    <section class="admin-header-card">
+      <div class="admin-header-text">
+        <h2>Class Toppers Management Panel</h2>
+        <p>Easily edit, update, or add class toppers year by year. Specify the student's <strong>name</strong>, <strong>class</strong>, and <strong>photo</strong>. All changes update instantly on the live school website.</p>
+      </div>
+      <div class="admin-header-stats">
+        <div class="stat-pill">
+          <span class="val" id="statYearCount">0</span>
+          <span class="lbl">Toppers in Year</span>
+        </div>
+        <div class="stat-pill">
+          <span class="val" id="statTotalCount">0</span>
+          <span class="lbl">All-Time Toppers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMIC YEAR SELECTOR BAR -->
+    <section class="year-bar">
+      <div class="year-tabs-wrap" id="yearTabsContainer">
+        <span class="year-tab-label"><i class="fa-solid fa-calendar"></i> Academic Year:</span>
+        <!-- Injected via JavaScript -->
+      </div>
+      <button type="button" class="btn-add-year" id="btnAddYearBtn">
+        <i class="fa-solid fa-plus"></i> Add Academic Year
+      </button>
+    </section>
+
+    <!-- 2-COLUMN DASHBOARD GRID -->
+    <div class="admin-grid">
+
+      <!-- COLUMN 1: ADD / EDIT TOPPER FORM -->
+      <section class="panel-card">
+        <h3 class="panel-card-title">
+          <span><i class="fa-solid fa-user-pen" style="color: #a71930;"></i> <span id="formTitle">Add New Class Topper</span></span>
+          <span id="editBadge" style="display:none; font-size:11px; background:#eff6ff; color:#2563eb; padding:2px 8px; border-radius:6px;">Editing</span>
+        </h3>
+
+        <form id="topperForm" autocomplete="off">
+          <input type="hidden" id="editTopperId" value="">
+
+          <!-- Student Photo Uploader & Live Preview -->
+          <div class="photo-upload-wrap">
+            <img src="https://ui-avatars.com/api/?name=Student+Photo&background=f1f5f9&color=64748b&size=150" alt="Preview" class="photo-preview-avatar" id="photoPreview">
+            <div class="photo-upload-buttons">
+              <label class="file-input-btn">
+                <i class="fa-solid fa-camera"></i> Upload Photo (Device)
+                <input type="file" id="photoFileInput" accept="image/*">
+              </label>
+              <input type="url" id="photoUrlInput" class="form-control" placeholder="Or paste image URL (https://...)" style="font-size:12px; padding:6px 10px;">
+            </div>
+            <small style="font-size:11px; color:#64748b;">Square or portrait photo recommended. Auto-resized for speed.</small>
+          </div>
+
+          <!-- Student Name -->
+          <div class="form-group">
+            <label for="studentName">Student Full Name *</label>
+            <input type="text" id="studentName" class="form-control" placeholder="e.g. Aarav Sharma" required>
+          </div>
+
+          <!-- Class Selection -->
+          <div class="form-group">
+            <label for="studentClass">Class / Grade *</label>
+            <select id="studentClassSelect" class="form-control">
+              <option value="Nursery">Nursery</option>
+              <option value="KG-I (LKG)">KG-I (LKG)</option>
+              <option value="KG-II (UKG)">KG-II (UKG)</option>
+              <option value="Class 1">Class 1</option>
+              <option value="Class 2">Class 2</option>
+              <option value="Class 3">Class 3</option>
+              <option value="Class 4">Class 4</option>
+              <option value="Class 5">Class 5</option>
+              <option value="Class 6">Class 6</option>
+              <option value="Class 7">Class 7</option>
+              <option value="Class 8">Class 8</option>
+              <option value="Class 9">Class 9</option>
+              <option value="Class 10" selected>Class 10</option>
+              <option value="Class 11 (Science)">Class 11 (Science)</option>
+              <option value="Class 11 (Commerce)">Class 11 (Commerce)</option>
+              <option value="Class 11 (Arts)">Class 11 (Arts)</option>
+              <option value="Class 12 (Science)">Class 12 (Science)</option>
+              <option value="Class 12 (Commerce)">Class 12 (Commerce)</option>
+              <option value="Class 12 (Arts)">Class 12 (Arts)</option>
+              <option value="custom">-- Custom Class Text --</option>
+            </select>
+            <input type="text" id="studentClassCustom" class="form-control" placeholder="Type custom class name..." style="display:none; margin-top:8px;">
+          </div>
+
+          <!-- Academic Year -->
+          <div class="form-group">
+            <label for="studentYearSelect">Academic Year *</label>
+            <select id="studentYearSelect" class="form-control">
+              <!-- Injected dynamically -->
+            </select>
+          </div>
+
+          <!-- Rank / Award Badge (Optional) -->
+          <div class="form-group">
+            <label for="studentRank">Honor / Position <small>(Optional)</small></label>
+            <select id="studentRank" class="form-control">
+              <option value="Rank 1" selected>Rank 1 (Gold Trophy)</option>
+              <option value="Rank 2">Rank 2 (Silver Trophy)</option>
+              <option value="Rank 3">Rank 3 (Bronze Trophy)</option>
+              <option value="Class Topper">Class Topper</option>
+              <option value="Star Achiever">Star Achiever</option>
+            </select>
+          </div>
+
+          <!-- Percentage or Score (Optional) -->
+          <div class="form-group">
+            <label for="studentScore">Percentage / Marks <small>(Optional)</small></label>
+            <input type="text" id="studentScore" class="form-control" placeholder="e.g. 98.8% or Grade A+">
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="form-actions">
+            <button type="submit" class="btn-save" id="btnSaveTopper">
+              <i class="fa-solid fa-check"></i> Save Topper
+            </button>
+            <button type="button" class="btn-cancel" id="btnCancelEdit">
+              Clear
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- COLUMN 2: TOPPERS SHOWCASE & LIST -->
+      <section class="panel-card">
+        <h3 class="panel-card-title">
+          <span><i class="fa-solid fa-award" style="color: #f59e0b;"></i> Class Toppers for <span id="activeYearTitle">2025-26</span></span>
+          <span style="font-size:12px; font-weight:700; color:var(--admin-text-muted);" id="activeCountBadge">0 Students</span>
+        </h3>
+
+        <!-- Search Bar -->
+        <div class="topper-search-bar">
+          <input type="text" id="searchToppersInput" class="form-control" placeholder="Search by student name or class...">
+        </div>
+
+        <!-- Toppers Grid Cards -->
+        <div class="toppers-grid-cards" id="toppersGridContainer">
+          <!-- Injected via JavaScript -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>No Class Toppers Found</h3>
+          <p>No toppers added for this academic year yet. Use the form on the left to add your first student!</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- DATA MANAGEMENT FOOTER -->
+    <section class="tools-footer-card">
+      <div>
+        <strong style="font-size:13.5px;"><i class="fa-solid fa-database"></i> Backup &amp; Storage</strong>
+        <p style="font-size:12px; color:var(--admin-text-muted); margin:2px 0 0 0;">All records are saved securely in your browser and sync instantly to the homepage slider.</p>
+      </div>
+      <div class="tools-btn-group">
+        <button type="button" class="btn-admin-nav btn-outline" id="btnExportJson">
+          <i class="fa-solid fa-download"></i> Export Backup (JSON)
+        </button>
+        <label class="btn-admin-nav btn-outline" style="margin:0; cursor:pointer;">
+          <i class="fa-solid fa-upload"></i> Restore Backup (JSON)
+          <input type="file" id="importJsonInput" accept=".json" style="display:none;">
+        </label>
+        <button type="button" class="btn-admin-nav btn-outline" id="btnResetDefaults" style="color:#dc2626;">
+          <i class="fa-solid fa-rotate-left"></i> Reset Defaults
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="admin-toast" id="adminToast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Changes saved successfully!</span>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // Initial Default Seed Data (Used if no custom data exists in localStorage)
+    const DEFAULT_TOPPERS_DATA = {
+      years: ["2025-26", "2024-25", "2023-24"],
+      activeYear: "2025-26",
+      students: [
+        {
+          id: "s1",
+          name: "Aarav Sharma",
+          class: "Class 10",
+          year: "2025-26",
+          rank: "Rank 1",
+          score: "98.8%",
+          photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s2",
+          name: "Ananya Patel",
+          class: "Class 12 (Science)",
+          year: "2025-26",
+          rank: "Rank 1",
+          score: "98.2%",
+          photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s3",
+          name: "Rohan Verma",
+          class: "Class 9",
+          year: "2025-26",
+          rank: "Rank 2",
+          score: "97.6%",
+          photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s4",
+          name: "Priya Singh",
+          class: "Class 12 (Commerce)",
+          year: "2025-26",
+          rank: "Rank 2",
+          score: "97.2%",
+          photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s5",
+          name: "Ishaan Tiwari",
+          class: "Class 8",
+          year: "2025-26",
+          rank: "Rank 3",
+          score: "96.8%",
+          photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s6",
+          name: "Sneha Mishra",
+          class: "Class 11 (Arts)",
+          year: "2025-26",
+          rank: "Rank 3",
+          score: "96.4%",
+          photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s7",
+          name: "Divyansh Pandey",
+          class: "Class 7",
+          year: "2025-26",
+          rank: "Class Topper",
+          score: "95.8%",
+          photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s8",
+          name: "Kavya Soni",
+          class: "Class 6",
+          year: "2025-26",
+          rank: "Class Topper",
+          score: "95.2%",
+          photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s9",
+          name: "Aditi Dwivedi",
+          class: "Class 12",
+          year: "2024-25",
+          rank: "Rank 1",
+          score: "98.5%",
+          photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s10",
+          name: "Siddharth Shukla",
+          class: "Class 10",
+          year: "2024-25",
+          rank: "Rank 1",
+          score: "98.0%",
+          photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80"
+        },
+        {
+          id: "s11",
+          name: "Ayush Mishra",
+          class: "Class 12",
+          year: "2023-24",
+          rank: "Rank 1",
+          score: "97.8%",
+          photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+        }
+      ]
+    };
+
+    const STORAGE_KEY = "savvy_toppers_data";
+
+    // State
+    let data = loadData();
+
+    function loadData() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.students)) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.error("Failed to load from storage", e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_TOPPERS_DATA));
+    }
+
+    function saveData() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {
+        console.error("Failed to save to localStorage", e);
+      }
+    }
+
+    // Elements
+    const yearTabsContainer = document.getElementById("yearTabsContainer");
+    const btnAddYearBtn = document.getElementById("btnAddYearBtn");
+    const activeYearTitle = document.getElementById("activeYearTitle");
+    const activeCountBadge = document.getElementById("activeCountBadge");
+    const statYearCount = document.getElementById("statYearCount");
+    const statTotalCount = document.getElementById("statTotalCount");
+    const toppersGridContainer = document.getElementById("toppersGridContainer");
+    const emptyState = document.getElementById("emptyState");
+    const searchToppersInput = document.getElementById("searchToppersInput");
+
+    // Form Elements
+    const topperForm = document.getElementById("topperForm");
+    const formTitle = document.getElementById("formTitle");
+    const editBadge = document.getElementById("editBadge");
+    const editTopperId = document.getElementById("editTopperId");
+    const studentName = document.getElementById("studentName");
+    const studentClassSelect = document.getElementById("studentClassSelect");
+    const studentClassCustom = document.getElementById("studentClassCustom");
+    const studentYearSelect = document.getElementById("studentYearSelect");
+    const studentRank = document.getElementById("studentRank");
+    const studentScore = document.getElementById("studentScore");
+    const photoFileInput = document.getElementById("photoFileInput");
+    const photoUrlInput = document.getElementById("photoUrlInput");
+    const photoPreview = document.getElementById("photoPreview");
+    const btnSaveTopper = document.getElementById("btnSaveTopper");
+    const btnCancelEdit = document.getElementById("btnCancelEdit");
+    const adminToast = document.getElementById("adminToast");
+    const toastMessage = document.getElementById("toastMessage");
+
+    let currentPhotoData = "";
+
+    // Image compression helper
+    function compressImage(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const maxDim = 320;
+            let width = img.width;
+            let height = img.height;
+            if (width > height) {
+              if (width > maxDim) {
+                height = Math.round((height * maxDim) / width);
+                width = maxDim;
+              }
+            } else {
+              if (height > maxDim) {
+                width = Math.round((width * maxDim) / height);
+                height = maxDim;
+              }
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL("image/jpeg", 0.82));
+          };
+          img.onerror = reject;
+          img.src = e.target.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // Photo input listeners
+    photoFileInput.addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        try {
+          const compressed = await compressImage(file);
+          currentPhotoData = compressed;
+          photoPreview.src = compressed;
+          photoUrlInput.value = "";
+        } catch (err) {
+          showToast("Failed to process image file", true);
+        }
+      }
+    });
+
+    photoUrlInput.addEventListener("input", () => {
+      const url = photoUrlInput.value.trim();
+      if (url) {
+        currentPhotoData = url;
+        photoPreview.src = url;
+      }
+    });
+
+    // Custom class toggle
+    studentClassSelect.addEventListener("change", () => {
+      if (studentClassSelect.value === "custom") {
+        studentClassCustom.style.display = "block";
+        studentClassCustom.focus();
+      } else {
+        studentClassCustom.style.display = "none";
+      }
+    });
+
+    // Toast helper
+    function showToast(msg, isError = false) {
+      toastMessage.textContent = msg;
+      adminToast.style.borderLeft = isError ? "4px solid #ef4444" : "4px solid #10b981";
+      adminToast.classList.add("show");
+      setTimeout(() => {
+        adminToast.classList.remove("show");
+      }, 3000);
+    }
+
+    // Render Year Tabs
+    function renderYearTabs() {
+      yearTabsContainer.innerHTML = '<span class="year-tab-label"><i class="fa-solid fa-calendar"></i> Academic Year:</span>';
+      
+      // Update year dropdown in form
+      studentYearSelect.innerHTML = "";
+
+      data.years.forEach(year => {
+        // Tab button
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `year-btn ${year === data.activeYear ? "active" : ""}`;
+        btn.textContent = year;
+        btn.onclick = () => selectYear(year);
+        yearTabsContainer.appendChild(btn);
+
+        // Form select option
+        const opt = document.createElement("option");
+        opt.value = year;
+        opt.textContent = year;
+        if (year === data.activeYear) opt.selected = true;
+        studentYearSelect.appendChild(opt);
+      });
+    }
+
+    function selectYear(year) {
+      data.activeYear = year;
+      saveData();
+      renderYearTabs();
+      renderToppersList();
+      resetForm();
+    }
+
+    // Add Year button
+    btnAddYearBtn.addEventListener("click", () => {
+      const year = prompt("Enter new academic session (e.g. 2026-27):");
+      if (year && year.trim()) {
+        const clean = year.trim();
+        if (!data.years.includes(clean)) {
+          data.years.unshift(clean);
+          data.activeYear = clean;
+          saveData();
+          renderYearTabs();
+          renderToppersList();
+          showToast(`Academic Year ${clean} added!`);
+        } else {
+          selectYear(clean);
+        }
+      }
+    });
+
+    // Render Toppers List
+    function renderToppersList() {
+      activeYearTitle.textContent = data.activeYear;
+      
+      const filtered = data.students.filter(s => s.year === data.activeYear);
+      const query = searchToppersInput.value.toLowerCase().trim();
+      
+      const displayList = query ? filtered.filter(s => 
+        (s.name && s.name.toLowerCase().includes(query)) ||
+        (s.class && s.class.toLowerCase().includes(query))
+      ) : filtered;
+
+      activeCountBadge.textContent = `${filtered.length} Student${filtered.length === 1 ? '' : 's'}`;
+      statYearCount.textContent = filtered.length;
+      statTotalCount.textContent = data.students.length;
+
+      if (displayList.length === 0) {
+        toppersGridContainer.innerHTML = "";
+        emptyState.style.display = "block";
+        return;
+      }
+
+      emptyState.style.display = "none";
+      toppersGridContainer.innerHTML = displayList.map(s => {
+        const photoUrl = s.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0e3a80&color=fff&size=120`;
+        const isEditing = editTopperId.value === s.id;
+        
+        // Rank badge styling
+        let rankClass = "rank-gold";
+        let rankIcon = "fa-trophy";
+        if (s.rank && s.rank.includes("2")) { rankClass = "rank-silver"; }
+        else if (s.rank && s.rank.includes("3")) { rankClass = "rank-bronze"; }
+        else if (s.rank && !s.rank.includes("1")) { rankClass = "rank-star"; rankIcon = "fa-star"; }
+
+        return `
+          <div class="topper-admin-card ${isEditing ? 'editing' : ''}" data-id="${s.id}">
+            <div class="topper-card-top">
+              <img src="${photoUrl}" alt="${s.name}" class="topper-card-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0e3a80&color=fff&size=120'">
+              <div class="topper-card-info">
+                <h4>${s.name}</h4>
+                <span class="topper-card-class"><i class="fa-solid fa-graduation-cap"></i> ${s.class}</span>
+              </div>
+            </div>
+            <div class="topper-card-meta">
+              <span class="rank-tag ${rankClass}"><i class="fa-solid ${rankIcon}"></i> ${s.rank || 'Topper'} ${s.score ? `(${s.score})` : ''}</span>
+              <div class="card-actions">
+                <button type="button" class="btn-card-action btn-edit" title="Edit Student" onclick="editTopper('${s.id}')">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button type="button" class="btn-card-action btn-delete" title="Delete Student" onclick="deleteTopper('${s.id}')">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    searchToppersInput.addEventListener("input", renderToppersList);
+
+    // Form Submit
+    topperForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = studentName.value.trim();
+      if (!name) {
+        showToast("Please enter the student's name", true);
+        return;
+      }
+
+      let chosenClass = studentClassSelect.value;
+      if (chosenClass === "custom") {
+        chosenClass = studentClassCustom.value.trim();
+        if (!chosenClass) {
+          showToast("Please enter the custom class name", true);
+          return;
+        }
+      }
+
+      const year = studentYearSelect.value;
+      const rank = studentRank.value;
+      const score = studentScore.value.trim();
+      const photo = currentPhotoData || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=0e3a80&color=fff&size=200`;
+
+      const id = editTopperId.value;
+
+      if (id) {
+        // Edit existing
+        const idx = data.students.findIndex(s => s.id === id);
+        if (idx !== -1) {
+          data.students[idx] = {
+            ...data.students[idx],
+            name,
+            class: chosenClass,
+            year,
+            rank,
+            score,
+            photo
+          };
+          showToast(`Updated details for ${name}`);
+        }
+      } else {
+        // Create new
+        const newStudent = {
+          id: "s_" + Date.now(),
+          name,
+          class: chosenClass,
+          year,
+          rank,
+          score,
+          photo
+        };
+        data.students.unshift(newStudent);
+        showToast(`Added ${name} to ${chosenClass} toppers!`);
+      }
+
+      saveData();
+      renderToppersList();
+      resetForm();
+    });
+
+    // Edit Topper
+    window.editTopper = function(id) {
+      const student = data.students.find(s => s.id === id);
+      if (!student) return;
+
+      editTopperId.value = student.id;
+      studentName.value = student.name || "";
+      
+      // Class select
+      let foundOption = false;
+      for (let i = 0; i < studentClassSelect.options.length; i++) {
+        if (studentClassSelect.options[i].value === student.class) {
+          studentClassSelect.selectedIndex = i;
+          foundOption = true;
+          break;
+        }
+      }
+      if (!foundOption) {
+        studentClassSelect.value = "custom";
+        studentClassCustom.style.display = "block";
+        studentClassCustom.value = student.class || "";
+      } else {
+        studentClassCustom.style.display = "none";
+      }
+
+      studentYearSelect.value = student.year || data.activeYear;
+      studentRank.value = student.rank || "Rank 1";
+      studentScore.value = student.score || "";
+
+      currentPhotoData = student.photo || "";
+      photoPreview.src = currentPhotoData || `https://ui-avatars.com/api/?name=${encodeURIComponent(student.name)}&background=f1f5f9&color=64748b&size=150`;
+      photoUrlInput.value = student.photo && student.photo.startsWith("http") ? student.photo : "";
+
+      formTitle.textContent = "Edit Class Topper";
+      editBadge.style.display = "inline-block";
+      btnSaveTopper.innerHTML = '<i class="fa-solid fa-check"></i> Update Topper';
+      
+      // Highlight card in list
+      renderToppersList();
+
+      topperForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    // Delete Topper
+    window.deleteTopper = function(id) {
+      const student = data.students.find(s => s.id === id);
+      if (!student) return;
+
+      if (confirm(`Are you sure you want to remove ${student.name} (${student.class}) from the toppers list?`)) {
+        data.students = data.students.filter(s => s.id !== id);
+        saveData();
+        renderToppersList();
+        if (editTopperId.value === id) resetForm();
+        showToast(`Removed ${student.name}`);
+      }
+    };
+
+    // Reset Form
+    function resetForm() {
+      editTopperId.value = "";
+      studentName.value = "";
+      studentClassSelect.value = "Class 10";
+      studentClassCustom.value = "";
+      studentClassCustom.style.display = "none";
+      studentYearSelect.value = data.activeYear;
+      studentRank.value = "Rank 1";
+      studentScore.value = "";
+      currentPhotoData = "";
+      photoFileInput.value = "";
+      photoUrlInput.value = "";
+      photoPreview.src = "https://ui-avatars.com/api/?name=Student+Photo&background=f1f5f9&color=64748b&size=150";
+
+      formTitle.textContent = "Add New Class Topper";
+      editBadge.style.display = "none";
+      btnSaveTopper.innerHTML = '<i class="fa-solid fa-check"></i> Save Topper';
+
+      document.querySelectorAll(".topper-admin-card.editing").forEach(el => el.classList.remove("editing"));
+    }
+
+    btnCancelEdit.addEventListener("click", resetForm);
+
+    // Export JSON
+    document.getElementById("btnExportJson").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `savvy-mother-toppers-backup-${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("Toppers data backup exported!");
+    });
+
+    // Import JSON
+    document.getElementById("importJsonInput").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const imported = JSON.parse(event.target.result);
+          if (imported && Array.isArray(imported.students) && Array.isArray(imported.years)) {
+            data = imported;
+            saveData();
+            renderYearTabs();
+            renderToppersList();
+            resetForm();
+            showToast("Backup restored successfully!");
+          } else {
+            showToast("Invalid backup JSON format", true);
+          }
+        } catch (err) {
+          showToast("Failed to parse JSON file", true);
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // Reset Defaults
+    document.getElementById("btnResetDefaults").addEventListener("click", () => {
+      if (confirm("Reset toppers list back to original school defaults? This will overwrite your current list.")) {
+        data = JSON.parse(JSON.stringify(DEFAULT_TOPPERS_DATA));
+        saveData();
+        renderYearTabs();
+        renderToppersList();
+        resetForm();
+        showToast("Toppers reset to school defaults!");
+      }
+    });
+
+    // Initial render
+    renderYearTabs();
+    renderToppersList();
+  </script>
+</body>
+</html>

@@ -105,6 +105,7 @@
           <a href="academics/middle.html">Middle School</a>
           <a href="academics/secondary.html">Secondary School</a>
           <a href="academics/senior-secondary.html">Senior Secondary</a>
+          <a href="toppers-manager.html" style="color:#a71930; font-weight:700;"><i class="fa-solid fa-award"></i> Class Toppers Manager</a>
         </div>
 
       </div>
@@ -1160,11 +1161,11 @@
          ACHIEVEMENTS
     ========================================================= -->
 
-    <section class="section achievements">
+    <section class="section achievements" id="toppers-section">
 
       <div class="container">
 
-        <div class="section-head reveal" style="align-items: flex-end; margin-bottom: 20px;">
+        <div class="section-head reveal" style="align-items: flex-end; margin-bottom: 15px;">
 
           <div>
             <p class="eyebrow"><i class="fa-solid fa-medal"></i> Academic Achievements</p>
@@ -1179,8 +1180,16 @@
             <span class="topper-scroll-hint"><i class="fa-solid fa-arrows-left-right"></i> Auto-sliding &bull; Hover to pause</span>
             <button class="slider-nav-btn prev" id="topperPrev" type="button" aria-label="Previous card"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="slider-nav-btn next" id="topperNext" type="button" aria-label="Next card"><i class="fa-solid fa-chevron-right"></i></button>
+            <a href="toppers-manager.html" class="btn-manage-toppers-pill" title="Open Class Toppers Management Panel">
+              <i class="fa-solid fa-pen-to-square"></i> Edit Toppers
+            </a>
           </div>
 
+        </div>
+
+        <!-- ACADEMIC YEAR SELECTOR PILLS -->
+        <div class="topper-year-filter-wrap reveal" id="topperYearTabs">
+          <!-- Dynamically populated from toppers data -->
         </div>
 
       </div>

@@ -6601,6 +6601,70 @@ html.visited-session .preloader,
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
+.btn-manage-toppers-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    background: #ffffff;
+    color: #a71930;
+    border-radius: 22px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    white-space: nowrap;
+}
+
+.btn-manage-toppers-pill:hover {
+    background: #fef2f2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    color: #821325;
+}
+
+.topper-year-filter-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.topper-year-label {
+    font-size: 13px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+
+.topper-year-pill {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.topper-year-pill:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.topper-year-pill.active {
+    background: #ffffff;
+    color: #a71930;
+    border-color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
 .topper-slider-wrapper {
     position: relative;
     width: 100%;
