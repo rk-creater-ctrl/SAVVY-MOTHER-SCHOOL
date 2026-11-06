@@ -867,7 +867,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let toppersData = getToppersData();
-    let selectedYear = toppersData.activeYear || "2025-26";
+
+    // Automatically resolve the current academic year:
+    // 1) Explicit defaultYear set by admin, or
+    // 2) Most recent session that has topper students uploaded, or
+    // 3) Newest session in the list
+    function resolveCurrentYear() {
+      if (toppersData.defaultYear && toppersData.years && toppersData.years.includes(toppersData.defaultYear)) {
+        return toppersData.defaultYear;
+      }
+      if (toppersData.years && toppersData.years.length > 0) {
+        const sorted = [...toppersData.years].sort((a, b) => b.localeCompare(a));
+        for (const yr of sorted) {
+          if (toppersData.students.some(s => s.year === yr)) {
+            return yr;
+          }
+        }
+        return sorted[0];
+      }
+      return toppersData.activeYear || "2025-26";
+    }
+
+    let selectedYear = resolveCurrentYear();
     let manualOffset = 0;
 
     function renderTopperCards(year) {
@@ -930,16 +951,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderYearFilter() {
       if (topperYearSelect) {
         topperYearSelect.innerHTML = "";
-        toppersData.years.forEach(year => {
+        // Sort descending so the latest session is listed first
+        const sortedYears = [...toppersData.years].sort((a, b) => b.localeCompare(a));
+        const currentYearCandidate = resolveCurrentYear();
+
+        sortedYears.forEach(year => {
           const opt = document.createElement("option");
           opt.value = year;
-          opt.textContent = `Session ${year}`;
+          const isCurrent = year === currentYearCandidate;
+          opt.textContent = `Session ${year}${isCurrent ? " (Current)" : ""}`;
           if (year === selectedYear) opt.selected = true;
           topperYearSelect.appendChild(opt);
         });
       } else if (topperYearTabs) {
         topperYearTabs.innerHTML = '<span class="topper-year-label"><i class="fa-solid fa-calendar-check"></i> Session:</span>';
-        toppersData.years.forEach(year => {
+        const sortedYears = [...toppersData.years].sort((a, b) => b.localeCompare(a));
+        sortedYears.forEach(year => {
           const btn = document.createElement("button");
           btn.type = "button";
           btn.className = `topper-year-pill ${year === selectedYear ? "active" : ""}`;
@@ -969,6 +996,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("storage", (e) => {
       if (e.key === TOPPERS_STORAGE_KEY) {
         toppersData = getToppersData();
+        selectedYear = resolveCurrentYear();
         renderYearFilter();
         renderTopperCards(selectedYear);
       }

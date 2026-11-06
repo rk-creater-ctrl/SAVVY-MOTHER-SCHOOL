@@ -734,6 +734,41 @@
       gap: 10px;
       flex-wrap: wrap;
     }
+  
+    .btn-set-default {
+      padding: 9px 15px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #ffffff;
+      border: none;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 10px rgba(217, 119, 6, 0.25);
+    }
+    .btn-set-default:hover {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      transform: translateY(-1px);
+      box-shadow: 0 5px 14px rgba(217, 119, 6, 0.35);
+    }
+    .default-star-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 2px 7px;
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 800;
+      margin-left: 6px;
+    }
+
   </style>
 </head>
 <body class="admin-body">
@@ -819,9 +854,14 @@
       <div class="year-tabs-wrap" id="yearTabsContainer">
         <span class="year-tab-label"><i class="fa-solid fa-calendar"></i> Academic Year:</span>
       </div>
-      <button type="button" class="btn-add-year" id="btnAddYearBtn">
-        <i class="fa-solid fa-plus"></i> Add Academic Year
-      </button>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <button type="button" class="btn-set-default" id="btnSetDefaultYear" title="Set this academic session as the default year displayed on the school website homepage">
+          <i class="fa-solid fa-star"></i> Set as Website Default
+        </button>
+        <button type="button" class="btn-add-year" id="btnAddYearBtn">
+          <i class="fa-solid fa-plus"></i> Add Academic Year
+        </button>
+      </div>
     </section>
 
     <!-- 2-COLUMN DASHBOARD GRID -->
@@ -1281,11 +1321,14 @@
       yearTabsContainer.innerHTML = '<span class="year-tab-label"><i class="fa-solid fa-calendar"></i> Academic Year:</span>';
       studentYearSelect.innerHTML = "";
 
+      const defaultYear = data.defaultYear || data.years[0];
+
       data.years.forEach(year => {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = `year-btn ${year === data.activeYear ? "active" : ""}`;
-        btn.textContent = year;
+        const isDef = year === defaultYear;
+        btn.innerHTML = `${year}${isDef ? ' <span class="default-star-badge" title="Default session on public website"><i class="fa-solid fa-star"></i> Default</span>' : ''}`;
         btn.onclick = () => selectYear(year);
         yearTabsContainer.appendChild(btn);
 
@@ -1305,6 +1348,16 @@
       resetForm();
     }
 
+    const btnSetDefaultYear = document.getElementById("btnSetDefaultYear");
+    if (btnSetDefaultYear) {
+      btnSetDefaultYear.addEventListener("click", () => {
+        data.defaultYear = data.activeYear;
+        saveData();
+        renderYearTabs();
+        showToast(`★ Session ${data.activeYear} is now set as the default year on the public website!`);
+      });
+    }
+
     btnAddYearBtn.addEventListener("click", () => {
       const year = prompt("Enter new academic session (e.g. 2026-27):");
       if (year && year.trim()) {
@@ -1312,6 +1365,7 @@
         if (!data.years.includes(clean)) {
           data.years.unshift(clean);
           data.activeYear = clean;
+          data.defaultYear = clean;
           saveData();
           renderYearTabs();
           renderToppersList();
