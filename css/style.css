@@ -609,7 +609,7 @@ html.visited-session .preloader,
     line-height: 0.9;
     letter-spacing: -4px;
 
-    transition: 0.35s;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-title span {
@@ -625,7 +625,7 @@ html.visited-session .preloader,
     font-size: 15px;
     line-height: 1.85;
 
-    transition: 0.35s;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .buttons {
@@ -788,18 +788,24 @@ html.visited-session .preloader,
 
     display: flex;
     width: 100%;
-    gap: 7px;
+    gap: 5px;
 }
 
 .slider-bar {
-    height: 3px;
+    height: 3.5px;
     overflow: hidden;
     flex: 1;
 
     border: none;
+    border-radius: 3px;
     background: rgba(255, 255, 255, 0.3);
 
     cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.slider-bar:hover {
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .slider-bar span {
@@ -807,6 +813,7 @@ html.visited-session .preloader,
     width: 0;
     height: 100%;
 
+    border-radius: 3px;
     background: var(--yellow);
 }
 

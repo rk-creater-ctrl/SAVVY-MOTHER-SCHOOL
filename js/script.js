@@ -154,9 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const heroNext = document.getElementById("heroNext");
   const heroPrev = document.getElementById("heroPrev");
+  const heroSliderEl = document.querySelector(".hero-slider");
 
   let heroCurrent = 0;
-  let heroTimer;
+  let heroTimer = null;
+  let isFirstHeroRender = true;
 
   function showHeroSlide(index) {
     if (
@@ -175,31 +177,65 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     heroBars.forEach((bar, barIndex) => {
-      bar.classList.toggle("active", barIndex === index);
+      const isActive = barIndex === index;
+      bar.classList.toggle("active", isActive);
+      const span = bar.querySelector("span");
+      if (span) {
+        span.style.animation = "none";
+        if (isActive) {
+          // Trigger layout reflow to restart CSS progress animation cleanly
+          void span.offsetWidth;
+          span.style.animation = "";
+        }
+      }
     });
 
     const activeSlide = heroSlides[index];
 
-    heroTitle.style.opacity = "0";
-    heroDescription.style.opacity = "0";
-
-    setTimeout(() => {
+    if (isFirstHeroRender) {
+      isFirstHeroRender = false;
       heroTitle.innerHTML = activeSlide.dataset.title || "";
       heroDescription.textContent = activeSlide.dataset.description || "";
-
       heroTitle.style.opacity = "1";
+      heroTitle.style.transform = "translateY(0)";
       heroDescription.style.opacity = "1";
-    }, 250);
+      heroDescription.style.transform = "translateY(0)";
+    } else {
+      // Graceful text transition: fade-out with subtle dip, then rise and fade-in
+      heroTitle.style.opacity = "0";
+      heroTitle.style.transform = "translateY(8px)";
+      heroDescription.style.opacity = "0";
+      heroDescription.style.transform = "translateY(8px)";
 
+      setTimeout(() => {
+        heroTitle.innerHTML = activeSlide.dataset.title || "";
+        heroDescription.textContent = activeSlide.dataset.description || "";
+
+        heroTitle.style.opacity = "1";
+        heroTitle.style.transform = "translateY(0)";
+        heroDescription.style.opacity = "1";
+        heroDescription.style.transform = "translateY(0)";
+      }, 260);
+    }
+
+    startHeroTimer();
+  }
+
+  function startHeroTimer() {
     clearInterval(heroTimer);
-
     heroTimer = setInterval(() => {
       showHeroSlide((heroCurrent + 1) % heroSlides.length);
     }, 5000);
   }
 
   if (heroSlides.length) {
-    showHeroSlide(0);
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialSlideParam = urlParams.get("slide");
+    const startSlide =
+      initialSlideParam !== null && !isNaN(Number(initialSlideParam))
+        ? Math.max(0, Math.min(Number(initialSlideParam), heroSlides.length - 1))
+        : 0;
+    showHeroSlide(startSlide);
   }
 
   if (heroNext) {
@@ -221,6 +257,29 @@ document.addEventListener("DOMContentLoaded", () => {
       showHeroSlide(Number(bar.dataset.slide));
     });
   });
+
+  // Pause autoplay while hovering over the slider, resume smoothly on leave
+  if (heroSliderEl) {
+    heroSliderEl.addEventListener("mouseenter", () => clearInterval(heroTimer));
+    heroSliderEl.addEventListener("mouseleave", () => startHeroTimer());
+
+    // Touch swipe gesture support for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    heroSliderEl.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    heroSliderEl.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 45) {
+        // Swiped left -> next slide
+        showHeroSlide((heroCurrent + 1) % heroSlides.length);
+      } else if (touchEndX - touchStartX > 45) {
+        // Swiped right -> prev slide
+        showHeroSlide((heroCurrent - 1 + heroSlides.length) % heroSlides.length);
+      }
+    }, { passive: true });
+  }
 
   /* =========================================================
      COUNTERS
