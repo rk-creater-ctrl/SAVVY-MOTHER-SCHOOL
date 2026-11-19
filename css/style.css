@@ -1938,6 +1938,42 @@ html.visited-session .preloader,
     transform: translateY(-2px);
 }
 
+.discovery-gallery-section .gallery figure.gallery-empty {
+    background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    border: 2px dashed rgba(100, 116, 139, 0.22);
+}
+
+.discovery-gallery-section .gallery figure.gallery-empty a.gallery-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discovery-gallery-section .gallery figure.gallery-empty .gallery-empty-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #94a3b8;
+}
+
+.discovery-gallery-section .gallery figure.gallery-empty .gallery-empty-inner i {
+    font-size: 26px;
+    color: #cbd5e1;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.discovery-gallery-section .gallery figure.gallery-empty:hover {
+    border-color: rgba(115, 20, 37, 0.3);
+    background: linear-gradient(135deg, #fff5f5 0%, #fdf2f2 100%);
+}
+
+.discovery-gallery-section .gallery figure.gallery-empty:hover .gallery-empty-inner i {
+    color: #731425;
+    transform: scale(1.1);
+}
+
 .discovery-gallery-section .gallery figcaption i {
     font-size: 9px;
     opacity: 0.65;
