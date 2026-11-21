@@ -805,107 +805,117 @@ document.addEventListener("DOMContentLoaded", () => {
     const TOPPERS_STORAGE_KEY = "savvy_toppers_data";
 
     const DEFAULT_TOPPERS_DATA = {
-      years: ["2025-26", "2024-25", "2023-24"],
-      activeYear: "2025-26",
+      years: ["2024-25"],
+      activeYear: "2024-25",
+      defaultYear: "2024-25",
       students: [
         {
-          id: "s1",
-          name: "Aarav Sharma",
-          class: "Class 10",
-          year: "2025-26",
+          id: "t1",
+          name: "Prasant Mishra",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
           rank: "Rank 1",
-          score: "98.8%",
-          photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80"
+          score: "97.00%",
+          photo: "https://ui-avatars.com/api/?name=Prasant+Mishra&background=a71930&color=fff&size=200&bold=true"
         },
         {
-          id: "s2",
-          name: "Ananya Patel",
-          class: "Class 12 (Science)",
-          year: "2025-26",
-          rank: "Rank 1",
-          score: "98.2%",
-          photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
-        },
-        {
-          id: "s3",
-          name: "Rohan Verma",
-          class: "Class 9",
-          year: "2025-26",
+          id: "t2",
+          name: "Simaran Singh",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
           rank: "Rank 2",
-          score: "97.6%",
-          photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80"
+          score: "96.40%",
+          photo: "https://ui-avatars.com/api/?name=Simaran+Singh&background=a71930&color=fff&size=200&bold=true"
         },
         {
-          id: "s4",
+          id: "t3",
+          name: "Lavi Patel",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 3",
+          score: "94.80%",
+          photo: "https://ui-avatars.com/api/?name=Lavi+Patel&background=a71930&color=fff&size=200&bold=true"
+        },
+        {
+          id: "t4",
+          name: "Deepali Tiwari",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 4",
+          score: "94.40%",
+          photo: "https://ui-avatars.com/api/?name=Deepali+Tiwari&background=a71930&color=fff&size=200&bold=true"
+        },
+        {
+          id: "t5",
+          name: "Sunaina Tripathi",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 5",
+          score: "94.20%",
+          photo: "https://ui-avatars.com/api/?name=Sunaina+Tripathi&background=a71930&color=fff&size=200&bold=true"
+        },
+        {
+          id: "t6",
+          name: "Anshika Patel",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 5",
+          score: "94.20%",
+          photo: "https://ui-avatars.com/api/?name=Anshika+Patel&background=a71930&color=fff&size=200&bold=true"
+        },
+        {
+          id: "t7",
+          name: "Keshav Tiwari",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 7",
+          score: "93.20%",
+          photo: "https://ui-avatars.com/api/?name=Keshav+Tiwari&background=a71930&color=fff&size=200&bold=true"
+        },
+        {
+          id: "t8",
+          name: "Shresth Pandey",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 8",
+          score: "93.00%",
+          photo: "https://ui-avatars.com/api/?name=Shresth+Pandey&background=a71930&color=fff&size=200&bold=true"
+        },
+        {
+          id: "t9",
+          name: "Sanyog Patel",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 9",
+          score: "92.80%",
+          photo: "https://ui-avatars.com/api/?name=Sanyog+Patel&background=a71930&color=fff&size=200&bold=true"
+        },
+        {
+          id: "t10",
           name: "Priya Singh",
-          class: "Class 12 (Commerce)",
-          year: "2025-26",
-          rank: "Rank 2",
-          score: "97.2%",
-          photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
-        },
-        {
-          id: "s5",
-          name: "Ishaan Tiwari",
-          class: "Class 8",
-          year: "2025-26",
-          rank: "Rank 3",
-          score: "96.8%",
-          photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
-        },
-        {
-          id: "s6",
-          name: "Sneha Mishra",
-          class: "Class 11 (Arts)",
-          year: "2025-26",
-          rank: "Rank 3",
-          score: "96.4%",
-          photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80"
-        },
-        {
-          id: "s7",
-          name: "Divyansh Pandey",
-          class: "Class 7",
-          year: "2025-26",
-          rank: "Class Topper",
-          score: "95.8%",
-          photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
-        },
-        {
-          id: "s8",
-          name: "Kavya Soni",
-          class: "Class 6",
-          year: "2025-26",
-          rank: "Class Topper",
-          score: "95.2%",
-          photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80"
-        },
-        {
-          id: "s9",
-          name: "Aditi Dwivedi",
-          class: "Class 12",
+          class: "Class 10th (MP Board)",
           year: "2024-25",
-          rank: "Rank 1",
-          score: "98.5%",
-          photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+          rank: "Rank 10",
+          score: "91.40%",
+          photo: "https://ui-avatars.com/api/?name=Priya+Singh&background=a71930&color=fff&size=200&bold=true"
         },
         {
-          id: "s10",
-          name: "Siddharth Shukla",
-          class: "Class 10",
+          id: "t11",
+          name: "Isha Shukla",
+          class: "Class 10th (MP Board)",
           year: "2024-25",
-          rank: "Rank 1",
-          score: "98.0%",
-          photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80"
+          rank: "Rank 11",
+          score: "91.00%",
+          photo: "https://ui-avatars.com/api/?name=Isha+Shukla&background=a71930&color=fff&size=200&bold=true"
         },
         {
-          id: "s11",
-          name: "Ayush Mishra",
-          class: "Class 12",
-          year: "2023-24",
-          rank: "Rank 1",
-          score: "97.8%",
-          photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+          id: "t12",
+          name: "Kanishk Verma",
+          class: "Class 10th (MP Board)",
+          year: "2024-25",
+          rank: "Rank 12",
+          score: "90.00%",
+          photo: "https://ui-avatars.com/api/?name=Kanishk+Verma&background=a71930&color=fff&size=200&bold=true"
         }
       ]
     };
@@ -916,7 +926,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (raw) {
           const parsed = JSON.parse(raw);
           if (parsed && Array.isArray(parsed.students)) {
-            return parsed;
+            // Auto-purge stale mock students
+            const hasMock = parsed.students.some(s => 
+              s.name === "Aarav Sharma" || 
+              s.name === "Ishaan Tiwari" || 
+              s.name === "Sneha Mishra" || 
+              s.name === "Divyansh Pandey" || 
+              s.name === "Kavya Soni"
+            );
+            if (hasMock) {
+              console.log("Auto-migrating stale mock toppers data to authentic 12 toppers...");
+              localStorage.setItem(TOPPERS_STORAGE_KEY, JSON.stringify(DEFAULT_TOPPERS_DATA));
+              return DEFAULT_TOPPERS_DATA;
+            }
+            if (parsed.students.length > 0) {
+              return parsed;
+            }
           }
         }
       } catch (e) {
@@ -927,10 +952,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let toppersData = getToppersData();
 
-    // Automatically resolve the current academic year:
-    // 1) Explicit defaultYear set by admin, or
-    // 2) Most recent session that has topper students uploaded, or
-    // 3) Newest session in the list
     function resolveCurrentYear() {
       if (toppersData.defaultYear && toppersData.years && toppersData.years.includes(toppersData.defaultYear)) {
         return toppersData.defaultYear;
@@ -944,7 +965,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return sorted[0];
       }
-      return toppersData.activeYear || "2025-26";
+      return toppersData.activeYear || "2024-25";
     }
 
     let selectedYear = resolveCurrentYear();
@@ -972,13 +993,13 @@ document.addEventListener("DOMContentLoaded", () => {
           medalIcon = "fa-award";
         }
 
-        const photoUrl = s.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0e3a80&color=fff&size=200`;
+        const photoUrl = s.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=a71930&color=fff&size=200`;
 
         return `
           <div class="student-card">
             <span class="student-rank-badge ${rankClass}"><i class="fa-solid fa-trophy"></i> ${rankText}</span>
             <div class="student-photo-wrap">
-              <img src="${photoUrl}" alt="${s.name}" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=0e3a80&color=fff&size=200'">
+              <img src="${photoUrl}" alt="${s.name}" class="student-photo" loading="lazy" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=a71930&color=fff&size=200'">
               <span class="student-medal-badge"><i class="fa-solid ${medalIcon}" style="color: ${rankColor};"></i></span>
             </div>
             <h4 class="student-name">${s.name}</h4>
