@@ -72,12 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   dropdowns.forEach((dropdown) => {
-    const dropdownButton = dropdown.querySelector(".nav-dropdown-toggle, .nav-portal-btn");
+    const dropdownButton = dropdown.querySelector(".nav-dropdown-toggle, .nav-portal-btn, .header-portal-btn");
 
     if (!dropdownButton) return;
 
     dropdownButton.addEventListener("click", (event) => {
-      if (window.innerWidth <= 1000 || dropdown.classList.contains("nav-portal-dropdown")) {
+      if (window.innerWidth <= 1000 || dropdown.classList.contains("nav-portal-dropdown") || dropdown.classList.contains("header-portal-dropdown")) {
         event.preventDefault();
 
         dropdowns.forEach((item) => {

@@ -9010,3 +9010,314 @@ html.visited-session .preloader,
     border-left: 4px solid #e11d48;
   }
 }
+
+
+/* =========================================================
+   REFINED LUXURY HEADER & NAVBAR ARCHITECTURE
+========================================================= */
+.header {
+  padding: 14px 4vw;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled,
+.inner-page .header {
+  padding: 10px 4vw;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 25px rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* Nav Link Styling */
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav > a,
+.nav-dropdown-toggle {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px !important;
+  padding: 6px 3px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  position: relative !important;
+  transition: color 0.2s ease, opacity 0.2s ease !important;
+}
+
+.header.scrolled .nav > a,
+.header.scrolled .nav-dropdown-toggle,
+.inner-page .header .nav > a,
+.inner-page .header .nav-dropdown-toggle {
+  color: #1e293b !important;
+}
+
+.nav > a:hover,
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown.active .nav-dropdown-toggle {
+  color: #a71930 !important;
+}
+
+.header:not(.scrolled):not(.inner-page) .nav > a:hover,
+.header:not(.scrolled):not(.inner-page) .nav-dropdown:hover .nav-dropdown-toggle {
+  color: #fde047 !important;
+}
+
+.nav-chev {
+  font-size: 9px !important;
+  margin-left: 5px !important;
+  opacity: 0.75 !important;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.nav-dropdown:hover .nav-chev,
+.nav-dropdown.active .nav-chev {
+  transform: rotate(180deg) !important;
+  opacity: 1 !important;
+}
+
+/* Dropdown Menus */
+.nav-dropdown-menu {
+  border-radius: 14px !important;
+  padding: 10px !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  border-top: 3px solid #a71930 !important;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+}
+
+.nav-dropdown-menu a {
+  padding: 9px 14px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(167, 25, 48, 0.06) !important;
+  color: #a71930 !important;
+  padding-left: 18px !important;
+}
+
+/* Header Action Group */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Refined Search Pill */
+.search-trigger-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 8px 16px !important;
+  border-radius: 100px !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.22s ease !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.search-trigger-btn i,
+.search-trigger-btn svg {
+  font-size: 13px !important;
+  color: inherit !important;
+}
+
+.search-trigger-btn:hover {
+  background: rgba(255, 255, 255, 0.24) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+.header.scrolled .search-trigger-btn,
+.inner-page .header .search-trigger-btn {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+}
+
+.header.scrolled .search-trigger-btn:hover,
+.inner-page .header .search-trigger-btn:hover {
+  background: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Refined Portal Dropdown Trigger */
+.header-portal-dropdown {
+  position: relative;
+}
+
+.header-portal-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 8px 16px !important;
+  border-radius: 100px !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.22s ease !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.header-portal-btn i.fa-user-graduate {
+  font-size: 14px;
+  color: #fde047;
+}
+
+.header-portal-btn:hover {
+  background: rgba(255, 255, 255, 0.24) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+.header.scrolled .header-portal-btn,
+.inner-page .header .header-portal-btn {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+}
+
+.header.scrolled .header-portal-btn i.fa-user-graduate,
+.inner-page .header .header-portal-btn i.fa-user-graduate {
+  color: #a71930;
+}
+
+.header.scrolled .header-portal-btn:hover,
+.inner-page .header .header-portal-btn:hover {
+  background: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.header-portal-dropdown .portal-dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+  min-width: 255px !important;
+  border-top: 3px solid #d4af37 !important;
+}
+
+.portal-menu-header {
+  padding: 8px 12px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 6px;
+}
+
+.portal-menu-header strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.portal-menu-header small {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.portal-dropdown-menu a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 9px 12px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  transition: all 0.2s ease !important;
+}
+
+.portal-dropdown-menu a i {
+  font-size: 13px;
+  color: #a71930;
+  width: 16px;
+  text-align: center;
+}
+
+.portal-dropdown-menu a:hover {
+  background: rgba(167, 25, 48, 0.06) !important;
+  color: #a71930 !important;
+  padding-left: 15px !important;
+}
+
+.portal-menu-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 6px 0;
+}
+
+.portal-admin-link {
+  color: #92400e !important;
+  font-weight: 700 !important;
+}
+
+.portal-admin-tag {
+  margin-left: auto;
+  font-size: 9.5px;
+  font-weight: 800;
+  background: rgba(212, 175, 55, 0.18);
+  color: #b45309;
+  padding: 2px 7px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Luxury Primary CTA Button */
+.apply-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 9px 20px !important;
+  border-radius: 100px !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2px !important;
+  background: linear-gradient(135deg, #a71930 0%, #851224 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(167, 25, 48, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.25s ease !important;
+  text-decoration: none !important;
+}
+
+.apply-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(167, 25, 48, 0.5) !important;
+  background: linear-gradient(135deg, #b91c36 0%, #901326 100%) !important;
+}
+
+.apply-button i {
+  font-size: 11px;
+  transition: transform 0.25s ease;
+}
+
+.apply-button:hover i {
+  transform: translateX(3px);
+}
