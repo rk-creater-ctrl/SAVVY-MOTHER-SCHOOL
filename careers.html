@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Savvy Mother International School</title>
+
+  <meta
+    name="description"
+    content="Savvy Mother International School - Learn, Grow and Lead."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+    <link rel="icon" type="image/png" href="images/logo-web.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/logo-web.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=24.0">
+  <script>
+    if (sessionStorage.getItem('smis_visited')) {
+      document.documentElement.classList.add('visited-session');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       PRELOADER
+  ========================================================= -->
+
+  <div class="preloader">
+
+    <div class="loader">
+
+      <div class="loader-mark">SM</div>
+
+      <h2>Savvy Mother</h2>
+
+      <p>International School</p>
+
+      <div class="loader-line">
+        <span></span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
+
+  <header class="header">
+
+    <a href="index.html" class="logo">
+
+      <img src="images/logo-web.png" alt="Savvy Mother International School" class="header-logo-img">
+
+      <span class="logo-text">
+        <b>Savvy Mother</b>
+        <small>INTERNATIONAL SCHOOL</small>
+      </span>
+
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+
+      <a href="index.html">Home</a>
+
+      <div class="nav-dropdown">
+
+        <button class="nav-dropdown-toggle" type="button">
+          About <span>⌄</span>
+        </button>
+
+        <div class="nav-dropdown-menu">
+          <a href="about/school.html">Our School</a>
+          <a href="about/campus.html">Campus</a>
+          <a href="about/faculty.html">Faculty</a>
+          <a href="about/director.html">Director's Message</a>
+          <a href="about/principal.html">Principal's Message</a>
+          <a href="about/headmistress.html">Headmistress's Message</a>
+          <a href="uniform.html">School Uniform</a>
+        </div>
+
+      </div>
+
+      <div class="nav-dropdown">
+
+        <button class="nav-dropdown-toggle" type="button">
+          Academics <span>⌄</span>
+        </button>
+
+        <div class="nav-dropdown-menu">
+          <a href="academics/pre-primary.html">Pre-Primary (Nursery - UKG)</a>
+          <a href="academics/primary.html">Primary School (Class 1st - 5th)</a>
+          <a href="academics/middle.html">Middle School (Class 6th - 8th)</a>
+          <a href="academics/secondary.html">Secondary School (Class 9th &amp; 10th)</a>
+          <a href="academics/senior-secondary.html">Senior Secondary (Class 11th &amp; 12th)</a>
+        </div>
+
+      </div>
+
+                  <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          Facilities <span>⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="facilities.html">Campus Facilities</a>
+          <a href="transport.html">Transport &amp; Safety</a>
+        </div>
+      </div>
+
+            <!-- EVENTS DROPDOWN (NORMAL DESIGN WITH PROFESSIONAL ICONS) -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          Events <span>&#x2304;</span>
+        </button>
+        <div class="nav-dropdown-menu nav-dropdown-events">
+          <a href="events.html" class="nav-events-all">
+            <span class="nav-event-icon">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <span class="nav-events-all-text">
+              <strong>All Events &amp; Celebrations</strong>
+              <small>Annual Calendar &amp; Full Directory</small>
+            </span>
+            <span class="nav-events-all-arrow">&#x203A;</span>
+          </a>
+
+                    <div class="nav-events-grid">
+            <a href="events/annual-function.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-masks-theater"></i></span>
+              <span class="nav-event-title">Annual Function</span>
+            </a>
+            <a href="events/republic-day.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-landmark-flag"></i></span>
+              <span class="nav-event-title">Republic Day</span>
+            </a>
+            <a href="events/independence-day.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-flag"></i></span>
+              <span class="nav-event-title">Independence Day</span>
+            </a>
+            <a href="events/guru-nanak-jayanti.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-sun"></i></span>
+              <span class="nav-event-title">Guru Nanak Jayanti</span>
+            </a>
+            <a href="events/janmashtami.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-feather-pointed"></i></span>
+              <span class="nav-event-title">Janmashtami</span>
+            </a>
+            <a href="events/childrens-day.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-child-reaching"></i></span>
+              <span class="nav-event-title">Children's Day</span>
+            </a>
+            <a href="events/holi.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-palette"></i></span>
+              <span class="nav-event-title">Holi Celebration</span>
+            </a>
+            <a href="events/diwali.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-fire-flame-curved"></i></span>
+              <span class="nav-event-title">Diwali Celebration</span>
+            </a>
+            <a href="events/garba.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-music"></i></span>
+              <span class="nav-event-title">Garba &amp; Navratri</span>
+            </a>
+            <a href="events/ganesh-chaturthi.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-hands-praying"></i></span>
+              <span class="nav-event-title">Ganesh Chaturthi</span>
+            </a>
+            <a href="events/basant-panchami.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-book-bookmark"></i></span>
+              <span class="nav-event-title">Basant Panchami</span>
+            </a>
+            <a href="events/yoga-day.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-spa"></i></span>
+              <span class="nav-event-title">International Yoga Day</span>
+            </a>
+            <a href="events/teachers-day.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+              <span class="nav-event-title">Teachers' Day</span>
+            </a>
+            <a href="events/sports-day.html" class="nav-event-item">
+              <span class="nav-event-icon"><i class="fa-solid fa-trophy"></i></span>
+              <span class="nav-event-title">Sports Day</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+
+        <button class="nav-dropdown-toggle" type="button">
+          Begin Your Journey <span>⌄</span>
+        </button>
+
+        <div class="nav-dropdown-menu">
+          <a href="admissions/process.html">Admission Process</a>
+          <a href="admissions/eligibility.html">Eligibility &amp; Criteria</a>
+          <a href="fee-structure.html">Fee Structure &amp; Estimator</a>
+          <a href="admission-form.html">Online Admission Form</a>
+          <a href="admissions/inquiry.html">Online Inquiry &amp; Visit</a>
+        </div>
+
+      </div>
+
+      <a href="contact.html">Contact</a>
+
+      <!-- STUDENT / PARENT PORTAL QUICK DROPDOWN -->
+      <div class="nav-dropdown nav-portal-dropdown">
+        <button class="nav-portal-btn" type="button" aria-expanded="false" aria-label="Student &amp; Parent Portal Quick Menu" title="Portal Quick Links">
+          <i class="fa-solid fa-user-graduate"></i>
+        </button>
+        <div class="nav-dropdown-menu portal-dropdown-menu">
+          <a href="calendar.html">Academic Calendar</a>
+          <a href="fee-structure.html">Fee Structure</a>
+          <a href="admission-form.html">Admission Form</a>
+          <a href="downloads.html">Downloads & Forms</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="refund-policy.html">Refund Policy</a>
+          <a href="faqs.html">FAQs</a>
+        </div>
+      </div>
+      <!-- CLASS TOPPERS MANAGER (ICON ONLY - PROTECTED BY PASSWORD 'savvy') -->
+      <button class="nav-portal-btn nav-toppers-icon-btn" id="openToppersBtn" type="button" aria-label="Class Toppers Manager" title="Class Toppers Manager">
+        <i class="fa-solid fa-trophy"></i>
+      </button>
+
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="search-trigger-btn" id="searchBtn" aria-label="Search site (Ctrl+K)" title="Search website (Ctrl + K)">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+      <a href="admissions/inquiry.html" class="apply-button">
+      Apply Now →
+    </a>
+    </div>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+  </header>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="inner-hero" style="background: linear-gradient(135deg, rgba(167, 25, 48, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%), url('images/gallery/data_science_ai_lab_savvy_mother.jpg') center/cover no-repeat; padding: 100px 20px 80px; text-align: center; color: #ffffff;">
+      <div class="container" style="max-width: 900px;">
+        <span class="badge" style="background: rgba(212, 175, 55, 0.2); color: #fde047; border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 16px; border-radius: 30px; font-weight: 700; font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; display: inline-block;">
+          <i class="fa-solid fa-graduation-cap"></i> Join Our Faculty Team
+        </span>
+        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(34px, 4.5vw, 52px); font-weight: 800; line-height: 1.2; margin: 0 0 18px; color: #ffffff;">
+          Inspire the Next Generation of Leaders
+        </h1>
+        <p style="font-family: 'Manrope', sans-serif; font-size: clamp(16px, 1.8vw, 19px); line-height: 1.65; color: #f1f5f9; max-width: 740px; margin: 0 auto;">
+          We are constantly looking for passionate, progressive educators and specialized coaches who believe in holistic education, modern pedagogy, and unlocking every child's potential.
+        </p>
+      </div>
+    </section>
+
+    <!-- WHY TEACH AT SAVVY MOTHER -->
+    <section class="section" style="padding: 80px 0; background: #ffffff;">
+      <div class="container">
+        <div class="center-heading reveal" style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
+          <p class="eyebrow"><i class="fa-solid fa-award" style="color: #d4af37;"></i> Work Culture</p>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.2vw, 40px); font-weight: 800; color: #0f172a; margin: 0 0 14px;">Why Build Your Career With Us?</h2>
+          <p style="font-family: 'Manrope', sans-serif; font-size: 16px; color: #64748b;">At Savvy Mother, educators are revered as mentors, innovators, and leaders.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
+          <div class="reveal" style="background: #fffcf8; border-radius: 18px; padding: 30px 24px; border: 1px solid #f1f5f9; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(167, 25, 48, 0.1); color: #a71930; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px;">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: #0f172a; margin: 0 0 8px;">Modern Teaching Tools</h4>
+            <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; line-height: 1.6; margin: 0;">Smart digital classrooms, Data Science labs, and ERP management apps to elevate your instructional delivery.</p>
+          </div>
+
+          <div class="reveal" style="background: #fffcf8; border-radius: 18px; padding: 30px 24px; border: 1px solid #f1f5f9; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(2, 132, 199, 0.1); color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px;">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: #0f172a; margin: 0 0 8px;">Continuous Upskilling</h4>
+            <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; line-height: 1.6; margin: 0;">Regular professional teacher training seminars, NEP 2020 alignment, and cognitive methodology certifications.</p>
+          </div>
+
+          <div class="reveal" style="background: #fffcf8; border-radius: 18px; padding: 30px 24px; border: 1px solid #f1f5f9; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(22, 163, 74, 0.1); color: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px;">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: #0f172a; margin: 0 0 8px;">Competitive Benefits</h4>
+            <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; line-height: 1.6; margin: 0;">Industry-benchmarked salary packages, provident fund, medical allowances, and subsidized child education.</p>
+          </div>
+
+          <div class="reveal" style="background: #fffcf8; border-radius: 18px; padding: 30px 24px; border: 1px solid #f1f5f9; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(212, 175, 55, 0.15); color: #92400e; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px;">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: #0f172a; margin: 0 0 8px;">Supportive Community</h4>
+            <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; line-height: 1.6; margin: 0;">A collaborative faculty council, transparent leadership, and an encouraging campus environment where your ideas matter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT OPENINGS -->
+    <section class="section" style="padding: 80px 0; background: #faf6f0;">
+      <div class="container">
+        <div class="center-heading reveal" style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
+          <p class="eyebrow"><i class="fa-solid fa-briefcase" style="color: #d4af37;"></i> Open Positions</p>
+          <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 3.2vw, 40px); font-weight: 800; color: #0f172a; margin: 0 0 14px;">Current Career Opportunities</h2>
+          <p style="font-family: 'Manrope', sans-serif; font-size: 16px; color: #64748b;">Explore our academic and co-curricular openings for the upcoming academic session 2026&ndash;27.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto;">
+
+          <!-- Role 1 -->
+          <article class="reveal" style="background: #ffffff; border-radius: 18px; padding: 28px 30px; border: 1px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+            <div>
+              <span style="font-size: 11.5px; font-weight: 800; color: #a71930; background: rgba(167, 25, 48, 0.08); padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">Senior Secondary &bull; Full Time</span>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 700; color: #0f172a; margin: 8px 0 6px;">PGT &amp; TGT &mdash; Science &amp; Mathematics</h3>
+              <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; margin: 0;">Subjects: Physics, Chemistry, Biology, Mathematics &bull; Eligibility: M.Sc / B.Ed with minimum 2 years experience.</p>
+            </div>
+            <a href="#apply-form" class="btn btn-red" style="padding: 10px 22px; font-size: 13.5px; border-radius: 24px;">Apply Now &rarr;</a>
+          </article>
+
+          <!-- Role 2 -->
+          <article class="reveal" style="background: #ffffff; border-radius: 18px; padding: 28px 30px; border: 1px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+            <div>
+              <span style="font-size: 11.5px; font-weight: 800; color: #0284c7; background: rgba(2, 132, 199, 0.08); padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">Technology &bull; Full Time</span>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 700; color: #0f172a; margin: 8px 0 6px;">Data Science, Robotics &amp; AI Faculty</h3>
+              <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; margin: 0;">Curriculum: Python, Scratch, Robotics kits, AI fundamentals &bull; Eligibility: B.Tech/MCA/B.Sc CS.</p>
+            </div>
+            <a href="#apply-form" class="btn btn-red" style="padding: 10px 22px; font-size: 13.5px; border-radius: 24px;">Apply Now &rarr;</a>
+          </article>
+
+          <!-- Role 3 -->
+          <article class="reveal" style="background: #ffffff; border-radius: 18px; padding: 28px 30px; border: 1px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+            <div>
+              <span style="font-size: 11.5px; font-weight: 800; color: #16a34a; background: rgba(22, 163, 74, 0.08); padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">Primary &bull; Full Time</span>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 700; color: #0f172a; margin: 8px 0 6px;">Primary Teachers (PRT) &amp; Pre-Primary NTT</h3>
+              <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; margin: 0;">Grades: Nursery to Class 5th &bull; Fluency in English, child-centric pedagogy &bull; Eligibility: NTT/D.El.Ed/B.Ed.</p>
+            </div>
+            <a href="#apply-form" class="btn btn-red" style="padding: 10px 22px; font-size: 13.5px; border-radius: 24px;">Apply Now &rarr;</a>
+          </article>
+
+          <!-- Role 4 -->
+          <article class="reveal" style="background: #ffffff; border-radius: 18px; padding: 28px 30px; border: 1px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+            <div>
+              <span style="font-size: 11.5px; font-weight: 800; color: #ec4899; background: rgba(236, 72, 153, 0.08); padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">Cultural Arts &bull; Specialized</span>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 700; color: #0f172a; margin: 8px 0 6px;">Classical Kathak Guru &amp; Music Instructor</h3>
+              <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; margin: 0;">Classical Kathak dance traditions, vocal music, instruments &bull; Degree or Visharad in Kathak / Classical Music.</p>
+            </div>
+            <a href="#apply-form" class="btn btn-red" style="padding: 10px 22px; font-size: 13.5px; border-radius: 24px;">Apply Now &rarr;</a>
+          </article>
+
+          <!-- Role 5 -->
+          <article class="reveal" style="background: #ffffff; border-radius: 18px; padding: 28px 30px; border: 1px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.04); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+            <div>
+              <span style="font-size: 11.5px; font-weight: 800; color: #8b5cf6; background: rgba(139, 92, 246, 0.08); padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">Sports &bull; Physical Education</span>
+              <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 700; color: #0f172a; margin: 8px 0 6px;">Taekwondo Coach &amp; Physical Fitness Mentor</h3>
+              <p style="font-family: 'Manrope', sans-serif; font-size: 14px; color: #64748b; margin: 0;">Certified Black Belt Taekwondo instructor, athletics, fitness drills &bull; B.P.Ed / National sports certificate.</p>
+            </div>
+            <a href="#apply-form" class="btn btn-red" style="padding: 10px 22px; font-size: 13.5px; border-radius: 24px;">Apply Now &rarr;</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATION FORM SECTION -->
+    <section class="section" id="apply-form" style="padding: 80px 0; background: #ffffff;">
+      <div class="container" style="max-width: 780px;">
+        <div class="reveal" style="background: #fffcf8; border-radius: 24px; padding: 46px 40px; border: 1px solid #e2e8f0; box-shadow: 0 12px 36px rgba(0,0,0,0.06);">
+          <div style="text-align: center; margin-bottom: 30px;">
+            <span class="eyebrow"><i class="fa-solid fa-paper-plane" style="color: #d4af37;"></i> Faculty Application</span>
+            <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 800; color: #0f172a; margin: 8px 0 10px;">Submit Your Candidacy</h2>
+            <p style="font-family: 'Manrope', sans-serif; font-size: 15px; color: #64748b; margin: 0;">Fill out the express application form below or email your CV directly to our academic desk at <a href="mailto:savvymother.rewa@gmail.com" style="color: #a71930; font-weight: 700;">savvymother.rewa@gmail.com</a>.</p>
+          </div>
+
+          <form action="https://formspree.io/f/mqaevezo" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+            <input type="hidden" name="_subject" value="New Faculty Career Application - Savvy Mother Rewa">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label style="font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Full Name *</label>
+                <input type="text" name="full_name" required placeholder="e.g. Dr. Ramesh Kumar" style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; box-sizing: border-box;">
+              </div>
+              <div>
+                <label style="font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Contact Phone *</label>
+                <input type="tel" name="phone" required placeholder="+91 98765 43210" style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; box-sizing: border-box;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label style="font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Email Address *</label>
+                <input type="email" name="email" required placeholder="you@domain.com" style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; box-sizing: border-box;">
+              </div>
+              <div>
+                <label style="font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Position Applied For *</label>
+                <select name="position" required style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; background: #ffffff; box-sizing: border-box;">
+                  <option value="">-- Select Wing / Role --</option>
+                  <option value="PGT Science/Math">PGT Science / Mathematics</option>
+                  <option value="TGT Science/Math">TGT Science / Mathematics</option>
+                  <option value="PGT/TGT English/Humanities">PGT/TGT English &amp; Social Sciences</option>
+                  <option value="Data Science & AI Faculty">Data Science, Robotics &amp; AI Faculty</option>
+                  <option value="Primary Teacher (PRT)">Primary Teacher (PRT)</option>
+                  <option value="Pre-Primary NTT">Pre-Primary (NTT / Montessori)</option>
+                  <option value="Kathak Guru / Music">Classical Kathak / Performing Arts</option>
+                  <option value="Taekwondo / Sports Coach">Taekwondo Coach / Physical Education</option>
+                  <option value="Brain Science / Abacus">Brain Science Lab / Abacus Trainer</option>
+                  <option value="Administrative Staff">Administrative / Front Desk Staff</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label style="font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Highest Qualification *</label>
+                <input type="text" name="qualification" required placeholder="e.g. M.Sc, B.Ed / MCA" style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; box-sizing: border-box;">
+              </div>
+              <div>
+                <label style="font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Total Teaching Experience (Years) *</label>
+                <input type="number" name="experience" min="0" required placeholder="e.g. 3" style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; box-sizing: border-box;">
+              </div>
+            </div>
+
+            <div>
+              <label style="font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #334155; display: block; margin-bottom: 6px;">Brief Summary / Statement of Teaching Philosophy</label>
+              <textarea name="message" rows="3" placeholder="Tell us briefly about your teaching methodologies, strengths, and achievements..." style="width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; box-sizing: border-box; resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-red" style="padding: 14px 28px; font-size: 15px; font-weight: 700; border-radius: 30px; cursor: pointer; margin-top: 10px;">
+              <i class="fa-solid fa-paper-plane"></i> Submit Application &rarr;
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- =========================================================
+       WORLD-CLASS CURVED FOOTER (SAVVY MOTHER)
+  ========================================================= -->
+    <!-- =========================================================
+       WORLD-CLASS CURVED FOOTER (SAVVY MOTHER)
+  ========================================================= -->
+  <footer class="site-footer">
+    
+    <!-- Top Decorative Wave with School Silhouette -->
+    <div class="footer-wave-wrap">
+      <svg class="footer-building-sketch" viewBox="0 0 450 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M225 15 L260 45 L190 45 Z" stroke="#ffffff" stroke-width="2"/>
+        <rect x="210" y="45" width="30" height="50" stroke="#ffffff" stroke-width="2"/>
+        <rect x="220" y="10" width="10" height="15" stroke="#ffffff" stroke-width="2"/>
+        <path d="M225 0 L225 10" stroke="#ffffff" stroke-width="2"/>
+        <path d="M225 0 L240 4 L225 8 Z" fill="#ffffff"/>
+        <rect x="130" y="45" width="190" height="70" stroke="#ffffff" stroke-width="2"/>
+        <rect x="70" y="60" width="60" height="55" stroke="#ffffff" stroke-width="2"/>
+        <rect x="320" y="60" width="60" height="55" stroke="#ffffff" stroke-width="2"/>
+        <rect x="150" y="60" width="20" height="20" stroke="#ffffff" stroke-width="1.5"/>
+        <rect x="185" y="60" width="20" height="20" stroke="#ffffff" stroke-width="1.5"/>
+        <rect x="245" y="60" width="20" height="20" stroke="#ffffff" stroke-width="1.5"/>
+        <rect x="280" y="60" width="20" height="20" stroke="#ffffff" stroke-width="1.5"/>
+        <rect x="85" y="75" width="15" height="18" stroke="#ffffff" stroke-width="1.5"/>
+        <rect x="350" y="75" width="15" height="18" stroke="#ffffff" stroke-width="1.5"/>
+        <circle cx="45" cy="85" r="22" stroke="#ffffff" stroke-width="1.5"/>
+        <line x1="45" y1="107" x2="45" y2="125" stroke="#ffffff" stroke-width="2"/>
+        <circle cx="405" cy="85" r="22" stroke="#ffffff" stroke-width="1.5"/>
+        <line x1="405" y1="107" x2="405" y2="125" stroke="#ffffff" stroke-width="2"/>
+      </svg>
+      <svg class="footer-wave-svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,32 C320,80 580,10 920,42 C1200,68 1340,25 1440,15 L1440,90 L0,90 Z"></path>
+      </svg>
+    </div>
+
+    <!-- Main Footer Body -->
+    <div class="footer-main">
+      
+      <!-- Bottom-Left Decorative Swirls -->
+      <svg class="footer-corner-accents" viewBox="0 0 200 130" fill="none">
+        <path d="M-20,130 Q40,60 120,85 T200,10" stroke="#f59e0b" stroke-width="5" fill="none" opacity="0.8"/>
+        <path d="M-20,130 Q60,80 140,105 T220,30" stroke="#0ea5e9" stroke-width="3" fill="none" opacity="0.6"/>
+      </svg>
+
+      <div class="footer-grid-5">
+        
+        <!-- Column 1: Brand & Script -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-block">
+            <img src="images/logo-web.png" alt="Savvy Mother International School Logo" class="footer-logo-img">
+            <div class="footer-logo-text">
+              <h3>SAVVY MOTHER</h3>
+              <small>INTERNATIONAL SCHOOL</small>
+              <span class="footer-motto-tag">Learn &nbsp;|&nbsp; Grow &nbsp;|&nbsp; Succeed</span>
+            </div>
+          </a>
+
+          <p class="footer-mission-text">
+            At Savvy Mother International School, we nurture young minds with a global perspective, strong values and a commitment to excellence in education.
+          </p>
+
+          <div class="footer-social-row">
+            <a href="https://www.facebook.com/savvymotherschool" target="_blank" rel="noopener noreferrer" class="footer-social-btn fb" aria-label="Facebook">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn ig" aria-label="Instagram">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn yt" aria-label="YouTube">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn li" aria-label="LinkedIn">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+
+          <div class="footer-script-callout">
+            <div class="footer-script-text">
+              <span class="sprout"><i class="fa-solid fa-seedling" style="color: #22c55e;"></i></span>
+              Building a Brighter Future
+            </div>
+            <div class="footer-script-sub">Together</div>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-title-bar"></div>
+          <ul class="footer-chevron-list">
+            <li><a href="index.html"><span class="chev">›</span> Home</a></li>
+            <li><a href="about/school.html"><span class="chev">›</span> About Us</a></li>
+            <li><a href="academics/pre-primary.html"><span class="chev">›</span> Academics</a></li>
+            <li><a href="admissions/inquiry.html"><span class="chev">›</span> Admissions</a></li>
+            <li><a href="facilities.html"><span class="chev">›</span> Facilities</a></li>
+            <li><a href="gallery.html"><span class="chev">›</span> Gallery</a></li>
+            <li><a href="contact.html"><span class="chev">›</span> Contact Us</a></li>
+            <li><a href="careers.html"><span class="chev">›</span> Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Academics -->
+        <div class="footer-col">
+          <h4>Academics</h4>
+          <div class="footer-title-bar"></div>
+          <ul class="footer-chevron-list">
+            <li><a href="academics/pre-primary.html"><span class="chev">›</span> Pre-Primary (Nursery - UKG)</a></li>
+            <li><a href="academics/primary.html"><span class="chev">›</span> Primary (Class 1st - 5th)</a></li>
+            <li><a href="academics/middle.html"><span class="chev">›</span> Middle School (Class 6th - 8th)</a></li>
+            <li><a href="academics/secondary.html"><span class="chev">›</span> Secondary (Class 9th &amp; 10th)</a></li>
+            <li><a href="academics/senior-secondary.html"><span class="chev">›</span> Senior Secondary (Class 11th &amp; 12th)</a></li>
+            <li><a href="academics/senior-secondary.html"><span class="chev">›</span> Curriculum</a></li>
+            <li><a href="events.html"><span class="chev">›</span> Co-Curricular</a></li>
+            <li><a href="events.html"><span class="chev">›</span> Academic Calendar</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: For Parents & Students -->
+        <div class="footer-col">
+          <h4>For Parents & Students</h4>
+          <div class="footer-title-bar"></div>
+          <ul class="footer-chevron-list">
+            <li><a href="https://savvyrewa.com/login" target="_blank" rel="noopener noreferrer"><span class="chev">›</span> Parent Portal</a></li>
+            <li><a href="https://savvyrewa.com/userlogin" target="_blank" rel="noopener noreferrer"><span class="chev">›</span> Student Login</a></li>
+            <li><a href="fee-structure.html"><span class="chev">›</span> Fee Structure</a></li>
+            <li><a href="admission-form.html"><span class="chev">›</span> Admission Form</a></li>
+            <li><a href="downloads.html"><span class="chev">›</span> Downloads &amp; Forms</a></li>
+            <li><a href="faqs.html"><span class="chev">›</span> FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Get In Touch -->
+        <div class="footer-col footer-col-contact">
+          <h4>Get In Touch</h4>
+          <div class="footer-title-bar"></div>
+          
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon addr"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="footer-contact-info">
+                <strong>School Address</strong>
+                <span>16/1034, Azad Nagar, Hari Bhushan Nagar, Ward No. 16, Urrahat, Rewa, Madhya Pradesh — 486001</span>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon phone"><i class="fa-solid fa-phone"></i></div>
+              <div class="footer-contact-info">
+                <strong>Phone</strong>
+                <a href="tel:+919329517009">+91 9329517009</a>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon mobile"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <div class="footer-contact-info">
+                <strong>Mobile</strong>
+                <a href="tel:+918822776477">+91 8822776477</a>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon email"><i class="fa-solid fa-envelope"></i></div>
+              <div class="footer-contact-info">
+                <strong>Email</strong>
+                <a href="mailto:savvymotherschool@gmail.com">savvymotherschool@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="admissions/inquiry.html" class="footer-enquire-btn">
+            → Enquire Now
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Dark Navy Bar -->
+    <div class="footer-bottom-bar">
+      <div class="footer-bottom-container">
+        
+        <!-- Left Copyright & Legal -->
+        <div class="footer-bottom-left">
+          <div class="footer-copy-text">
+            © 2026 Savvy Mother International School. All rights reserved.
+          </div>
+          <div class="footer-legal-links">
+            <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+            <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+            <a href="refund-policy.html">Refund Policy</a>
+          </div>
+        </div>
+
+        <!-- Center 4 Trust Badges -->
+        <div class="footer-trust-badges">
+          <div class="footer-trust-item">
+            <span class="icon" style="color: #60a5fa;"><i class="fa-solid fa-graduation-cap"></i></span>
+            <div>
+              <strong>NCERT</strong>
+              <small>Curriculum</small>
+            </div>
+          </div>
+          <div class="footer-trust-divider"></div>
+
+          <div class="footer-trust-item">
+            <span class="icon" style="color: #f59e0b;"><i class="fa-solid fa-bus"></i></span>
+            <div>
+              <strong>Safe & Secure</strong>
+              <small>Transport</small>
+            </div>
+          </div>
+          <div class="footer-trust-divider"></div>
+
+          <div class="footer-trust-item">
+            <span class="icon" style="color: #10b981;"><i class="fa-solid fa-shield-halved"></i></span>
+            <div>
+              <strong>Modern</strong>
+              <small>Facilities</small>
+            </div>
+          </div>
+          <div class="footer-trust-divider"></div>
+
+          <div class="footer-trust-item">
+            <span class="icon" style="color: #34d399;"><i class="fa-solid fa-seedling"></i></span>
+            <div>
+              <strong>Holistic</strong>
+              <small>Development</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Follow Us -->
+        <div class="footer-bottom-right">
+          <span class="footer-follow-label">Follow Us</span>
+          <div class="footer-social-row" style="margin-bottom:0; gap:8px;">
+            <a href="https://www.facebook.com/savvymotherschool" target="_blank" rel="noopener noreferrer" class="footer-social-btn fb" style="width:30px; height:30px; font-size:12px;" aria-label="Facebook">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn ig" style="width:30px; height:30px; font-size:12px;" aria-label="Instagram">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn yt" style="width:30px; height:30px; font-size:12px;" aria-label="YouTube">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn li" style="width:30px; height:30px; font-size:12px;" aria-label="LinkedIn">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Rainbow Stripe -->
+    <div class="footer-rainbow-stripe"></div>
+    <!-- Footer Powered By Credit -->
+    <div class="footer-powered-by">
+      <em>Powered by</em> <strong class="powered-company">SR Tech Innovation &amp; Solution Pvt. Ltd.</strong>
+    </div>
+  </footer>
+
+  <script src="js/school-management-integration.js?v=12.0"></script>
+  <script src="js/script.js?v=24.0"></script>
+
+    <!-- Floating Contact & Social Actions -->
+  <aside class="floating-actions" aria-label="Quick contact and social channels">
+    <a href="https://youtube.com" 
+       class="floating-btn floating-youtube" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Watch Savvy Mother on YouTube" 
+       title="YouTube">
+      <span class="floating-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+      </span>
+      <span class="floating-tooltip">YouTube</span>
+    </a>
+
+    <a href="https://instagram.com" 
+       class="floating-btn floating-instagram" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Follow Savvy Mother on Instagram" 
+       title="Instagram">
+      <span class="floating-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </span>
+      <span class="floating-tooltip">Instagram</span>
+    </a>
+
+    <a href="https://wa.me/919329517009?text=Hello%20Savvy%20Mother%20International%20School%2C%20I%20have%20an%20inquiry." 
+       class="floating-btn floating-whatsapp" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Chat with us on WhatsApp" 
+       title="WhatsApp">
+      <span class="floating-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/>
+        </svg>
+      </span>
+      <span class="floating-tooltip">WhatsApp</span>
+    </a>
+
+    <a href="tel:+919329517009" 
+       class="floating-btn floating-call" 
+       aria-label="Call +91 9329517009" 
+       title="Call Us">
+      <span class="floating-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      <span class="floating-tooltip">Call Us</span>
+    </a>
+  </aside>
+
+  <!-- TOPPERS MANAGER PASSWORD AUTH MODAL -->
+  <div class="toppers-modal-backdrop" id="toppersPasswordModal" role="dialog" aria-modal="true" aria-labelledby="topperModalTitle">
+    <div class="toppers-modal-box">
+      <button type="button" class="toppers-modal-close" id="closeToppersModal" aria-label="Close dialog">&times;</button>
+      <div class="toppers-modal-icon">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <div class="toppers-modal-header">
+        <h3 id="topperModalTitle">Class Toppers Manager</h3>
+        <p>Enter the administrative password to manage class toppers &amp; achievers.</p>
+      </div>
+      <form id="toppersAuthForm" autocomplete="off">
+        <div class="toppers-modal-input-group">
+          <i class="fa-solid fa-lock input-icon"></i>
+          <input type="password" id="topperAuthPass" placeholder="Enter password (savvy)" required autofocus>
+          <button type="button" class="btn-toggle-eye" id="toggleTopperEye" aria-label="Toggle password visibility">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+        <div class="toppers-modal-error" id="topperAuthError">
+          <i class="fa-solid fa-circle-exclamation"></i> Incorrect password. Please try again.
+        </div>
+        <button type="submit" class="btn-unlock-panel">
+          <i class="fa-solid fa-unlock"></i> Unlock &amp; Open Manager
+        </button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
