@@ -5428,7 +5428,7 @@ html.visited-session .preloader,
 
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 26px;
     margin-bottom: 10px;
 }
